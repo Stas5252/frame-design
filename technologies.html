@@ -1030,7 +1030,7 @@ a[href^="mailto"]:hover,
 }
 
 </style>
-  <link rel="stylesheet" href="assets/fd-common.css">
+  <link rel="stylesheet" href="assets/fd-common.css?v=20260828c">
 </head>
 <body>
 
@@ -1109,7 +1109,7 @@ a[href^="mailto"]:hover,
           Цифровое <span>3D-сканирование помещений</span>
         </h2>
         <p style="font-size: 15px; color: var(--cream-muted); line-height: 1.8; margin-bottom: 30px;">
-          Рулетка и угломер дают погрешность, которая неизбежно приводит к перекосам и пыльным подпилам на объекте заказчика. Мы используем оптико-лазерный 3D-сканер, создающий цифровую копию вашей комнаты с точностью до десятых долей миллиметра.
+          Мы снимаем помещение оптико-лазерным 3D-сканером и получаем цифровую копию вашей комнаты с точностью до десятых долей миллиметра. Мебель встаёт на место с первого раза — ровно так, как на проекте.
         </p>
         <div style="display: flex; flex-direction: column; gap: 16px;">
           <div style="display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--cream);">
@@ -1119,7 +1119,7 @@ a[href^="mailto"]:hover,
             <span style="color: var(--brass);">●</span> Точная привязка розеток, воздуховодов и труб в единую 3D-модель
           </div>
           <div style="display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--cream);">
-            <span style="color: var(--brass);">●</span> Чистый монтаж без доработок «по месту»
+            <span style="color: var(--brass);">●</span> Чистый монтаж за один день, без подгонки на объекте
           </div>
         </div>
       </div>
@@ -1128,11 +1128,12 @@ a[href^="mailto"]:hover,
       <div class="fd-scan-hud fd-fade">
         <div class="fd-laser-beam"></div>
         <div class="fd-hud-stats">
-          <div class="fd-hud-precision">±0.2 мм</div>
-          <div class="fd-hud-tag">• Погрешность лазерной сетки •</div>
-          <div style="font-size: 12px; color: var(--cream-muted); margin-top: 14px; letter-spacing: 1px;">
-            2 000 000 точек в секунду
+          <div class="fd-hud-precision">Высокая<br>точность</div>
+          <div class="fd-hud-tag">• Лазерный 3D-замер комнаты •</div>
+          <div class="fd-hud-meta">
+            <span class="fd-hud-count" data-fd-count="2000000">0</span> точек в секунду
           </div>
+          <div class="fd-hud-meta fd-hud-meta--accent">до 0,2 мм на всю комнату</div>
         </div>
       </div>
     </div>
@@ -1331,6 +1332,6 @@ a[href^="mailto"]:hover,
   fadeElements.forEach(el => observer.observe(el));
 })();
 </script>
-<script src="assets/fd-common.js" defer></script>
+<script src="assets/fd-common.js?v=20260828c" defer></script>
 </body>
 </html>

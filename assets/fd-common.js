@@ -97,6 +97,43 @@
       });
     }
 
+    /* ---------- Счётчики, растущие вверх ---------- */
+    var counters = [].slice.call(document.querySelectorAll('[data-fd-count]'));
+    if (counters.length) {
+      var runCounter = function (el) {
+        var target = parseInt(el.getAttribute('data-fd-count'), 10) || 0;
+        var started = null;
+        var duration = 1600;
+        var step = function (now) {
+          if (started === null) started = now;
+          var progress = Math.min((now - started) / duration, 1);
+          // мягкое замедление к концу
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased).toLocaleString('ru-RU');
+          if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+      var inView = function (el) {
+        var r = el.getBoundingClientRect();
+        return r.top < window.innerHeight * 0.9 && r.bottom > 0;
+      };
+      var checkCounters = function () {
+        counters = counters.filter(function (el) {
+          if (!inView(el)) return true;
+          runCounter(el);
+          return false;
+        });
+        if (!counters.length) {
+          window.removeEventListener('scroll', checkCounters);
+          window.removeEventListener('resize', checkCounters);
+        }
+      };
+      checkCounters();
+      window.addEventListener('scroll', checkCounters, { passive: true });
+      window.addEventListener('resize', checkCounters, { passive: true });
+    }
+
     /* ---------- Формы записи в салон ---------- */
     document.querySelectorAll('.fd-booking__form').forEach(function (form) {
       form.addEventListener('submit', function (e) {

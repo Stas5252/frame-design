@@ -641,3 +641,27 @@ img, video, iframe { max-width: 100%; }
   .fd-salon-photo figcaption { padding: 44px 20px 20px; }
   .fd-note { padding: 26px 22px; }
 }
+
+/* ---------- 9. HUD СКАНЕРА: ПОЗИТИВНАЯ ПОДАЧА ---------- */
+.fd-hud-precision {
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+.fd-hud-meta {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--cream-muted);
+  margin-top: 12px;
+}
+.fd-hud-meta--accent {
+  color: var(--brass);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+}
+.fd-hud-count {
+  font-variant-numeric: tabular-nums;
+  color: var(--cream);
+  font-weight: 600;
+}
