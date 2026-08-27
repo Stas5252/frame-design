@@ -343,7 +343,7 @@
     .fd-hero__bg {
       position: absolute;
       top: 0; right: 0; bottom: 0; left: 0;
-      background-image: url('https://static.tildacdn.com/tild6366-6364-4630-b235-666234306230/IMG_1733.JPG');
+      background-image: url('images/salon-logo-wall.jpg');
       background-size: cover;
       background-position: center;
       z-index: 0;
@@ -1044,6 +1044,7 @@ a[href^="mailto"]:hover,
 }
 
 </style>
+  <link rel="stylesheet" href="assets/fd-common.css">
 </head>
 <body>
 
@@ -1055,11 +1056,11 @@ a[href^="mailto"]:hover,
       <a href="index.html" class="fd-logo">FRAME<span>DESIGN</span></a>
       <div class="fd-header__right">
         <nav class="fd-nav-right">
-          <a href="about.html" class="fd-nav__link">О компании</a>
+          <a href="about.html" class="fd-nav__link">О нас</a>
           <a href="salon.html" class="fd-nav__link active">Наш салон</a>
           <a href="technologies.html" class="fd-nav__link">Технологии</a>
           <a href="portfolio.html" class="fd-nav__link fd-nav__link--has-dropdown">
-            Каталог
+            Каталог<span class="fd-nav__caret"></span>
             <div class="fd-dropdown">
               <a href="portfolio.html#kitchens" class="fd-dropdown__item">Фасады</a>
               <a href="portfolio.html#living" class="fd-dropdown__item">Металл</a>
@@ -1071,7 +1072,7 @@ a[href^="mailto"]:hover,
           <a href="portfolio.html" class="fd-nav__link">Портфолио</a>
           <a href="contacts.html" class="fd-nav__link">Контакты</a>
         </nav>
-        <a href="contacts.html#book" class="fd-cta">Записаться в салон</a>
+        <a href="#visit" class="fd-cta">Записаться в салон</a>
         <button class="fd-burger-btn" id="burgerBtn" aria-label="Открыть меню">
           <span></span><span></span><span></span>
         </button>
@@ -1082,12 +1083,13 @@ a[href^="mailto"]:hover,
   <!-- MOBILE DRAWER -->
   <div class="fd-mobile-drawer" id="mobileDrawer">
     <a href="index.html" class="fd-mobile-link" onclick="closeDrawer()">Главная</a>
-    <a href="about.html" class="fd-mobile-link" onclick="closeDrawer()">О компании</a>
+    <a href="about.html" class="fd-mobile-link" onclick="closeDrawer()">О нас</a>
     <a href="salon.html" class="fd-mobile-link active" onclick="closeDrawer()">Наш салон</a>
     <a href="technologies.html" class="fd-mobile-link" onclick="closeDrawer()">Технологии</a>
+    <a href="portfolio.html" class="fd-mobile-link" onclick="closeDrawer()">Каталог</a>
     <a href="portfolio.html" class="fd-mobile-link" onclick="closeDrawer()">Портфолио</a>
     <a href="contacts.html" class="fd-mobile-link" onclick="closeDrawer()">Контакты</a>
-    <a href="contacts.html#book" class="fd-btn fd-btn--primary" style="margin-top: 20px;" onclick="closeDrawer()">
+    <a href="#visit" class="fd-btn fd-btn--primary" style="margin-top: 20px;" onclick="closeDrawer()">
       Записаться в салон <span class="fd-btn__arrow"></span>
     </a>
   </div>
@@ -1096,103 +1098,85 @@ a[href^="mailto"]:hover,
   <section class="fd-hero">
     <div class="fd-hero__bg"></div>
     <div class="fd-hero__inner">
-      <div class="fd-eyebrow fd-fade">Пространство вдохновения · Калининград</div>
+      <div class="fd-eyebrow fd-fade">Салон в Калининграде · ул. Промышленная, 1</div>
       <h1 class="fd-hero__title fd-fade">
-        Увидеть и потрогать то,<br>
-        <span class="fd-hero__title--accent">что невозможно оценить</span> через экран
+        Мебель нужно трогать,<br>
+        <span class="fd-hero__title--accent">а не листать</span> в телефоне
       </h1>
       <p class="fd-hero__subtitle fd-fade">
-        Флагманский салон Frame Design — это не просто выставка, а тактильная лаборатория интерьерных решений: центральная стена, коллекция 200+ фасадов, металлы, зеркала и готовые предметы мебели.
+        Наш салон — это место, где эмаль видно при живом свете, латунь тёплая на ощупь, а разговор о проекте начинается с чашки кофе, а не с прайса.
       </p>
       <div class="fd-fade">
         <a href="#visit" class="fd-btn fd-btn--primary">
-          Записаться на персональный визит <span class="fd-btn__arrow"></span>
+          Заглянуть на кофе <span class="fd-btn__arrow"></span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- SHOWROOM HIGHLIGHTS -->
-  <section class="fd-exhibits">
+  <!-- САЛОН: ЖИВЫЕ ФОТО И ТЁПЛЫЙ ТЕКСТ -->
+  <section class="fd-exhibits" id="showroom">
     <div class="fd-exhibits__inner">
       <div class="fd-section-head">
         <div class="fd-fade">
-          <div class="fd-eyebrow">Экспозиция и тактильный опыт</div>
-          <h2 class="fd-section-title">Что вы увидите <span>в нашем салоне</span></h2>
+          <div class="fd-eyebrow">Заходите в гости</div>
+          <h2 class="fd-section-title">Уютный салон, <span>куда хочется вернуться</span></h2>
+          <p class="fd-lead">
+            Здесь ничего не впаривают. Наливаем кофе, включаем свет над образцами
+            и спокойно разбираемся, каким будет ваш интерьер.
+          </p>
         </div>
       </div>
 
-      <div class="fd-exhibits-grid">
-        <div class="fd-exhibit-card fd-fade">
-          <div class="fd-exhibit-card__img">
-            <img src="images/kitchen-island-brass.jpg" alt="Центральная стена Frame Design" loading="lazy">
-          </div>
-          <div class="fd-exhibit-card__body">
-            <h3 class="fd-exhibit-card__title">Центральная стена Frame Design</h3>
-            <p class="fd-exhibit-card__text">
-              Флагманская композиция, демонстрирующая сложное бесшовное сопряжение шпона ореха, рифленых панелей и латунного декора.
-            </p>
-          </div>
-        </div>
+      <div class="fd-salon-photos">
+        <figure class="fd-salon-photo fd-fade">
+          <img src="images/salon-logo-wall.jpg" alt="Салон Frame Design в Калининграде" loading="lazy">
+          <figcaption>
+            <span class="fd-salon-photo__label">Наш салон</span>
+            <span class="fd-salon-photo__text">Тёплый свет, спокойные фактуры и никакой суеты торгового центра</span>
+          </figcaption>
+        </figure>
+        <figure class="fd-salon-photo fd-fade">
+          <img src="images/salon-facades-wall.jpg" alt="Стена образцов фасадов и покрытий" loading="lazy">
+          <figcaption>
+            <span class="fd-salon-photo__label">Стена образцов</span>
+            <span class="fd-salon-photo__text">200+ фасадов, металлов и покрытий — всё можно трогать руками</span>
+          </figcaption>
+        </figure>
+      </div>
 
-        <div class="fd-exhibit-card fd-fade">
-          <div class="fd-exhibit-card__img">
-            <img src="images/kitchen-countertop-fluted.jpg" alt="Коллекция 200+ фасадов" loading="lazy">
-          </div>
-          <div class="fd-exhibit-card__body">
-            <h3 class="fd-exhibit-card__title">Библиотека 200+ фасадов</h3>
-            <p class="fd-exhibit-card__text">
-              Образцы глубоких матовых эмалей, фрезеровок любой геометрии, каннелюр и интегрированных скрытых ручек в натуральную величину.
-            </p>
-          </div>
+      <div class="fd-notes">
+        <div class="fd-note fd-fade">
+          <div class="fd-note__mark">01</div>
+          <h3 class="fd-note__title">Кофе, чай и профессионалы</h3>
+          <p class="fd-note__text">
+            Встречаем как гостей, а не как покупателей. Чашка кофе, удобное кресло —
+            и дизайнер, который правда умеет делать круто.
+          </p>
         </div>
-
-        <div class="fd-exhibit-card fd-fade">
-          <div class="fd-exhibit-card__img">
-            <img src="images/glass-vitrine-brass.jpg" alt="Зона жидких металлов" loading="lazy">
-          </div>
-          <div class="fd-exhibit-card__body">
-            <h3 class="fd-exhibit-card__title">Покрытия и жидкие металлы</h3>
-            <p class="fd-exhibit-card__text">
-              Натуральная шлифованная латунь, медь, рояльный лак, эффект патины и бархатный soft-touch — оцените тактильный отклик лично.
-            </p>
-          </div>
+        <div class="fd-note fd-fade">
+          <div class="fd-note__mark">02</div>
+          <h3 class="fd-note__title">Всё можно потрогать</h3>
+          <p class="fd-note__text">
+            Открыть, закрыть, постучать, посмотреть при разном свете. По фото такое
+            не выбирают — а у нас образцы прямо под рукой.
+          </p>
         </div>
-
-        <div class="fd-exhibit-card fd-fade">
-          <div class="fd-exhibit-card__img">
-            <img src="images/hallway-mirror-wood.jpg" alt="Дизайнерские зеркала" loading="lazy">
-          </div>
-          <div class="fd-exhibit-card__body">
-            <h3 class="fd-exhibit-card__title">Дизайнерские зеркала</h3>
-            <p class="fd-exhibit-card__text">
-              Зеркальные арт-объекты со скрытой круговой подсветкой 3000K, теплыми световыми сценариями и латунными рамами.
-            </p>
-          </div>
+        <div class="fd-note fd-fade">
+          <div class="fd-note__mark">03</div>
+          <h3 class="fd-note__title">Ваш проект за одну встречу</h3>
+          <p class="fd-note__text">
+            Приносите планировку или просто идею в голове. Прикинем состав, материалы
+            и честный бюджет прямо на месте.
+          </p>
         </div>
-
-        <div class="fd-exhibit-card fd-fade">
-          <div class="fd-exhibit-card__img">
-            <img src="images/wardrobe-brass-handles.jpg" alt="Готовые предметы мебели" loading="lazy">
-          </div>
-          <div class="fd-exhibit-card__body">
-            <h3 class="fd-exhibit-card__title">Интерьерные решения</h3>
-            <p class="fd-exhibit-card__text">
-              Полноразмерные кухонные острова, гардеробные с тонированным стеклом и консоли ТВ, готовые к тестированию фурнитуры.
-            </p>
-          </div>
-        </div>
-
-        <div class="fd-exhibit-card fd-fade">
-          <div class="fd-exhibit-card__img">
-            <img src="images/living-room-tv-unit.jpg" alt="Зона работы с архитектором" loading="lazy">
-          </div>
-          <div class="fd-exhibit-card__body">
-            <h3 class="fd-exhibit-card__title">Лаборатория проектов</h3>
-            <p class="fd-exhibit-card__text">
-              Комфортная лаунж-зона для архитекторов и клиентов: подбор мудбордов, чашка эспрессо и составление предварительной спецификации.
-            </p>
-          </div>
+        <div class="fd-note fd-fade">
+          <div class="fd-note__mark">04</div>
+          <h3 class="fd-note__title">Без спешки и «купите сегодня»</h3>
+          <p class="fd-note__text">
+            Приезжайте с семьёй, со своим дизайнером или в одиночку. Никто не стоит
+            над душой — только отвечаем на вопросы.
+          </p>
         </div>
       </div>
     </div>
@@ -1207,7 +1191,7 @@ a[href^="mailto"]:hover,
           Забронируйте <span>встречу в шоуруме</span>
         </h2>
         <p style="font-size: 15px; color: var(--cream-muted); line-height: 1.8; margin-bottom: 24px;">
-          Ведущий дизайнер выделит для вас персональное время, проведет экскурсию по экспозиции и поможет составить первичный расчет мебели под ваш бюджет.
+          Выберем удобное время, чтобы никуда не спешить. Покажем салон, обсудим ваш проект и посчитаем примерный бюджет — всё за одну встречу.
         </p>
         <div style="font-size: 13px; color: var(--brass); display: flex; align-items: center; gap: 10px;">
           <span>✓</span> Бесплатная охраняемая парковка для гостей
@@ -1283,10 +1267,8 @@ a[href^="mailto"]:hover,
   window.addEventListener('scroll', () => {
     if (window.pageYOffset > 50) {
       header.style.background = 'rgba(20, 20, 22, 0.94)';
-      header.style.padding = '14px 0';
     } else {
       header.style.background = 'rgba(20, 20, 22, 0.7)';
-      header.style.padding = '20px 0';
     }
   }, { passive: true });
 
@@ -1308,5 +1290,6 @@ a[href^="mailto"]:hover,
   fadeElements.forEach(el => observer.observe(el));
 })();
 </script>
+<script src="assets/fd-common.js" defer></script>
 </body>
 </html>

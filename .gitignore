@@ -2,3 +2,6 @@
 Thumbs.db
 *.tmp
 *.log
+
+# локальные настройки Claude Code
+.claude/

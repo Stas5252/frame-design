@@ -1148,6 +1148,7 @@ a[href^="mailto"]:hover,
 }
 
 </style>
+  <link rel="stylesheet" href="assets/fd-common.css">
 </head>
 <body>
 
@@ -1159,11 +1160,11 @@ a[href^="mailto"]:hover,
       <a href="index.html" class="fd-logo">FRAME<span>DESIGN</span></a>
       <div class="fd-header__right">
         <nav class="fd-nav-right">
-          <a href="about.html" class="fd-nav__link">О компании</a>
+          <a href="about.html" class="fd-nav__link">О нас</a>
           <a href="salon.html" class="fd-nav__link">Наш салон</a>
           <a href="technologies.html" class="fd-nav__link">Технологии</a>
           <a href="portfolio.html" class="fd-nav__link fd-nav__link--has-dropdown">
-            Каталог
+            Каталог<span class="fd-nav__caret"></span>
             <div class="fd-dropdown">
               <a href="portfolio.html#kitchens" class="fd-dropdown__item">Фасады</a>
               <a href="portfolio.html#living" class="fd-dropdown__item">Металл</a>
@@ -1175,7 +1176,7 @@ a[href^="mailto"]:hover,
           <a href="portfolio.html" class="fd-nav__link active">Портфолио</a>
           <a href="contacts.html" class="fd-nav__link">Контакты</a>
         </nav>
-        <a href="contacts.html#book" class="fd-cta">Записаться в салон</a>
+        <a href="#book" class="fd-cta">Записаться в салон</a>
         <button class="fd-burger-btn" id="burgerBtn" aria-label="Открыть меню">
           <span></span><span></span><span></span>
         </button>
@@ -1186,12 +1187,13 @@ a[href^="mailto"]:hover,
   <!-- MOBILE DRAWER -->
   <div class="fd-mobile-drawer" id="mobileDrawer">
     <a href="index.html" class="fd-mobile-link" onclick="closeDrawer()">Главная</a>
-    <a href="about.html" class="fd-mobile-link" onclick="closeDrawer()">О компании</a>
+    <a href="about.html" class="fd-mobile-link" onclick="closeDrawer()">О нас</a>
     <a href="salon.html" class="fd-mobile-link" onclick="closeDrawer()">Наш салон</a>
     <a href="technologies.html" class="fd-mobile-link" onclick="closeDrawer()">Технологии</a>
+    <a href="portfolio.html" class="fd-mobile-link" onclick="closeDrawer()">Каталог</a>
     <a href="portfolio.html" class="fd-mobile-link active" onclick="closeDrawer()">Портфолио</a>
     <a href="contacts.html" class="fd-mobile-link" onclick="closeDrawer()">Контакты</a>
-    <a href="contacts.html#book" class="fd-btn fd-btn--primary" style="margin-top: 20px;" onclick="closeDrawer()">
+    <a href="#book" class="fd-btn fd-btn--primary" style="margin-top: 20px;" onclick="closeDrawer()">
       Записаться в салон <span class="fd-btn__arrow"></span>
     </a>
   </div>
@@ -1380,7 +1382,7 @@ a[href^="mailto"]:hover,
   <div class="fd-modal-overlay" id="projectModal" onclick="if(event.target === this) closeModal()">
     <div class="fd-modal-content">
       <button class="fd-modal-close" onclick="closeModal()" aria-label="Закрыть">✕</button>
-      <img id="modalImg" class="fd-modal-img" src="" alt="Проект">
+      <img id="modalImg" class="fd-modal-img" alt="Проект">
       <div class="fd-modal-info">
         <div id="modalCat" style="font-size: 11px; letter-spacing: 3px; color: var(--brass); text-transform: uppercase; font-weight: 600; margin-bottom: 8px;"></div>
         <h3 id="modalTitle" class="fd-modal-title"></h3>
@@ -1411,6 +1413,56 @@ a[href^="mailto"]:hover,
       </div>
     </div>
   </div>
+
+  <!-- ЗАПИСЬ В САЛОН -->
+  <section class="fd-booking" id="book">
+    <div class="fd-booking__inner">
+      <div class="fd-booking__intro fd-fade">
+        <div class="fd-booking__eyebrow">Личная встреча</div>
+        <h2 class="fd-booking__title">Записаться <span>в салон</span></h2>
+        <p class="fd-booking__text">
+          Ведущий дизайнер выделит для вас персональное время, покажет образцы фасадов и покрытий вживую
+          и поможет составить предварительный расчёт проекта.
+        </p>
+        <ul class="fd-booking__list">
+          <li>200+ образцов фасадов, металлов и покрытий в экспозиции</li>
+          <li>Предварительный расчёт под ваш проект и бюджет</li>
+          <li>Бесплатная охраняемая парковка прямо у входа</li>
+        </ul>
+        <div class="fd-booking__contacts">
+          <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+          <span>Калининград, ул. Промышленная, 1</span>
+          <span>Пн – Сб: 10:00 – 20:00</span>
+        </div>
+      </div>
+
+      <form class="fd-booking__form fd-fade" novalidate>
+        <div class="fd-booking__form-title">Заявка на визит</div>
+        <input type="text" class="fd-field" name="name" placeholder="Ваше имя" required>
+        <input type="tel" class="fd-field" name="phone" placeholder="Телефон (+7...)" required>
+        <select class="fd-field" name="topic">
+          <option value="" disabled selected>Интересующее направление</option>
+          <option value="kitchen">Кухня премиум-класса</option>
+          <option value="living">Гостиная и ТВ-зона</option>
+          <option value="wardrobe">Гардеробная система</option>
+          <option value="mirrors">Дизайнерские зеркала</option>
+          <option value="complex">Комплексная меблировка</option>
+          <option value="designer">Сотрудничество для дизайнеров</option>
+        </select>
+        <input type="text" class="fd-field" name="when" placeholder="Удобный день и время">
+        <button type="submit" class="fd-btn fd-btn--primary fd-booking__submit">
+          Записаться в салон <span class="fd-btn__arrow"></span>
+        </button>
+        <p class="fd-booking__note">
+          Нажимая кнопку, вы соглашаетесь на обработку персональных данных.
+        </p>
+        <div class="fd-booking__done">
+          Спасибо! Заявка принята — мы свяжемся с вами в течение 15 минут,
+          чтобы подтвердить удобное время визита.
+        </div>
+      </form>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="fd-footer">
@@ -1599,10 +1651,8 @@ const header = document.querySelector('.fd-header');
 window.addEventListener('scroll', () => {
   if (window.pageYOffset > 50) {
     header.style.background = 'rgba(20, 20, 22, 0.94)';
-    header.style.padding = '14px 0';
   } else {
     header.style.background = 'rgba(20, 20, 22, 0.7)';
-    header.style.padding = '20px 0';
   }
 }, { passive: true });
 
@@ -1623,5 +1673,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 fadeElements.forEach(el => observer.observe(el));
 </script>
+<script src="assets/fd-common.js" defer></script>
 </body>
 </html>

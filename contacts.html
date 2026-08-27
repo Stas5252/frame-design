@@ -1153,6 +1153,7 @@ a[href^="mailto"]:hover,
 }
 
 </style>
+  <link rel="stylesheet" href="assets/fd-common.css">
 </head>
 <body>
 
@@ -1164,11 +1165,11 @@ a[href^="mailto"]:hover,
       <a href="index.html" class="fd-logo">FRAME<span>DESIGN</span></a>
       <div class="fd-header__right">
         <nav class="fd-nav-right">
-          <a href="about.html" class="fd-nav__link">О компании</a>
+          <a href="about.html" class="fd-nav__link">О нас</a>
           <a href="salon.html" class="fd-nav__link">Наш салон</a>
           <a href="technologies.html" class="fd-nav__link">Технологии</a>
           <a href="portfolio.html" class="fd-nav__link fd-nav__link--has-dropdown">
-            Каталог
+            Каталог<span class="fd-nav__caret"></span>
             <div class="fd-dropdown">
               <a href="portfolio.html#kitchens" class="fd-dropdown__item">Фасады</a>
               <a href="portfolio.html#living" class="fd-dropdown__item">Металл</a>
@@ -1191,9 +1192,10 @@ a[href^="mailto"]:hover,
   <!-- MOBILE DRAWER -->
   <div class="fd-mobile-drawer" id="mobileDrawer">
     <a href="index.html" class="fd-mobile-link" onclick="closeDrawer()">Главная</a>
-    <a href="about.html" class="fd-mobile-link" onclick="closeDrawer()">О компании</a>
+    <a href="about.html" class="fd-mobile-link" onclick="closeDrawer()">О нас</a>
     <a href="salon.html" class="fd-mobile-link" onclick="closeDrawer()">Наш салон</a>
     <a href="technologies.html" class="fd-mobile-link" onclick="closeDrawer()">Технологии</a>
+    <a href="portfolio.html" class="fd-mobile-link" onclick="closeDrawer()">Каталог</a>
     <a href="portfolio.html" class="fd-mobile-link" onclick="closeDrawer()">Портфолио</a>
     <a href="contacts.html" class="fd-mobile-link active" onclick="closeDrawer()">Контакты</a>
     <a href="#book" class="fd-btn fd-btn--primary" style="margin-top: 20px;" onclick="closeDrawer()">
@@ -1371,10 +1373,8 @@ a[href^="mailto"]:hover,
   window.addEventListener('scroll', () => {
     if (window.pageYOffset > 50) {
       header.style.background = 'rgba(20, 20, 22, 0.94)';
-      header.style.padding = '14px 0';
     } else {
       header.style.background = 'rgba(20, 20, 22, 0.7)';
-      header.style.padding = '20px 0';
     }
   }, { passive: true });
 
@@ -1396,5 +1396,6 @@ a[href^="mailto"]:hover,
   fadeElements.forEach(el => observer.observe(el));
 })();
 </script>
+<script src="assets/fd-common.js" defer></script>
 </body>
 </html>

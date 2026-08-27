@@ -1,0 +1,643 @@
+/* ============================================================
+   FRAME DESIGN — общие стили для всех страниц
+   Подключается ПОСЛЕ внутренних <style>, поэтому перекрывает их.
+   Здесь: стабильная шапка, адаптив, форма записи, подсветка курсора.
+   ============================================================ */
+
+/* ---------- 1. ШАПКА: постоянная высота, без «прыжков» ---------- */
+.fd-header {
+  padding: 18px 0 !important;
+  transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease !important;
+  will-change: background;
+}
+.fd-header.is-scrolled {
+  background: rgba(20, 20, 22, 0.94) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+/* На главной у body нет line-height: 1.6, на остальных страницах есть —
+   из-за этого шапка была 89px и 97px и «прыгала» при переходе.
+   Фиксируем метрики шапки, чтобы высота была одинаковой везде. */
+.fd-header__inner { min-height: 52px; }
+.fd-logo { line-height: 1.15 !important; }
+.fd-logo span { line-height: 1.2 !important; }
+.fd-nav__link { line-height: 1.4 !important; }
+.fd-cta { line-height: 1.2 !important; }
+.fd-burger-btn { flex-shrink: 0; }
+
+/* активный пункт меню */
+.fd-nav__link.active { color: var(--brass); }
+.fd-nav__link.active::after { width: 100%; left: 0; }
+
+/* «Каталог» с выпадающим списком — клик по нему тоже работает */
+.fd-nav__link--has-dropdown { padding-right: 2px; }
+
+/* ---------- 2. БАЗОВЫЙ АДАПТИВ ---------- */
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+img, video, iframe { max-width: 100%; }
+
+/* Первый экран: больше не обрезается — растёт под контент */
+.fd-hero {
+  height: auto !important;
+  min-height: 100svh !important;
+  max-height: none !important;
+  padding: 132px 48px 64px !important;
+}
+.fd-hero__inner { width: 100%; }
+
+/* на ноутбуках первый экран должен помещаться целиком */
+@media (min-width: 961px) {
+  .fd-hero__features { margin-top: 56px !important; padding-top: 38px !important; }
+}
+@media (min-width: 961px) and (max-height: 820px) {
+  .fd-hero { padding: 116px 48px 48px !important; }
+  .fd-hero__features { margin-top: 40px !important; padding-top: 28px !important; }
+  .fd-hero__title { margin-bottom: 22px !important; }
+  .fd-hero__subtitle { margin-bottom: 30px !important; }
+}
+
+/* Планшет и телефон: текст по центру экрана, без пустого поля сверху */
+@media (max-width: 960px) {
+  .fd-header { padding: 12px 0 !important; }
+  .fd-header__inner { min-height: 44px; }
+  .fd-hero {
+    min-height: 84svh !important;
+    justify-content: center !important;
+    padding: 104px 24px 64px !important;
+  }
+  /* блок преимуществ на главной больше не прячем */
+  .fd-hero__features {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 22px !important;
+    margin: 44px 0 0 !important;
+    padding-top: 32px !important;
+  }
+  .fd-feature__num { font-size: 26px !important; margin-bottom: 10px !important; }
+}
+
+/* Ноутбуки 1280–1440 */
+@media (max-width: 1440px) {
+  .fd-header__inner { padding: 0 32px; }
+  .fd-nav-right { gap: 24px; }
+}
+
+/* Планшет-альбом / маленькие ноутбуки */
+@media (max-width: 1200px) {
+  .fd-nav-right { gap: 18px; }
+  .fd-nav__link { font-size: 10px; letter-spacing: 1.5px; }
+  .fd-cta { padding: 12px 18px; font-size: 10px; }
+}
+/* Ноутбуки 961–1200: сетки карточек остаются в три колонки, как на широких
+   экранах, а двухколоночные секции не схлопываются в одну (раньше это
+   происходило по-разному на разных страницах и выглядело неровно). */
+@media (min-width: 961px) and (max-width: 1200px) {
+  .fd-categories__grid,
+  .fd-comp-grid,
+  .fd-comp-grid--photo,
+  .fd-exhibits-grid,
+  .fd-pillars-grid,
+  .fd-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .fd-process__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 961px) {
+  .fd-about__inner { grid-template-columns: 1fr 2fr; }
+  .fd-footer__inner { grid-template-columns: 1.2fr 1fr; }
+  .fd-contacts-section__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .fd-visit__card { grid-template-columns: 1.2fr 1fr; }
+  .fd-scanning__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+
+/* Планшет-портрет 641–960: две колонки вместо одной */
+@media (min-width: 641px) and (max-width: 960px) {
+  .fd-categories__grid,
+  .fd-comp-grid,
+  .fd-process__grid,
+  .fd-exhibits-grid,
+  .fd-pillars-grid,
+  .fd-grid,
+  .fd-portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .fd-hero { padding: 140px 32px 70px !important; }
+  .fd-about, .fd-categories, .fd-invite, .fd-salon-exp, .fd-central-wall,
+  .fd-specs, .fd-steps, .fd-contacts-section, .fd-portfolio-section,
+  .fd-tech-pillars, .fd-competencies, .fd-process, .fd-exhibits,
+  .fd-pillars, .fd-scanning, .fd-visit, .fd-manifesto,
+  .fd-booking { padding-left: 32px !important; padding-right: 32px !important; }
+}
+
+/* Планшет: кнопки в строку, преимущества в три колонки */
+@media (min-width: 641px) and (max-width: 960px) {
+  .fd-hero__buttons {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    width: auto !important;
+    gap: 16px !important;
+  }
+  .fd-hero__buttons .fd-btn {
+    width: auto !important;
+    padding: 17px 32px !important;
+  }
+  .fd-hero__features {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 32px !important;
+  }
+  .fd-hero__subtitle { max-width: 560px !important; }
+}
+
+/* Счётчики: 2 колонки на планшете-портрете, 4 — на широком планшете */
+@media (min-width: 641px) and (max-width: 860px) {
+  .fd-stats__inner { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (min-width: 861px) and (max-width: 960px) {
+  .fd-stats__inner { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+}
+
+/* Телефоны */
+@media (max-width: 640px) {
+  .fd-categories__grid,
+  .fd-comp-grid,
+  .fd-process__grid,
+  .fd-exhibits-grid,
+  .fd-pillars-grid,
+  .fd-grid,
+  .fd-portfolio-grid,
+  .fd-contacts-section__inner,
+  .fd-about__inner,
+  .fd-footer__inner { grid-template-columns: minmax(0, 1fr) !important; }
+  .fd-hero { min-height: 82svh !important; padding: 108px 20px 56px !important; }
+  .fd-hero__title { font-size: clamp(26px, 8vw, 34px) !important; }
+  /* принудительные переносы строк из десктопной вёрстки на телефоне мешают */
+  .fd-hero__title br, .fd-section-title br { display: none; }
+  .fd-section-title, .fd-categories__title, .fd-about__title,
+  .fd-invite__title { font-size: clamp(26px, 7.5vw, 34px) !important; }
+  .fd-stats__inner { grid-template-columns: repeat(2, 1fr) !important; }
+  .fd-stat__num { font-size: 34px !important; }
+  .fd-stat__label { font-size: 10px !important; letter-spacing: 1.5px !important; }
+  /* тач-цели не меньше 44px */
+  .fd-btn, .fd-route-btn, .fd-filter-btn, .fd-booking__submit { min-height: 48px; }
+  .fd-mobile-link { font-size: 24px; }
+}
+
+/* Очень узкие экраны (320–380) */
+@media (max-width: 380px) {
+  .fd-hero { min-height: 82svh !important; padding: 88px 16px 44px !important; }
+  .fd-about, .fd-categories, .fd-invite, .fd-competencies, .fd-process,
+  .fd-exhibits, .fd-pillars, .fd-scanning, .fd-visit, .fd-contacts-section,
+  .fd-booking, .fd-footer { padding-left: 16px !important; padding-right: 16px !important; }
+  .fd-stats__inner { grid-template-columns: 1fr !important; }
+  .fd-category__body { padding: 24px 20px !important; }
+  .fd-comp-card { padding: 28px 22px !important; }
+}
+
+/* Мобильное меню — прокрутка, если пунктов много */
+.fd-mobile-drawer {
+  overflow-y: auto;
+  padding: 90px 24px 40px;
+  gap: 22px;
+}
+
+/* Ландшафт на телефоне: не растягиваем экран на всю высоту */
+@media (max-height: 520px) and (orientation: landscape) {
+  .fd-hero { min-height: auto !important; padding: 110px 24px 50px !important; }
+  .fd-mobile-drawer { justify-content: flex-start; }
+}
+
+/* ---------- 3. ФОРМА ЗАПИСИ В САЛОН (общий блок) ---------- */
+.fd-booking {
+  position: relative;
+  padding: 120px 48px;
+  background: var(--chocolate-deep);
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0, transparent 48px, rgba(0,0,0,0.12) 48px, rgba(0,0,0,0.12) 49px),
+    radial-gradient(ellipse at 50% 0%, rgba(184, 150, 90, 0.08) 0%, transparent 60%);
+  border-top: 1px solid var(--border);
+}
+.fd-booking__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+.fd-booking__eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 500;
+  color: var(--brass);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.fd-booking__eyebrow::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--brass);
+  box-shadow: 0 0 10px var(--brass-glow);
+}
+.fd-booking__title {
+  font-family: var(--t-headline-font);
+  font-size: clamp(30px, 3.6vw, 48px);
+  line-height: 1.1;
+  color: var(--cream);
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.fd-booking__title span {
+  color: var(--brass);
+  font-style: normal;
+  font-weight: 500;
+}
+.fd-booking__text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--cream-muted);
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+.fd-booking__list {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.fd-booking__list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 14px;
+  color: var(--cream);
+  line-height: 1.6;
+}
+.fd-booking__list li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 4px;
+  width: 6px;
+  height: 11px;
+  border-right: 1.5px solid var(--brass);
+  border-bottom: 1.5px solid var(--brass);
+  transform: rotate(45deg);
+}
+.fd-booking__contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--cream-muted);
+  letter-spacing: 0.4px;
+}
+.fd-booking__contacts a { color: var(--cream); text-decoration: none; }
+.fd-booking__contacts a:hover { color: var(--brass); }
+
+.fd-booking__form {
+  position: relative;
+  background: linear-gradient(135deg, rgba(31, 18, 8, 0.92) 0%, rgba(45, 26, 16, 0.92) 100%);
+  border: 1px solid var(--brass);
+  padding: 46px 40px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 40px rgba(184, 150, 90, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.fd-booking__form::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(184, 150, 90, 0.2);
+  pointer-events: none;
+}
+.fd-booking__form-title {
+  font-family: var(--t-headline-font);
+  font-size: 24px;
+  color: var(--cream);
+  font-style: italic;
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 2;
+}
+.fd-booking .fd-field {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background: rgba(20, 20, 22, 0.7);
+  border: 1px solid var(--border);
+  padding: 16px 20px;
+  color: var(--cream);
+  font-family: var(--t-text-font);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+.fd-booking .fd-field:focus {
+  border-color: var(--brass);
+  background: rgba(20, 20, 22, 0.95);
+  box-shadow: 0 0 15px var(--brass-glow);
+}
+.fd-booking .fd-field::placeholder { color: var(--text-muted); }
+.fd-booking select.fd-field { cursor: pointer; }
+.fd-booking select.fd-field option { background: var(--graphite); color: var(--cream); }
+.fd-booking .fd-field.is-invalid {
+  border-color: #c96a5a;
+  box-shadow: 0 0 12px rgba(201, 106, 90, 0.35);
+}
+.fd-booking__submit {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  justify-content: center;
+  margin-top: 6px;
+}
+.fd-booking__note {
+  position: relative;
+  z-index: 2;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+.fd-booking__done {
+  position: relative;
+  z-index: 2;
+  display: none;
+  padding: 18px 20px;
+  border: 1px solid var(--brass);
+  background: rgba(184, 150, 90, 0.1);
+  color: var(--cream);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.fd-booking__form.is-sent .fd-booking__done { display: block; }
+.fd-booking__form.is-sent .fd-field,
+.fd-booking__form.is-sent .fd-booking__submit,
+.fd-booking__form.is-sent .fd-booking__note { display: none; }
+
+@media (max-width: 960px) {
+  .fd-booking { padding: 70px 24px !important; }
+  .fd-booking__inner { grid-template-columns: 1fr !important; gap: 40px; }
+  .fd-booking__form { padding: 34px 24px; }
+}
+@media (max-width: 640px) {
+  .fd-booking { padding: 56px 20px !important; }
+  /* 16px — iOS не зумит поле при фокусе */
+  .fd-booking .fd-field { font-size: 16px; padding: 15px 16px; }
+  .fd-booking__form { padding: 28px 20px; }
+  .fd-booking__form::before { inset: 6px; }
+}
+
+/* ---------- 4. ПОДСВЕТКА, СЛЕДУЮЩАЯ ЗА КУРСОРОМ ---------- */
+.fd-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 560px;
+  height: 560px;
+  margin: -280px 0 0 -280px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 900;
+  opacity: 0;
+  background: radial-gradient(circle,
+    rgba(184, 150, 90, 0.18) 0%,
+    rgba(184, 150, 90, 0.09) 32%,
+    rgba(184, 150, 90, 0.03) 55%,
+    transparent 72%);
+  mix-blend-mode: screen;
+  transition: opacity 0.5s ease;
+  will-change: transform;
+}
+.fd-cursor-glow.is-active { opacity: 1; }
+
+/* мягкое пятно внутри карточек */
+.fd-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(300px circle at var(--fd-mx, 50%) var(--fd-my, 50%),
+    rgba(184, 150, 90, 0.20) 0%,
+    rgba(184, 150, 90, 0.08) 38%,
+    transparent 68%);
+}
+.fd-has-spot:hover > .fd-spotlight { opacity: 1; }
+.fd-has-spot { position: relative; }
+/* без z-index: контент и рамки карточек остаются на своих слоях */
+.fd-has-spot > *:not(.fd-spotlight) { position: relative; }
+
+/* на тач-устройствах подсветка не нужна */
+@media (hover: none), (pointer: coarse) {
+  .fd-cursor-glow { display: none !important; }
+  .fd-spotlight { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fd-cursor-glow { display: none !important; }
+}
+
+/* ---------- 5. КОМПЕТЕНЦИИ С ФОТО («О нас») ---------- */
+.fd-comp-grid--photo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 50px;
+}
+.fd-comp-grid--photo .fd-process__img { aspect-ratio: 4 / 3; }
+.fd-comp-grid--photo .fd-process__info { padding: 26px 24px 30px; }
+.fd-comp-grid--photo .fd-process__step {
+  font-family: var(--t-headline-font);
+  font-size: 22px;
+  font-style: italic;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-shadow: 0 0 16px var(--brass-glow);
+}
+.fd-comp-grid--photo .fd-process__title { font-size: 21px; line-height: 1.25; }
+.fd-comp-grid--photo .fd-process__text { font-size: 13px; }
+.fd-comp-grid--photo .fd-process__item {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s;
+}
+.fd-comp-grid--photo .fd-process__item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 35px rgba(184, 150, 90, 0.18);
+}
+@media (min-width: 641px) and (max-width: 960px) {
+  .fd-comp-grid--photo { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 640px) {
+  .fd-comp-grid--photo { grid-template-columns: 1fr !important; gap: 20px; }
+}
+
+/* ---------- 6. МЕЛОЧИ ИНТЕРФЕЙСА ---------- */
+/* стрелка «Каталога» — справа от текста, а не слева */
+.fd-nav__link--has-dropdown::before { display: none !important; }
+.fd-nav__caret {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg);
+  margin: 0 0 3px 9px;
+  vertical-align: middle;
+  transition: transform 0.3s, margin-bottom 0.3s;
+}
+.fd-nav__link--has-dropdown:hover .fd-nav__caret {
+  transform: rotate(-135deg);
+  margin-bottom: -1px;
+}
+
+/* ---------- 7. ТИПОГРАФИКА ЗАГОЛОВКОВ ----------
+   На всех страницах кроме главной у body задан line-height: 1.6 —
+   заголовки карточек наследовали его и выглядели рыхло (двойной интервал). */
+.fd-section-title,
+.fd-manifesto__quote {
+  line-height: 1.15;
+}
+.fd-modal-title,
+.fd-form-title,
+.fd-project-card__title,
+.fd-exhibit-card__title,
+.fd-comp-card__title,
+.fd-process__title,
+.fd-pillar-card__title,
+.fd-category__title,
+.fd-scan-card__title,
+.fd-spec-card__title,
+.fd-info-block__val,
+.fd-map-overlay__title,
+.fd-footer__contact {
+  line-height: 1.25;
+}
+.fd-footer__logo { line-height: 1.15; }
+.fd-feature__num,
+.fd-comp-card__num,
+.fd-pillar-card__num { line-height: 1; }
+.fd-eyebrow,
+.fd-hero__eyebrow,
+.fd-categories__eyebrow,
+.fd-about__eyebrow,
+.fd-invite__eyebrow { line-height: 1.4; }
+
+/* ---------- 8. САЛОН: ЖИВЫЕ ФОТО И ЗАМЕТКИ ---------- */
+.fd-lead {
+  margin-top: 22px;
+  max-width: 620px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--cream-muted);
+  letter-spacing: 0.2px;
+}
+.fd-salon-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-bottom: 70px;
+}
+.fd-salon-photo {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--graphite);
+}
+.fd-salon-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s;
+  filter: brightness(0.94);
+}
+.fd-salon-photo:hover img { transform: scale(1.05); filter: brightness(1); }
+.fd-salon-photo figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 60px 30px 26px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(20, 20, 22, 0.55) 38%,
+    rgba(20, 20, 22, 0.92) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.fd-salon-photo__label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--brass);
+}
+.fd-salon-photo__text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--cream);
+  max-width: 420px;
+}
+.fd-notes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+.fd-note {
+  position: relative;
+  padding: 34px 28px 32px;
+  background: var(--graphite);
+  border: 1px solid var(--border);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s, border-color 0.5s;
+  overflow: hidden;
+}
+.fd-note:hover {
+  transform: translateY(-6px);
+  border-color: var(--brass-soft);
+  box-shadow: 0 26px 60px rgba(0,0,0,0.55), 0 0 30px rgba(184, 150, 90, 0.14);
+}
+.fd-note__mark {
+  font-family: var(--t-headline-font);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--brass);
+  line-height: 1;
+  margin-bottom: 16px;
+  text-shadow: 0 0 16px var(--brass-glow);
+}
+.fd-note__title {
+  font-family: var(--t-headline-font);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.fd-note__text {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--cream-muted);
+}
+
+@media (max-width: 1200px) {
+  .fd-notes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 960px) {
+  .fd-salon-photos { gap: 20px; margin-bottom: 44px; }
+  .fd-notes { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 20px; }
+  .fd-lead { font-size: 15px; margin-top: 18px; }
+}
+@media (max-width: 640px) {
+  .fd-salon-photos { grid-template-columns: minmax(0, 1fr) !important; }
+  .fd-notes { grid-template-columns: minmax(0, 1fr) !important; }
+  .fd-salon-photo figcaption { padding: 44px 20px 20px; }
+  .fd-note { padding: 26px 22px; }
+}
