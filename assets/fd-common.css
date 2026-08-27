@@ -799,3 +799,27 @@ img, video, iframe { max-width: 100%; }
   color: var(--cream);
   font-weight: 600;
 }
+
+/* ---------- 10. КАРТОЧКИ РАВНОЙ ВЫСОТЫ БЕЗ «ПОЛОСКИ» ----------
+   Сетка растягивает карточки по высоте ряда, но текстовый блок оставался
+   по содержимому — снизу проступал фон самой карточки другого оттенка.
+   Тянем текстовый блок на всю оставшуюся высоту, а ссылку прижимаем к низу. */
+.fd-category,
+.fd-project-card {
+  display: flex;
+  flex-direction: column;
+}
+.fd-category__img,
+.fd-project-card__img {
+  flex: 0 0 auto;
+}
+.fd-category__body,
+.fd-project-card__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+.fd-category__link {
+  margin-top: auto;
+  align-self: flex-start;
+}
