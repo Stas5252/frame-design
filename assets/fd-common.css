@@ -45,6 +45,21 @@ img, video, iframe { max-width: 100%; }
 }
 .fd-hero__inner { width: 100%; }
 
+/* Первый экран внутренних страниц: текст по центру, без пустого поля сверху.
+   На главной низ держит блок преимуществ — там оставляем прижатым к низу. */
+@media (min-width: 961px) {
+  .fd-hero {
+    justify-content: center !important;
+    min-height: 86svh !important;
+    padding: 118px 48px 58px !important;
+  }
+  .fd-hero:has(.fd-hero__features) {
+    justify-content: flex-end !important;
+    min-height: 100svh !important;
+    padding: 132px 48px 64px !important;
+  }
+}
+
 /* на ноутбуках первый экран должен помещаться целиком */
 @media (min-width: 961px) {
   .fd-hero__features { margin-top: 56px !important; padding-top: 38px !important; }
@@ -152,6 +167,12 @@ img, video, iframe { max-width: 100%; }
   .fd-stats__inner { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
 }
 
+/* На телефоне внутренние страницы тоже держим компактнее главной */
+@media (max-width: 960px) {
+  .fd-hero { min-height: 76svh !important; padding: 96px 24px 48px !important; }
+  .fd-hero:has(.fd-hero__features) { min-height: 84svh !important; }
+}
+
 /* Телефоны */
 @media (max-width: 640px) {
   .fd-categories__grid,
@@ -164,7 +185,8 @@ img, video, iframe { max-width: 100%; }
   .fd-contacts-section__inner,
   .fd-about__inner,
   .fd-footer__inner { grid-template-columns: minmax(0, 1fr) !important; }
-  .fd-hero { min-height: 82svh !important; padding: 108px 20px 56px !important; }
+  .fd-hero { min-height: 76svh !important; padding: 92px 20px 48px !important; }
+  .fd-hero:has(.fd-hero__features) { min-height: 84svh !important; padding: 108px 20px 56px !important; }
   .fd-hero__title { font-size: clamp(26px, 8vw, 34px) !important; }
   /* принудительные переносы строк из десктопной вёрстки на телефоне мешают */
   .fd-hero__title br, .fd-section-title br { display: none; }
@@ -180,7 +202,8 @@ img, video, iframe { max-width: 100%; }
 
 /* Очень узкие экраны (320–380) */
 @media (max-width: 380px) {
-  .fd-hero { min-height: 82svh !important; padding: 88px 16px 44px !important; }
+  .fd-hero { min-height: 74svh !important; padding: 88px 16px 44px !important; }
+  .fd-hero:has(.fd-hero__features) { min-height: 84svh !important; padding: 104px 16px 48px !important; }
   .fd-about, .fd-categories, .fd-invite, .fd-competencies, .fd-process,
   .fd-exhibits, .fd-pillars, .fd-scanning, .fd-visit, .fd-contacts-section,
   .fd-booking, .fd-footer { padding-left: 16px !important; padding-right: 16px !important; }
