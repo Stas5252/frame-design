@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
   <title>О компании — FRAME DESIGN | 6 ключевых компетенций мебельного производства</title>
-  <meta name="description" content="Собственное производство мебели полного цикла Frame Design в Калининграде: ЧПУ станки, малярная камера, жидкие металлы, сложные радиусы, 100% ОТК.">
+  <meta name="description" content="Полный цикл производства премиальной мебели Frame Design без субподряда. 6 компетенций: ЧПУ раскрой, малярная камера, радиусные изделия, жидкий металл, зеркала, 100% ОТК.">
   <link rel="canonical" href="https://stas5252.github.io/frame-design/about.html">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" type="image/png" href="favicon.png">
@@ -13,31 +13,41 @@
   <link rel="stylesheet" href="https://static.tildacdn.com/css/fonts-tildasans.css" type="text/css" media="all">
   <style>
     :root {
+      --t-headline-font: 'TildaSans', Arial, sans-serif;
+      --t-text-font: 'TildaSans', Arial, sans-serif;
+      --chocolate-deep: #1f1208;
+      --chocolate: #2d1a10;
+      --chocolate-soft: #3d2618;
+      --graphite: #141416;
+      --graphite-soft: #1f1f22;
+      --cream: #f5ecd9;
+      --cream-soft: #ebe0c8;
+      --cream-muted: #b8a888;
+      --brass: #b8965a;
+      --brass-light: #d4b078;
+      --brass-soft: rgba(184, 150, 90, 0.5);
+      --brass-glow: rgba(184, 150, 90, 0.35);
+      --text-light: #f5ecd9;
+      --text-muted: #8a7e6a;
+      --text-dim: #5a5246;
+      --border: rgba(184, 150, 90, 0.18);
+      --border-light: rgba(245, 236, 217, 0.08);
       --bg: #141416;
       --bg-surface: #1a1a1e;
       --bg-card: #202025;
-      --brass: #b8965a;
-      --brass-hover: #d4b078;
-      --brass-glow: rgba(184, 150, 90, 0.28);
-      --cream: #f5ecd9;
-      --text-light: #e4dfd7;
-      --text-dim: #8e8a82;
-      --border: rgba(184, 150, 90, 0.18);
-      --border-light: rgba(245, 236, 217, 0.08);
-      --t-headline-font: 'TildaSans', Arial, sans-serif;
-      --t-text-font: 'TildaSans', Arial, sans-serif;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html {
-      background-color: var(--bg);
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      background: var(--bg);
       color: var(--text-light);
       font-family: var(--t-text-font);
-      font-size: 16px;
       line-height: 1.6;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
     }
-    body { overflow-x: hidden; background: var(--bg); }
+
     .fd-cursor-glow {
       position: fixed;
       width: 500px;
@@ -49,125 +59,397 @@
       transform: translate(-50%, -50%);
       opacity: 0.45;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    .fd-header__right { display: flex; align-items: center; gap: 20px; }
-    
-    
+
+    /* HEADER */
+    .fd-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(20, 20, 22, 0.7);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid var(--border-light);
+      padding: 20px 0;
+      transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s;
+    }
+    .fd-header__inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .fd-logo {
+      font-family: var(--t-headline-font);
+      font-size: 26px;
+      letter-spacing: 6px;
+      color: var(--brass);
+      font-weight: 500;
+      flex-shrink: 0;
+      text-decoration: none;
+      text-shadow: 0 0 24px var(--brass-glow);
+      transition: text-shadow 0.5s;
+      position: relative;
+    }
+    .fd-logo::before {
+      content: '';
+      position: absolute;
+      left: -16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 4px;
+      background: var(--brass);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--brass-glow);
+    }
+    .fd-logo span {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 8px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      text-shadow: none;
+      font-weight: 400;
+    }
+    .fd-header__right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-left: auto;
+    }
+    .fd-nav-right {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .fd-nav__link {
+      font-family: var(--t-text-font);
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 500;
+      color: var(--text-light);
+      text-transform: uppercase;
+      text-decoration: none;
+      position: relative;
+      cursor: pointer;
+      padding: 6px 0;
+      transition: color 0.3s;
+    }
+    .fd-nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 1px;
+      background: var(--brass);
+      box-shadow: 0 0 10px var(--brass-glow);
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), left 0.4s;
+    }
+    .fd-nav__link:hover, .fd-nav__link.active { color: var(--brass); }
+    .fd-nav__link:hover::after, .fd-nav__link.active::after { width: 100%; left: 0; }
+
+    .fd-nav__link--has-dropdown { position: relative; }
+    .fd-nav__link--has-dropdown::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(45deg);
+      margin-left: 10px;
+      vertical-align: middle;
+      margin-bottom: 3px;
+      transition: transform 0.3s;
+    }
+    .fd-nav__link--has-dropdown:hover::before {
+      transform: rotate(-135deg);
+      margin-bottom: -1px;
+    }
+    .fd-dropdown {
+      position: absolute;
+      top: calc(100% + 20px);
+      right: 0;
+      left: auto;
+      background: rgba(20, 20, 22, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      padding: 24px 32px;
+      min-width: 240px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 40px rgba(184, 150, 90, 0.08);
+    }
+    .fd-nav__link--has-dropdown:hover .fd-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .fd-dropdown__item {
+      display: block;
+      padding: 12px 0;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--text-light);
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s;
+      font-family: var(--t-text-font);
+      font-weight: 500;
+    }
+    .fd-dropdown__item:hover {
+      color: var(--brass);
+      padding-left: 12px;
+      text-shadow: 0 0 12px var(--brass-glow);
+    }
+    .fd-cta {
+      font-family: var(--t-text-font);
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      padding: 14px 26px;
+      border: 1px solid var(--brass);
+      color: var(--brass);
+      background: transparent;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+    .fd-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--brass);
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+    }
+    .fd-cta:hover {
+      color: #141416;
+      box-shadow: 0 8px 24px rgba(184, 150, 90, 0.25), 0 0 30px var(--brass-glow);
+    }
+    .fd-cta:hover::before { transform: translateY(0); }
+
     .fd-burger-btn {
-      display: none; flex-direction: column; justify-content: center; gap: 6px;
-      width: 38px; height: 38px; background: transparent; border: 1px solid var(--border);
-      border-radius: 4px; cursor: pointer; padding: 8px; z-index: 1001;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 32px;
+      height: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+      position: relative;
     }
-    .fd-burger-btn span { display: block; width: 100%; height: 1.5px; background: var(--cream); transition: all 0.3s; }
-    .fd-burger-btn.is-active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); background: var(--brass); }
+    .fd-burger-btn span {
+      width: 100%;
+      height: 2px;
+      background: var(--brass);
+      transition: all 0.3s;
+    }
+    .fd-burger-btn.is-active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
     .fd-burger-btn.is-active span:nth-child(2) { opacity: 0; }
-    .fd-burger-btn.is-active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); background: var(--brass); }
-    
-    .fd-drawer.is-open { right: 0; }
-    
-    
-    .fd-drawer__link.active, .fd-drawer__link:hover { color: var(--brass); }
-    .fd-hero {
-      position: relative; height: 100dvh; min-height: 100svh; display: flex; flex-direction: column;
-      justify-content: flex-end; padding: 140px 48px 60px; overflow: hidden; background: #0d0c0b;
-      box-sizing: border-box;
+    .fd-burger-btn.is-active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    .fd-mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 320px;
+      height: 100vh;
+      height: 100dvh;
+      background: rgba(20, 20, 22, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-left: 1px solid var(--border);
+      z-index: 999;
+      padding: 100px 32px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: -20px 0 60px rgba(0,0,0,0.8);
     }
-    .fd-hero__bg {
-      position: absolute; inset: 0;
-      background-size: cover; background-position: center; z-index: 0;
+    .fd-mobile-drawer.is-open { transform: translateX(0); }
+    .fd-mobile-link {
+      font-family: var(--t-headline-font);
+      font-size: 16px;
+      letter-spacing: 3px;
+      font-weight: 500;
+      color: var(--text-light);
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.3s, text-shadow 0.3s;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-light);
     }
-    .fd-hero__inner { position: relative; z-index: 2; max-width: 960px; }
-    .fd-hero__eyebrow {
-      display: inline-flex; align-items: center; gap: 16px; font-size: 12px;
-      letter-spacing: 4px; text-transform: uppercase; color: var(--brass); margin-bottom: 20px;
-    }
-    .fd-hero__eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--brass); }
-    .fd-hero__title {
-      font-family: var(--t-headline-font); font-size: clamp(34px, 5.2vw, 64px);
-      line-height: 1.12; font-style: italic; color: var(--cream); margin-bottom: 24px;
-    }
-    .fd-hero__title em { font-style: italic; color: var(--brass); }
-    .fd-hero__subtitle {
-      font-size: 17px; line-height: 1.7; color: var(--text-light); max-width: 720px;
-      margin-bottom: 36px; opacity: 0.9;
-    }
-    .fd-hero__buttons { display: flex; align-items: center; gap: 20px; }
-    .fd-btn {
-      display: inline-flex; align-items: center; gap: 12px; padding: 18px 38px;
-      font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
-      text-decoration: none; transition: all 0.3s; cursor: pointer;
-    }
-    .fd-btn--primary {
-      background: linear-gradient(135deg, var(--brass) 0%, #947239 100%);
-      color: var(--bg); border: 1px solid var(--brass);
-    }
-    .fd-btn--primary:hover {
-      background: linear-gradient(135deg, var(--brass-hover) 0%, var(--brass) 100%);
-      box-shadow: 0 0 30px var(--brass-glow);
-    }
-    .fd-btn--outline {
-      background: transparent; color: var(--cream); border: 1px solid var(--border); backdrop-filter: blur(8px);
-    }
-    .fd-btn--outline:hover { border-color: var(--brass); color: var(--brass); box-shadow: 0 0 20px var(--brass-glow); }
-    .fd-section { padding: 100px 48px 40px; max-width: 1360px; margin: 0 auto; }
-    .fd-section__header { margin-bottom: 60px; text-align: center; }
-    .fd-section__eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--brass); margin-bottom: 12px; }
-    .fd-section__title { font-family: var(--t-headline-font); font-size: clamp(30px, 4vw, 48px); font-style: italic; color: var(--cream); margin-bottom: 16px; }
-    .fd-section__title em { color: var(--brass); font-style: italic; }
-    .fd-section__desc { font-size: 16px; color: var(--text-dim); max-width: 700px; margin: 0 auto; }
-    .fd-booking-section {
-      background: var(--bg-surface); border: 1px solid var(--border); border-radius: 16px;
-      padding: 60px; margin: 40px 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-      position: relative; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 30px rgba(184, 150, 90, 0.08);
-    }
-    .fd-form-group { margin-bottom: 20px; }
-    .fd-label { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--brass); margin-bottom: 8px; }
-    .fd-input, .fd-select {
-      width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--cream);
-      padding: 14px 18px; font-family: var(--t-text-font); font-size: 14px; outline: none; transition: all 0.3s;
-    }
-    .fd-input:focus, .fd-select:focus { border-color: var(--brass); box-shadow: 0 0 15px var(--brass-glow); }
-    .fd-footer { background: #0f0f10; border-top: 1px solid var(--border-light); padding: 80px 48px 40px; margin-top: 60px; }
-    .fd-footer__inner { max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
-    .fd-footer__col-title { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--brass); margin-bottom: 20px; }
-    .fd-footer__links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .fd-footer__link { font-size: 13px; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
-    .fd-footer__link:hover { color: var(--brass); }
-    .fd-footer__bottom {
-      max-width: 1360px; margin: 0 auto; border-top: 1px solid var(--border-light);
-      padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-dim);
-    }
-    a[href^="tel"], a[href^="mailto"], .fd-footer__contact, .fd-phone-link {
-      color: var(--cream) !important; -webkit-text-fill-color: var(--cream) !important; text-decoration: none !important;
-    }
-    @media (max-width: 960px) {
-      .fd-nav, 
-      .fd-burger-btn { display: flex !important; }
-      
-      .fd-hero { height: 100dvh !important; min-height: 100svh !important; padding: 90px 20px 35px !important; }
-      .fd-hero__title { font-size: clamp(24px, 7vw, 34px) !important; }
-      .fd-hero__subtitle { font-size: 13px !important; margin-bottom: 24px !important; }
-      .fd-hero__buttons { flex-direction: column !important; width: 100% !important; }
-      .fd-hero__buttons .fd-btn { width: 100% !important; justify-content: center !important; }
-      .fd-section { padding: 60px 20px !important; }
-      .fd-booking-section { grid-template-columns: 1fr !important; padding: 30px 20px !important; }
-      .fd-footer__inner { grid-template-columns: 1fr !important; gap: 30px !important; }
-      .fd-footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .fd-mobile-link:hover, .fd-mobile-link.active {
+      color: var(--brass);
+      text-shadow: 0 0 16px var(--brass-glow);
     }
 
+    /* HERO */
+    .fd-hero {
+      position: relative;
+      height: 100dvh;
+      min-height: 100svh;
+      max-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 140px 48px 48px;
+      overflow: hidden;
+      box-sizing: border-box;
+      background: var(--graphite);
+    }
+    .fd-hero__bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.04);
+      transition: transform 12s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .fd-hero__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+    .fd-eyebrow {
+      font-family: var(--t-text-font);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+    }
+    .fd-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--brass);
+      box-shadow: 0 0 8px var(--brass);
+    }
+    .fd-hero__title {
+      font-family: var(--t-headline-font);
+      font-size: clamp(32px, 4.8vw, 54px);
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 20px;
+      font-weight: 400;
+      font-style: italic;
+    }
+    .fd-hero__title--accent, .fd-hero__title em {
+      font-style: italic;
+      color: var(--brass);
+      text-shadow: 0 0 30px var(--brass-glow);
+    }
+    .fd-hero__subtitle {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--cream-soft);
+      max-width: 680px;
+      margin-bottom: 28px;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+    .fd-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--t-text-font);
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 32px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fd-btn--primary {
+      background: var(--brass);
+      color: var(--graphite);
+      border: 1px solid var(--brass);
+      box-shadow: 0 10px 30px rgba(184, 150, 90, 0.25), 0 0 40px var(--brass-glow);
+    }
+    .fd-btn--primary:hover {
+      background: var(--brass-light);
+      box-shadow: 0 14px 40px rgba(184, 150, 90, 0.4), 0 0 60px var(--brass-glow);
+      transform: translateY(-2px);
+    }
+    .fd-btn--outline {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+    .fd-btn--outline:hover {
+      border-color: var(--brass);
+      color: var(--brass);
+      box-shadow: 0 0 20px var(--brass-glow);
+    }
+
+    /* MANIFESTO */
+    .fd-manifesto {
+      padding: 100px 48px;
+      background: radial-gradient(circle at 50% 50%, #1a1a1e 0%, var(--bg) 100%);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      text-align: center;
+    }
+    .fd-manifesto__inner { max-width: 960px; margin: 0 auto; }
+    .fd-manifesto__quote {
+      font-family: var(--t-headline-font);
+      font-size: clamp(24px, 3.2vw, 36px);
+      line-height: 1.4;
+      font-style: italic;
+      color: var(--cream);
+      margin-bottom: 24px;
+    }
+    .fd-manifesto__quote span { color: var(--brass); }
+    .fd-manifesto__desc {
+      font-size: 15px;
+      color: var(--cream-muted);
+      line-height: 1.8;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* 6 COMPETENCIES WITH PHOTOS */
+    .fd-competencies { padding: 100px 48px; max-width: 1360px; margin: 0 auto; }
+    .fd-section-head { text-align: center; margin-bottom: 60px; }
+    .fd-section-title {
+      font-family: var(--t-headline-font);
+      font-size: clamp(28px, 4vw, 44px);
+      font-style: italic;
+      color: var(--cream);
+      margin-top: 10px;
+    }
+    .fd-section-title span, .fd-section-title em { color: var(--brass); }
     .fd-comp-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 30px;
     }
     .fd-comp-card {
       background: var(--bg-surface);
@@ -184,7 +466,6 @@
     .fd-comp-card__img {
       height: 220px;
       overflow: hidden;
-      position: relative;
     }
     .fd-comp-card__img img {
       width: 100%;
@@ -193,11 +474,9 @@
       transition: transform 0.6s;
     }
     .fd-comp-card:hover .fd-comp-card__img img {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
-    .fd-comp-card__body {
-      padding: 28px;
-    }
+    .fd-comp-card__body { padding: 28px; }
     .fd-comp-card__num {
       font-size: 10px;
       letter-spacing: 2.5px;
@@ -207,279 +486,127 @@
     }
     .fd-comp-card__title {
       font-family: var(--t-headline-font);
-      font-size: 22px;
+      font-size: 20px;
       font-style: italic;
       color: var(--cream);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .fd-comp-card__desc {
       font-size: 13px;
-      color: var(--text-dim);
+      color: var(--cream-muted);
       line-height: 1.6;
     }
-    @media (max-width: 960px) {
-      .fd-comp-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+    /* VIP BOOKING SECTION */
+    .fd-booking-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 60px;
+      margin: 40px auto 20px;
+      max-width: 1360px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 30px rgba(184, 150, 90, 0.08);
     }
-    
+    .fd-form-group { margin-bottom: 20px; }
+    .fd-label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 8px;
+    }
+    .fd-input, .fd-select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      padding: 14px 18px;
+      font-family: var(--t-text-font);
+      font-size: 14px;
+      outline: none;
+      transition: all 0.3s;
+      border-radius: 4px;
+    }
+    .fd-input:focus, .fd-select:focus {
+      border-color: var(--brass);
+      box-shadow: 0 0 15px var(--brass-glow);
+    }
 
-/* EXACT 1:1 HEADER FROM INDEX.HTML */
-.fd-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: rgba(20, 20, 22, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-light);
-  padding: 20px 0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.fd-header__inner {
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 0 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.fd-logo {
-  font-family: var(--t-headline-font);
-  font-size: 26px;
-  letter-spacing: 6px;
-  color: var(--brass);
-  font-weight: 500;
-  flex-shrink: 0;
-  text-decoration: none;
-  text-shadow: 0 0 24px var(--brass-glow);
-  transition: text-shadow 0.5s;
-  position: relative;
-}
-.fd-logo::before {
-  content: '';
-  position: absolute;
-  left: -16px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 4px;
-  background: var(--brass);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--brass-glow);
-}
-.fd-logo:hover {
-  text-shadow: 0 0 10px var(--brass-hover), 0 0 24px var(--brass-glow), 0 0 48px var(--brass-glow);
-}
-.fd-logo span {
-  display: block;
-  font-size: 9px;
-  letter-spacing: 8px;
-  color: var(--text-dim);
-  margin-top: 4px;
-  text-shadow: none;
-  font-weight: 400;
-}
-.fd-header__right {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  margin-left: auto;
-}
-.fd-nav-right {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-}
-.fd-nav__link {
-  font-family: var(--t-text-font);
-  font-size: 11px;
-  letter-spacing: 2px;
-  font-weight: 500;
-  color: var(--text-light);
-  text-transform: uppercase;
-  text-decoration: none;
-  position: relative;
-  cursor: pointer;
-  padding: 6px 0;
-  transition: color 0.3s;
-}
-.fd-nav__link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 1px;
-  background: var(--brass);
-  box-shadow: 0 0 10px var(--brass-glow);
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), left 0.4s;
-}
-.fd-nav__link:hover, .fd-nav__link.active { color: var(--brass); }
-.fd-nav__link:hover::after, .fd-nav__link.active::after { width: 100%; left: 0; }
+    /* FOOTER */
+    .fd-footer {
+      background: #0d0c0e;
+      border-top: 1px solid var(--border-light);
+      padding: 80px 48px 40px;
+      margin-top: 80px;
+    }
+    .fd-footer__inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    .fd-footer__col-title {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 20px;
+    }
+    .fd-footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .fd-footer__link {
+      font-size: 13px;
+      color: var(--cream-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .fd-footer__link:hover { color: var(--brass); }
+    .fd-footer__bottom {
+      max-width: 1360px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border-light);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--cream-muted);
+    }
+    a[href^="tel"], a[href^="mailto"], .fd-footer__contact, .fd-phone-link {
+      color: var(--cream) !important;
+      -webkit-text-fill-color: var(--cream) !important;
+      text-decoration: none !important;
+    }
 
-.fd-nav__link--has-dropdown { position: relative; }
-.fd-nav__link--has-dropdown::before {
-  content: '';
-  display: inline-block;
-  width: 4px;
-  height: 4px;
-  border-right: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
-  transform: rotate(45deg);
-  margin-left: 10px;
-  vertical-align: middle;
-  margin-bottom: 3px;
-  transition: transform 0.3s;
-}
-.fd-nav__link--has-dropdown:hover::before {
-  transform: rotate(-135deg);
-  margin-bottom: -1px;
-}
-.fd-dropdown {
-  position: absolute;
-  top: calc(100% + 20px);
-  right: 0;
-  left: auto;
-  background: rgba(20, 20, 22, 0.98);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
-  padding: 24px 32px;
-  min-width: 240px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 40px rgba(184, 150, 90, 0.08);
-}
-.fd-nav__link--has-dropdown:hover .fd-dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-.fd-dropdown__item {
-  display: block;
-  padding: 12px 0;
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: var(--text-light);
-  text-transform: uppercase;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: all 0.3s;
-  font-family: var(--t-text-font);
-  font-weight: 500;
-}
-.fd-dropdown__item:hover {
-  color: var(--brass);
-  padding-left: 12px;
-  text-shadow: 0 0 12px var(--brass-glow);
-}
-.fd-cta {
-  font-family: var(--t-text-font);
-  font-size: 11px;
-  letter-spacing: 2px;
-  font-weight: 600;
-  padding: 14px 26px;
-  border: 1px solid var(--brass);
-  color: var(--brass);
-  background: transparent;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  white-space: nowrap;
-  position: relative;
-  overflow: hidden;
-}
-.fd-cta::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--brass);
-  transform: translateY(100%);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: -1;
-}
-.fd-cta:hover {
-  color: #141416;
-  box-shadow: 0 8px 24px rgba(184, 150, 90, 0.25), 0 0 30px var(--brass-glow);
-}
-.fd-cta:hover::before { transform: translateY(0); }
-
-.fd-burger-btn {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 32px;
-  height: 20px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1001;
-  position: relative;
-}
-.fd-burger-btn span {
-  width: 100%;
-  height: 2px;
-  background: var(--brass);
-  transition: all 0.3s;
-}
-.fd-burger-btn.is-active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-.fd-burger-btn.is-active span:nth-child(2) { opacity: 0; }
-.fd-burger-btn.is-active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-.fd-mobile-drawer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  max-width: 320px;
-  height: 100vh;
-  height: 100dvh;
-  background: rgba(20, 20, 22, 0.98);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-left: 1px solid var(--border);
-  z-index: 999;
-  padding: 100px 32px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: -20px 0 60px rgba(0,0,0,0.8);
-}
-.fd-mobile-drawer.is-open { transform: translateX(0); }
-.fd-mobile-link {
-  font-family: var(--t-headline-font);
-  font-size: 16px;
-  letter-spacing: 3px;
-  font-weight: 500;
-  color: var(--text-light);
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: color 0.3s, text-shadow 0.3s;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border-light);
-}
-.fd-mobile-link:hover, .fd-mobile-link.active {
-  color: var(--brass);
-  text-shadow: 0 0 16px var(--brass-glow);
-}
-@media (max-width: 960px) {
-  .fd-nav-right, .fd-header__right .fd-cta { display: none !important; }
-  .fd-burger-btn { display: flex !important; }
-  .fd-header__inner { padding: 0 20px !important; }
-}
-
-</style>
+    @media (max-width: 960px) {
+      .fd-nav-right, .fd-header__right .fd-cta { display: none !important; }
+      .fd-burger-btn { display: flex !important; }
+      .fd-header__inner { padding: 0 20px !important; }
+      .fd-hero { padding: 120px 20px 35px !important; }
+      .fd-hero__title { font-size: clamp(24px, 7vw, 34px) !important; }
+      .fd-hero__subtitle { font-size: 13px !important; margin-bottom: 20px !important; }
+      .fd-comp-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .fd-booking-section { grid-template-columns: 1fr !important; padding: 30px 20px !important; }
+      .fd-footer__inner { grid-template-columns: 1fr !important; gap: 30px !important; }
+      .fd-footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    </style>
 </head>
 <body>
   <div class="fd-cursor-glow" id="cursorGlow"></div>
-  <!-- HEADER -->
-  <header class="fd-header">
+    <header class="fd-header">
     <div class="fd-header__inner">
       <a href="index.html" class="fd-logo">FRAME<span>DESIGN</span></a>
       <div class="fd-header__right">
@@ -520,9 +647,59 @@
       Записаться в салон &rarr;
     </a>
   </div>
-  
 
-  
+  <!-- HERO -->
+  <section class="fd-hero">
+    <div class="fd-hero__bg" style="background-image: linear-gradient(to right, rgba(20,20,22,0.95) 0%, rgba(20,20,22,0.65) 50%, rgba(20,20,22,0.3) 100%), url('https://static.tildacdn.com/tild6631-6536-4631-b538-363131326565/IMG_1728.JPG');"></div>
+    <div class="fd-hero__inner">
+      <div class="fd-eyebrow">Масштаб компетенций · Собственное производство</div>
+      <h1 class="fd-hero__title">
+        Контролируем результат сами,<br>
+        <span class="fd-hero__title--accent">не передавая ключевые этапы</span> подрядчикам
+      </h1>
+      <p class="fd-hero__subtitle">
+        Frame Design — это фабрика полного цикла в Калининграде, инженерное конструкторское бюро и премиальный мебельный салон. Мы создаем изделия сложнейшей геометрии, воплощая авторские замыслы в безупречную форму.
+      </p>
+      <div>
+        <a href="#competencies" class="fd-btn fd-btn--primary">Изучить 6 компетенций &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="fd-manifesto">
+    <div class="fd-manifesto__inner">
+      <div class="fd-eyebrow" style="justify-content: center;">Принцип Frame Design</div>
+      <blockquote class="fd-manifesto__quote">
+        «Красивый эскиз может нарисовать любой дизайнер. <span>Гарантировать его 100% воплощение</span> способны только те, кто держит в руках каждый станок, каждую фрезу и каждый слой эмали».
+      </blockquote>
+      <p class="fd-manifesto__desc">
+        Отказ от субподряда — это не просто наша гордость, а единственная гарантия того, что клиент получит премиальное качество без компромиссов, задержек и взаимных перекладываний ответственности.
+      </p>
+    </div>
+  </section>
+
+  <!-- 6 CORE COMPETENCIES WITH HIGH-RES PHOTOS -->
+  <section class="fd-competencies" id="competencies">
+    <div class="fd-section-head">
+      <div class="fd-eyebrow" style="justify-content: center;">Экспертиза и возможности</div>
+      <h2 class="fd-section-title">6 ключевых компетенций <span>Frame Design</span></h2>
+    </div>
+
+    <div class="fd-comp-grid">
+      <!-- 1 -->
+      <div class="fd-comp-card">
+        <div class="fd-comp-card__img">
+          <img src="images/kitchen-countertop-fluted.jpg" alt="ЧПУ станочный парк" loading="lazy">
+        </div>
+        <div class="fd-comp-card__body">
+          <div class="fd-comp-card__num">01 · Инженерия & ЧПУ</div>
+          <h3 class="fd-comp-card__title">Станочный парк и раскрой</h3>
+          <p class="fd-comp-card__desc">
+            Автоматизированные фрезерные и присадочные ЧПУ-центры обеспечивают микронную точность пазов, ручек и 3D-рельефов.
+          </p>
+        </div>
+      </div>
 
       <!-- 2 -->
       <div class="fd-comp-card">
@@ -533,7 +710,7 @@
           <div class="fd-comp-card__num">02 · Покрасочный цех</div>
           <h3 class="fd-comp-card__title">Чистая камера покраски</h3>
           <p class="fd-comp-card__desc">
-            Герметичная малярная камера избыточного давления с многоступенчатой очисткой воздуха для идеального шелкового мата и глянца 100 gloss.
+            Герметичная малярная камера избыточного давления с многоступенчатой очисткой воздуха для идеального шелкового мата и глянца.
           </p>
         </div>
       </div>
@@ -596,59 +773,57 @@
     </div>
   </section>
 
-  
   <!-- VIP BOOKING FORM -->
-  <section class="fd-section" id="booking" style="padding-top: 20px;">
-    <div class="fd-booking-section">
-      <div class="fd-booking-info">
-        <div class="fd-section__eyebrow">Персональный визит</div>
-        <h3 class="fd-section__title" style="font-size: 34px; text-align: left; margin-bottom: 16px;">Забронируйте встречу <em>в салоне</em></h3>
-        <p style="font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 24px;">
-          Приглашаем вас в наш салон в Калининграде. Мы приготовим авторский кофе и персональный набор образцов фасадов под ваш проект.
-        </p>
-        <div style="margin-top: 24px;">
-          <div style="font-size:11px; color:var(--brass); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px;">Адрес салона:</div>
-          <div style="color:var(--cream); font-size:16px;">г. Калининград, ул. Промышленная, 1</div>
-          <div style="font-size:13px; color:var(--text-dim); margin-top:4px;">Бесплатная охраняемая парковка перед входом</div>
-        </div>
+  <section class="fd-booking-section" id="booking">
+    <div>
+      <div class="fd-eyebrow">Персональный визит</div>
+      <h3 style="font-family: var(--t-headline-font); font-size: 34px; font-style: italic; color: var(--cream); margin-bottom: 16px;">
+        Забронируйте встречу <em>в салоне</em>
+      </h3>
+      <p style="font-size: 15px; color: var(--cream-muted); line-height: 1.7; margin-bottom: 24px;">
+        Приглашаем вас в наш флагманский салон в Калининграде. Мы приготовим авторский кофе и персональный набор образцов под ваш дизайн-проект.
+      </p>
+      <div>
+        <div style="font-size: 11px; color: var(--brass); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;">Адрес салона:</div>
+        <div style="color: var(--cream); font-size: 16px;">г. Калининград, ул. Промышленная, 1</div>
+        <div style="font-size: 13px; color: var(--cream-muted); margin-top: 4px;">Бесплатная охраняемая парковка перед входом</div>
       </div>
-
-      <form class="fd-booking-form" onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в течение 15 минут.');">
-        <div class="fd-form-group">
-          <label class="fd-label">Ваше имя</label>
-          <input type="text" class="fd-input" placeholder="Александр" required>
-        </div>
-        <div class="fd-form-group">
-          <label class="fd-label">Телефон для связи</label>
-          <input type="tel" class="fd-input" placeholder="+7 (999) 000-00-00" required>
-        </div>
-        <div class="fd-form-group">
-          <label class="fd-label">Интересующее направление</label>
-          <select class="fd-select">
-            <option>Кухни премиум-класса</option>
-            <option>Гардеробные системы и шкафы</option>
-            <option>Жидкие металлы и сложные фасады</option>
-            <option>Дизайнерские зеркала и панели</option>
-            <option>Комплексная меблировка объекта</option>
-          </select>
-        </div>
-        <button type="submit" class="fd-btn fd-btn--primary" style="width:100%; justify-content:center; margin-top:10px;">
-          Записаться на встречу в салон &rarr;
-        </button>
-      </form>
     </div>
+
+    <form onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в течение 15 минут.');">
+      <div class="fd-form-group">
+        <label class="fd-label">Ваше имя</label>
+        <input type="text" class="fd-input" placeholder="Александр" required>
+      </div>
+      <div class="fd-form-group">
+        <label class="fd-label">Телефон для связи</label>
+        <input type="tel" class="fd-input" placeholder="+7 (999) 000-00-00" required>
+      </div>
+      <div class="fd-form-group">
+        <label class="fd-label">Интересующее направление</label>
+        <select class="fd-select">
+          <option>Кухни премиум-класса</option>
+          <option>Гардеробные системы и шкафы</option>
+          <option>Жидкие металлы и сложные фасады</option>
+          <option>Дизайнерские зеркала и панели</option>
+          <option>Комплексная меблировка объекта</option>
+        </select>
+      </div>
+      <button type="submit" class="fd-btn fd-btn--primary" style="width: 100%; justify-content: center; margin-top: 10px;">
+        Записаться на встречу в салон &rarr;
+      </button>
+    </form>
   </section>
 
-  
-  <!-- FOOTER -->
+    <!-- FOOTER -->
   <footer class="fd-footer">
     <div class="fd-footer__inner">
       <div>
-        <a href="index.html" class="fd-logo" style="margin-bottom: 20px;">
+        <a href="index.html" class="fd-logo" style="margin-bottom: 20px; display: inline-block;">
           FRAME
           <span>DESIGN</span>
         </a>
-        <p style="font-size: 13px; color: var(--text-dim); line-height: 1.7; max-width: 280px;">
+        <p style="font-size: 13px; color: var(--cream-muted); line-height: 1.7; max-width: 280px;">
           Индивидуальное производство мебели премиум-класса с собственным производством в Калининграде.
         </p>
       </div>
@@ -661,20 +836,21 @@
           <li><a href="salon.html" class="fd-footer__link">Наш салон</a></li>
           <li><a href="technologies.html" class="fd-footer__link">Технологии</a></li>
           <li><a href="portfolio.html" class="fd-footer__link">Портфолио</a></li>
+          <li><a href="contacts.html" class="fd-footer__link">Контакты</a></li>
         </ul>
       </div>
 
       <div>
         <div class="fd-footer__col-title">Контакты</div>
         <a href="tel:+79991234567" class="fd-phone-link" style="display:block; font-size:18px; color:var(--cream); margin-bottom:8px;">+7 (999) 123-45-67</a>
-        <a href="mailto:info@framedesign.ru" class="fd-phone-link" style="display:block; font-size:14px; color:var(--text-dim); margin-bottom:16px;">info@framedesign.ru</a>
-        <div style="font-size: 13px; color: var(--text-dim);">г. Калининград, ул. Промышленная, 1</div>
+        <a href="mailto:info@framedesign.ru" class="fd-phone-link" style="display:block; font-size:14px; color:var(--cream-muted); margin-bottom:16px;">info@framedesign.ru</a>
+        <div style="font-size: 13px; color: var(--cream-muted);">г. Калининград, ул. Промышленная, 1</div>
       </div>
 
       <div>
         <div class="fd-footer__col-title">Режим работы</div>
-        <div style="font-size: 13px; color: var(--text-light); margin-bottom: 6px;">Пн–Сб: 10:00 — 20:00</div>
-        <div style="font-size: 13px; color: var(--text-dim);">Вс: по предварительной записи</div>
+        <div style="font-size: 13px; color: var(--cream); margin-bottom: 6px;">Пн–Сб: 10:00 — 20:00</div>
+        <div style="font-size: 13px; color: var(--cream-muted);">Вс: по предварительной записи</div>
       </div>
     </div>
 
@@ -708,6 +884,5 @@
       }
     }
   </script>
-
 </body>
 </html>
