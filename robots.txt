@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stas5252.github.io/frame-design/sitemap.xml

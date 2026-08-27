@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="sealGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3a2414"/>
+      <stop offset="65%" stop-color="#22140a"/>
+      <stop offset="100%" stop-color="#140c06"/>
+    </radialGradient>
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer Glow Circle -->
+  <circle cx="64" cy="64" r="58" fill="url(#sealGrad)" stroke="#b8965a" stroke-width="1.5" stroke-opacity="0.9" filter="url(#goldGlow)"/>
+  
+  <!-- Inner Fine Ring -->
+  <circle cx="64" cy="64" r="52" fill="none" stroke="#b8965a" stroke-width="0.75" stroke-opacity="0.4" stroke-dasharray="2 2"/>
+  
+  <!-- Central Italic F -->
+  <text x="66" y="78" font-family="'TildaSans', 'Cormorant Garamond', 'Playfair Display', Georgia, serif" font-size="54" font-weight="500" font-style="italic" fill="#d4b078" text-anchor="middle">F</text>
+</svg>
