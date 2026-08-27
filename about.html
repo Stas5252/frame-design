@@ -4,37 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
-  <title>О компании — FRAME DESIGN | 6 ключевых компетенций мебельного производства</title>
-  <meta name="description" content="Полный цикл производства премиальной мебели Frame Design без субподряда. 6 компетенций: ЧПУ раскрой, малярная камера, радиусные изделия, жидкий металл, зеркала, 100% ОТК.">
+  <title>О компании — FRAME DESIGN | Собственное производство премиальной мебели</title>
+  <meta name="description" content="Полный цикл производства мебели премиум-класса Frame Design в Калининграде без субподряда. 6 ключевых компетенций: КБ, ЧПУ-парк, малярная камера, радиусные формы, жидкие металлы, 100% ОТК.">
   <link rel="canonical" href="https://stas5252.github.io/frame-design/about.html">
+  
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="https://static.tildacdn.com/css/fonts-tildasans.css" type="text/css" media="all">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --t-headline-font: 'TildaSans', Arial, sans-serif;
       --t-text-font: 'TildaSans', Arial, sans-serif;
-      --chocolate-deep: #1f1208;
-      --chocolate: #2d1a10;
-      --chocolate-soft: #3d2618;
+      --serif: 'Cormorant Garamond', Georgia, serif;
       --graphite: #141416;
-      --graphite-soft: #1f1f22;
+      --graphite-card: #1c1c20;
+      --graphite-hover: #242429;
       --cream: #f5ecd9;
       --cream-soft: #ebe0c8;
-      --cream-muted: #b8a888;
+      --cream-muted: #9e9587;
       --brass: #b8965a;
       --brass-light: #d4b078;
-      --brass-soft: rgba(184, 150, 90, 0.5);
-      --brass-glow: rgba(184, 150, 90, 0.35);
-      --text-light: #f5ecd9;
-      --text-muted: #8a7e6a;
-      --text-dim: #5a5246;
-      --border: rgba(184, 150, 90, 0.18);
+      --brass-glow: rgba(184, 150, 90, 0.3);
+      --border: rgba(184, 150, 90, 0.2);
       --border-light: rgba(245, 236, 217, 0.08);
-      --bg: #141416;
-      --bg-surface: #1a1a1e;
-      --bg-card: #202025;
+      --bg: #111113;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -65,12 +63,12 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 1000;
-      background: rgba(20, 20, 22, 0.7);
+      background: rgba(20, 20, 22, 0.75);
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
       border-bottom: 1px solid var(--border-light);
       padding: 20px 0;
-      transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .fd-header__inner {
       max-width: 1360px;
@@ -90,7 +88,6 @@
       flex-shrink: 0;
       text-decoration: none;
       text-shadow: 0 0 24px var(--brass-glow);
-      transition: text-shadow 0.5s;
       position: relative;
     }
     .fd-logo::before {
@@ -109,9 +106,8 @@
       display: block;
       font-size: 9px;
       letter-spacing: 8px;
-      color: var(--text-muted);
+      color: var(--cream-muted);
       margin-top: 4px;
-      text-shadow: none;
       font-weight: 400;
     }
     .fd-header__right {
@@ -130,7 +126,7 @@
       font-size: 11px;
       letter-spacing: 2px;
       font-weight: 500;
-      color: var(--text-light);
+      color: var(--cream);
       text-transform: uppercase;
       text-decoration: none;
       position: relative;
@@ -164,17 +160,11 @@
       margin-left: 10px;
       vertical-align: middle;
       margin-bottom: 3px;
-      transition: transform 0.3s;
-    }
-    .fd-nav__link--has-dropdown:hover::before {
-      transform: rotate(-135deg);
-      margin-bottom: -1px;
     }
     .fd-dropdown {
       position: absolute;
       top: calc(100% + 20px);
       right: 0;
-      left: auto;
       background: rgba(20, 20, 22, 0.98);
       backdrop-filter: blur(20px);
       border: 1px solid var(--border);
@@ -196,18 +186,14 @@
       padding: 12px 0;
       font-size: 12px;
       letter-spacing: 2px;
-      color: var(--text-light);
+      color: var(--cream);
       text-transform: uppercase;
       text-decoration: none;
-      border-bottom: 1px solid transparent;
       transition: all 0.3s;
-      font-family: var(--t-text-font);
-      font-weight: 500;
     }
     .fd-dropdown__item:hover {
       color: var(--brass);
-      padding-left: 12px;
-      text-shadow: 0 0 12px var(--brass-glow);
+      padding-left: 8px;
     }
     .fd-cta {
       font-family: var(--t-text-font);
@@ -252,7 +238,6 @@
       cursor: pointer;
       padding: 0;
       z-index: 1001;
-      position: relative;
     }
     .fd-burger-btn span {
       width: 100%;
@@ -266,42 +251,19 @@
 
     .fd-mobile-drawer {
       position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      max-width: 320px;
-      height: 100vh;
-      height: 100dvh;
-      background: rgba(20, 20, 22, 0.98);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-left: 1px solid var(--border);
-      z-index: 999;
-      padding: 100px 32px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      transform: translateX(100%);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: -20px 0 60px rgba(0,0,0,0.8);
+      top: 0; right: 0; width: 100%; max-width: 320px; height: 100dvh;
+      background: rgba(20, 20, 22, 0.98); backdrop-filter: blur(24px);
+      border-left: 1px solid var(--border); z-index: 999;
+      padding: 100px 32px 40px; display: flex; flex-direction: column; gap: 24px;
+      transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .fd-mobile-drawer.is-open { transform: translateX(0); }
     .fd-mobile-link {
-      font-family: var(--t-headline-font);
-      font-size: 16px;
-      letter-spacing: 3px;
-      font-weight: 500;
-      color: var(--text-light);
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: color 0.3s, text-shadow 0.3s;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border-light);
+      font-size: 16px; letter-spacing: 3px; font-weight: 500;
+      color: var(--cream); text-transform: uppercase; text-decoration: none;
+      padding: 8px 0; border-bottom: 1px solid var(--border-light);
     }
-    .fd-mobile-link:hover, .fd-mobile-link.active {
-      color: var(--brass);
-      text-shadow: 0 0 16px var(--brass-glow);
-    }
+    .fd-mobile-link.active, .fd-mobile-link:hover { color: var(--brass); }
 
     /* HERO */
     .fd-hero {
@@ -314,7 +276,6 @@
       justify-content: flex-end;
       padding: 140px 48px 48px;
       overflow: hidden;
-      box-sizing: border-box;
       background: var(--graphite);
     }
     .fd-hero__bg {
@@ -323,15 +284,9 @@
       background-size: cover;
       background-position: center;
       transform: scale(1.04);
-      transition: transform 12s cubic-bezier(0.25, 1, 0.5, 1);
     }
-    .fd-hero__inner {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-    }
+    .fd-hero__inner { position: relative; z-index: 2; max-width: 960px; }
     .fd-eyebrow {
-      font-family: var(--t-text-font);
       font-size: 11px;
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -344,21 +299,20 @@
     }
     .fd-eyebrow::before {
       content: '';
-      width: 24px;
+      width: 28px;
       height: 1px;
       background: var(--brass);
       box-shadow: 0 0 8px var(--brass);
     }
     .fd-hero__title {
       font-family: var(--t-headline-font);
-      font-size: clamp(32px, 4.8vw, 54px);
+      font-size: clamp(32px, 4.8vw, 56px);
       line-height: 1.15;
       color: var(--cream);
       margin-bottom: 20px;
-      font-weight: 400;
       font-style: italic;
     }
-    .fd-hero__title--accent, .fd-hero__title em {
+    .fd-hero__title em {
       font-style: italic;
       color: var(--brass);
       text-shadow: 0 0 30px var(--brass-glow);
@@ -367,16 +321,14 @@
       font-size: 15px;
       line-height: 1.7;
       color: var(--cream-soft);
-      max-width: 680px;
+      max-width: 720px;
       margin-bottom: 28px;
-      font-weight: 300;
       opacity: 0.9;
     }
     .fd-btn {
       display: inline-flex;
       align-items: center;
       gap: 14px;
-      font-family: var(--t-text-font);
       font-size: 11px;
       letter-spacing: 2.5px;
       font-weight: 600;
@@ -384,126 +336,251 @@
       text-decoration: none;
       padding: 16px 32px;
       cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s;
     }
     .fd-btn--primary {
       background: var(--brass);
       color: var(--graphite);
       border: 1px solid var(--brass);
-      box-shadow: 0 10px 30px rgba(184, 150, 90, 0.25), 0 0 40px var(--brass-glow);
+      box-shadow: 0 10px 30px rgba(184, 150, 90, 0.25);
     }
     .fd-btn--primary:hover {
       background: var(--brass-light);
-      box-shadow: 0 14px 40px rgba(184, 150, 90, 0.4), 0 0 60px var(--brass-glow);
       transform: translateY(-2px);
-    }
-    .fd-btn--outline {
-      background: transparent;
-      color: var(--cream);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(8px);
-    }
-    .fd-btn--outline:hover {
-      border-color: var(--brass);
-      color: var(--brass);
-      box-shadow: 0 0 20px var(--brass-glow);
+      box-shadow: 0 14px 40px rgba(184, 150, 90, 0.4), 0 0 40px var(--brass-glow);
     }
 
-    /* MANIFESTO */
-    .fd-manifesto {
-      padding: 100px 48px;
-      background: radial-gradient(circle at 50% 50%, #1a1a1e 0%, var(--bg) 100%);
+    /* STATS STRIP */
+    .fd-stats-strip {
+      background: rgba(20, 20, 24, 0.9);
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
-      text-align: center;
+      padding: 30px 48px;
     }
-    .fd-manifesto__inner { max-width: 960px; margin: 0 auto; }
-    .fd-manifesto__quote {
-      font-family: var(--t-headline-font);
-      font-size: clamp(24px, 3.2vw, 36px);
-      line-height: 1.4;
+    .fd-stats-grid {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    .fd-stat-item {
+      border-left: 1px solid var(--border);
+      padding-left: 20px;
+    }
+    .fd-stat-num {
+      font-family: var(--serif);
+      font-size: 38px;
+      color: var(--brass);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .fd-stat-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--cream-muted);
+    }
+
+    /* EDITORIAL MANIFESTO */
+    .fd-manifesto {
+      padding: 120px 48px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .fd-manifesto-quote {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.8vw, 44px);
+      line-height: 1.35;
       font-style: italic;
       color: var(--cream);
-      margin-bottom: 24px;
+      margin-bottom: 30px;
+      position: relative;
     }
-    .fd-manifesto__quote span { color: var(--brass); }
-    .fd-manifesto__desc {
-      font-size: 15px;
-      color: var(--cream-muted);
+    .fd-manifesto-quote span {
+      color: var(--brass);
+      text-shadow: 0 0 20px var(--brass-glow);
+    }
+    .fd-manifesto-text {
+      font-size: 16px;
       line-height: 1.8;
-      max-width: 760px;
+      color: var(--cream-muted);
+      max-width: 800px;
       margin: 0 auto;
     }
 
-    /* 6 COMPETENCIES WITH PHOTOS */
-    .fd-competencies { padding: 100px 48px; max-width: 1360px; margin: 0 auto; }
-    .fd-section-head { text-align: center; margin-bottom: 60px; }
-    .fd-section-title {
+    /* BESPOKE 6 COMPETENCIES - EDITORIAL LOOKBOOK LAYOUT */
+    .fd-showcase-section {
+      padding: 80px 48px 120px;
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+    .fd-showcase-header {
+      text-align: center;
+      margin-bottom: 90px;
+    }
+    .fd-showcase-header h2 {
       font-family: var(--t-headline-font);
-      font-size: clamp(28px, 4vw, 44px);
+      font-size: clamp(32px, 4.2vw, 48px);
       font-style: italic;
       color: var(--cream);
       margin-top: 10px;
     }
-    .fd-section-title span, .fd-section-title em { color: var(--brass); }
-    .fd-comp-grid {
+    .fd-showcase-header h2 em { color: var(--brass); font-style: italic; }
+
+    /* EDITORIAL ROW (HEROIC SPLIT) */
+    .fd-feat-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 120px;
+      position: relative;
     }
-    .fd-comp-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
+    .fd-feat-row--reverse {
+      grid-template-columns: 0.85fr 1.15fr;
+    }
+    .fd-feat-row--reverse .fd-feat-media {
+      order: 2;
+    }
+    .fd-feat-row--reverse .fd-feat-content {
+      order: 1;
+    }
+
+    .fd-feat-media {
+      position: relative;
+      border-radius: 16px;
       overflow: hidden;
-      transition: all 0.4s;
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 30px rgba(184, 150, 90, 0.08);
+      height: 480px;
     }
-    .fd-comp-card:hover {
-      border-color: var(--brass);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 25px var(--brass-glow);
-    }
-    .fd-comp-card__img {
-      height: 220px;
-      overflow: hidden;
-    }
-    .fd-comp-card__img img {
+    .fd-feat-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s;
+      transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
     }
-    .fd-comp-card:hover .fd-comp-card__img img {
-      transform: scale(1.06);
+    .fd-feat-row:hover .fd-feat-media img {
+      transform: scale(1.05);
     }
-    .fd-comp-card__body { padding: 28px; }
-    .fd-comp-card__num {
+    .fd-feat-media__badge {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      background: rgba(20, 20, 24, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--brass);
+      color: var(--brass);
       font-size: 10px;
       letter-spacing: 2.5px;
       text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 30px;
+    }
+
+    .fd-feat-content {
+      padding: 20px 0;
+    }
+    .fd-feat-num {
+      font-family: var(--serif);
+      font-size: 56px;
+      color: var(--brass);
+      line-height: 1;
+      margin-bottom: 12px;
+      opacity: 0.9;
+    }
+    .fd-feat-category {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 12px;
+    }
+    .fd-feat-title {
+      font-family: var(--t-headline-font);
+      font-size: clamp(28px, 3.2vw, 38px);
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .fd-feat-desc {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--cream-muted);
+      margin-bottom: 28px;
+    }
+    .fd-feat-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .fd-feat-tag {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--cream-soft);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-light);
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
+
+    /* BLUEPRINT TIMELINE SECTION */
+    .fd-blueprint-section {
+      background: radial-gradient(circle at 50% 50%, #17171b 0%, var(--bg) 100%);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 100px 48px;
+    }
+    .fd-blueprint-inner { max-width: 1360px; margin: 0 auto; }
+    .fd-blueprint-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      margin-top: 50px;
+    }
+    .fd-blueprint-step {
+      background: var(--graphite-card);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 24px 18px;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .fd-blueprint-step:hover {
+      border-color: var(--brass);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 20px var(--brass-glow);
+    }
+    .fd-step-num {
+      font-size: 11px;
+      letter-spacing: 2px;
       color: var(--brass);
       margin-bottom: 8px;
     }
-    .fd-comp-card__title {
-      font-family: var(--t-headline-font);
-      font-size: 20px;
-      font-style: italic;
+    .fd-step-name {
+      font-size: 15px;
+      font-weight: 500;
       color: var(--cream);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
-    .fd-comp-card__desc {
-      font-size: 13px;
+    .fd-step-text {
+      font-size: 12px;
       color: var(--cream-muted);
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     /* VIP BOOKING SECTION */
     .fd-booking-section {
-      background: var(--bg-surface);
+      background: var(--graphite-card);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 60px;
-      margin: 40px auto 20px;
+      margin: 80px auto 20px;
       max-width: 1360px;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -597,23 +674,30 @@
       .fd-hero { padding: 120px 20px 35px !important; }
       .fd-hero__title { font-size: clamp(24px, 7vw, 34px) !important; }
       .fd-hero__subtitle { font-size: 13px !important; margin-bottom: 20px !important; }
-      .fd-comp-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .fd-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
+      .fd-feat-row, .fd-feat-row--reverse { grid-template-columns: 1fr !important; gap: 30px !important; margin-bottom: 70px !important; }
+      .fd-feat-row--reverse .fd-feat-media { order: 1 !important; }
+      .fd-feat-row--reverse .fd-feat-content { order: 2 !important; }
+      .fd-feat-media { height: 280px !important; }
+      .fd-blueprint-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
       .fd-booking-section { grid-template-columns: 1fr !important; padding: 30px 20px !important; }
       .fd-footer__inner { grid-template-columns: 1fr !important; gap: 30px !important; }
       .fd-footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
     }
-    </style>
+  </style>
 </head>
 <body>
   <div class="fd-cursor-glow" id="cursorGlow"></div>
-    <header class="fd-header">
+
+  <!-- HEADER -->
+  <header class="fd-header">
     <div class="fd-header__inner">
       <a href="index.html" class="fd-logo">FRAME<span>DESIGN</span></a>
       <div class="fd-header__right">
         <nav class="fd-nav-right">
           <a href="about.html" class="fd-nav__link active">О компании</a>
-          <a href="salon.html" class="fd-nav__link ">Наш салон</a>
-          <a href="technologies.html" class="fd-nav__link ">Технологии</a>
+          <a href="salon.html" class="fd-nav__link">Наш салон</a>
+          <a href="technologies.html" class="fd-nav__link">Технологии</a>
           <a href="portfolio.html" class="fd-nav__link fd-nav__link--has-dropdown">
             Каталог
             <div class="fd-dropdown">
@@ -624,8 +708,8 @@
               <a href="technologies.html" class="fd-dropdown__item">3D скан</a>
             </div>
           </a>
-          <a href="portfolio.html" class="fd-nav__link ">Портфолио</a>
-          <a href="contacts.html" class="fd-nav__link ">Контакты</a>
+          <a href="portfolio.html" class="fd-nav__link">Портфолио</a>
+          <a href="contacts.html" class="fd-nav__link">Контакты</a>
         </nav>
         <a href="#booking" class="fd-cta">Записаться в салон</a>
         <button class="fd-burger-btn" id="burgerBtn" aria-label="Открыть меню">
@@ -639,10 +723,10 @@
   <div class="fd-mobile-drawer" id="mobileDrawer">
     <a href="index.html" class="fd-mobile-link" onclick="closeDrawer()">Главная</a>
     <a href="about.html" class="fd-mobile-link active" onclick="closeDrawer()">О компании</a>
-    <a href="salon.html" class="fd-mobile-link " onclick="closeDrawer()">Наш салон</a>
-    <a href="technologies.html" class="fd-mobile-link " onclick="closeDrawer()">Технологии</a>
-    <a href="portfolio.html" class="fd-mobile-link " onclick="closeDrawer()">Портфолио</a>
-    <a href="contacts.html" class="fd-mobile-link " onclick="closeDrawer()">Контакты</a>
+    <a href="salon.html" class="fd-mobile-link" onclick="closeDrawer()">Наш салон</a>
+    <a href="technologies.html" class="fd-mobile-link" onclick="closeDrawer()">Технологии</a>
+    <a href="portfolio.html" class="fd-mobile-link" onclick="closeDrawer()">Портфолио</a>
+    <a href="contacts.html" class="fd-mobile-link" onclick="closeDrawer()">Контакты</a>
     <a href="#booking" class="fd-btn fd-btn--primary" style="margin-top: 20px; justify-content: center;" onclick="closeDrawer()">
       Записаться в салон &rarr;
     </a>
@@ -658,116 +742,217 @@
         <span class="fd-hero__title--accent">не передавая ключевые этапы</span> подрядчикам
       </h1>
       <p class="fd-hero__subtitle">
-        Frame Design — это фабрика полного цикла в Калининграде, инженерное конструкторское бюро и премиальный мебельный салон. Мы создаем изделия сложнейшей геометрии, воплощая авторские замыслы в безупречную форму.
+        Frame Design — это фабрика полного цикла в Калининграде: конструкторское бюро, ЧПУ-парк, чистая малярная камера, цех жидких металлов и участок предварительной сборки.
       </p>
       <div>
-        <a href="#competencies" class="fd-btn fd-btn--primary">Изучить 6 компетенций &rarr;</a>
+        <a href="#showcase" class="fd-btn fd-btn--primary">Изучить 6 компетенций &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- MANIFESTO -->
+  <!-- STATS STRIP -->
+  <section class="fd-stats-strip">
+    <div class="fd-stats-grid">
+      <div class="fd-stat-item">
+        <div class="fd-stat-num">12 лет</div>
+        <div class="fd-stat-label">Безупречной практики</div>
+      </div>
+      <div class="fd-stat-item">
+        <div class="fd-stat-num">6 цехов</div>
+        <div class="fd-stat-label">Под одной крышей</div>
+      </div>
+      <div class="fd-stat-item">
+        <div class="fd-stat-num">0%</div>
+        <div class="fd-stat-label">Стороннего субподряда</div>
+      </div>
+      <div class="fd-stat-item">
+        <div class="fd-stat-num">100%</div>
+        <div class="fd-stat-label">Контрольная сухая сборка</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDITORIAL MANIFESTO -->
   <section class="fd-manifesto">
-    <div class="fd-manifesto__inner">
-      <div class="fd-eyebrow" style="justify-content: center;">Принцип Frame Design</div>
-      <blockquote class="fd-manifesto__quote">
-        «Красивый эскиз может нарисовать любой дизайнер. <span>Гарантировать его 100% воплощение</span> способны только те, кто держит в руках каждый станок, каждую фрезу и каждый слой эмали».
-      </blockquote>
-      <p class="fd-manifesto__desc">
-        Отказ от субподряда — это не просто наша гордость, а единственная гарантия того, что клиент получит премиальное качество без компромиссов, задержек и взаимных перекладываний ответственности.
-      </p>
+    <div class="fd-eyebrow" style="justify-content: center;">Принцип Frame Design</div>
+    <blockquote class="fd-manifesto-quote">
+      «Красивый эскиз может нарисовать любой дизайнер. <span>Гарантировать его 100% воплощение</span> способны только те, кто держит в руках каждый станок, каждую фрезу и каждый слой эмали».
+    </blockquote>
+    <p class="fd-manifesto-text">
+      Отказ от посредников и субподряда — это не просто наша гордость, а единственная гарантия того, что клиент получит премиальное качество без компромиссов, задержек и взаимных перекладываний ответственности.
+    </p>
+  </section>
+
+  <!-- 6 CORE COMPETENCIES — EDITORIAL SHOWCASE -->
+  <section class="fd-showcase-section" id="showcase">
+    <div class="fd-showcase-header">
+      <div class="fd-eyebrow" style="justify-content: center;">Масштаб возможностей</div>
+      <h2>6 ключевых компетенций <em>Frame Design</em></h2>
+    </div>
+
+    <!-- 01 -->
+    <div class="fd-feat-row">
+      <div class="fd-feat-media">
+        <div class="fd-feat-media__badge">Инженерия & ЧПУ</div>
+        <img src="images/kitchen-countertop-fluted.jpg" alt="Станочный парк и раскрой" loading="lazy">
+      </div>
+      <div class="fd-feat-content">
+        <div class="fd-feat-num">01</div>
+        <div class="fd-feat-category">Высокоточное оборудование</div>
+        <h3 class="fd-feat-title">Станочный парк ЧПУ и раскрой</h3>
+        <p class="fd-feat-desc">
+          Автоматизированные фрезерные и присадочные 5-осевые ЧПУ-центры исключают сколы, обеспечивают микронную соосность присадки и ювелирное изготовление интегрированных ручек любой сложности.
+        </p>
+        <div class="fd-feat-tags">
+          <span class="fd-feat-tag">5-осевая обработка</span>
+          <span class="fd-feat-tag">3D-фрезеровка рельефов</span>
+          <span class="fd-feat-tag">Микронная точность</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="fd-feat-row fd-feat-row--reverse">
+      <div class="fd-feat-media">
+        <div class="fd-feat-media__badge">Покрасочный цех</div>
+        <img src="images/showroom-facades-wall.jpg" alt="Чистая камера покраски" loading="lazy">
+      </div>
+      <div class="fd-feat-content">
+        <div class="fd-feat-num">02</div>
+        <div class="fd-feat-category">Собственное производство фасадов</div>
+        <h3 class="fd-feat-title">Чистая камера покраски избыточного давления</h3>
+        <p class="fd-feat-desc">
+          Герметичная малярная камера с трехступенчатой фильтрацией входящего воздуха и водяной завесой. Нанесение эмалей шелковый супермат, глубокий глянец 100 gloss и бархатистый Soft-Touch без единой пылинки.
+        </p>
+        <div class="fd-feat-tags">
+          <span class="fd-feat-tag">Шелковый мат</span>
+          <span class="fd-feat-tag">Глянец 100 Gloss</span>
+          <span class="fd-feat-tag">Подбор цвета по NCS / RAL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="fd-feat-row">
+      <div class="fd-feat-media">
+        <div class="fd-feat-media__badge">Сложная геометрия</div>
+        <img src="images/kitchen-island-brass.jpg" alt="Сложные радиусные изделия" loading="lazy">
+      </div>
+      <div class="fd-feat-content">
+        <div class="fd-feat-num">03</div>
+        <div class="fd-feat-category">Нестандартные формы</div>
+        <h3 class="fd-feat-title">Сложные радиусные изделия</h3>
+        <p class="fd-feat-desc">
+          Собственное вакуумное мембранное прессование и изготовление индивидуальных пресс-форм. Мы создаем монолитные гнутые кухонные острова, скругленные углы и радиусные фасады без видимых стыков и швов.
+        </p>
+        <div class="fd-feat-tags">
+          <span class="fd-feat-tag">Гнутоклееный МДФ</span>
+          <span class="fd-feat-tag">Радиусные острова</span>
+          <span class="fd-feat-tag">Бесшовные сопряжения</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="fd-feat-row fd-feat-row--reverse">
+      <div class="fd-feat-media">
+        <div class="fd-feat-media__badge">Эксклюзивные покрытия</div>
+        <img src="images/glass-vitrine-brass.jpg" alt="Жидкие металлы и латунь" loading="lazy">
+      </div>
+      <div class="fd-feat-content">
+        <div class="fd-feat-num">04</div>
+        <div class="fd-feat-category">Художественная мастерская</div>
+        <h3 class="fd-feat-title">Жидкие металлы и ручное патинирование</h3>
+        <p class="fd-feat-desc">
+          Технология напыления 95% холодного натурального металла (латунь, медь, бронза, титан) с последующим ручным шлифованием, травлением и запеканием защитного керамического нано-лака.
+        </p>
+        <div class="fd-feat-tags">
+          <span class="fd-feat-tag">Латунь Aura</span>
+          <span class="fd-feat-tag">Медь Verdigris</span>
+          <span class="fd-feat-tag">Ручная шлифовка</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="fd-feat-row">
+      <div class="fd-feat-media">
+        <div class="fd-feat-media__badge">Архитектурный свет</div>
+        <img src="images/hallway-mirror-wood.jpg" alt="Дизайнерские зеркала" loading="lazy">
+      </div>
+      <div class="fd-feat-content">
+        <div class="fd-feat-num">05</div>
+        <div class="fd-feat-category">Интеграция света</div>
+        <h3 class="fd-feat-title">Дизайнерские зеркала и панно</h3>
+        <p class="fd-feat-desc">
+          Бесшовное встраивание широкоформатных зеркал с фацетом в стеновые панели из натурального шпона американского ореха и дуба, со скрытой контурной подсветкой мягкого теплого спектра 3000K.
+        </p>
+        <div class="fd-feat-tags">
+          <span class="fd-feat-tag">Зеркала с фацетом</span>
+          <span class="fd-feat-tag">Скрытый свет 3000K</span>
+          <span class="fd-feat-tag">Шпонированные рейки</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="fd-feat-row fd-feat-row--reverse">
+      <div class="fd-feat-media">
+        <div class="fd-feat-media__badge">100% Надежность</div>
+        <img src="images/wardrobe-brass-handles.jpg" alt="Контрольная сухая сборка" loading="lazy">
+      </div>
+      <div class="fd-feat-content">
+        <div class="fd-feat-num">06</div>
+        <div class="fd-feat-category">Служба контроля качества</div>
+        <h3 class="fd-feat-title">Контрольная сборка и 100% ОТК</h3>
+        <p class="fd-feat-desc">
+          Каждое изделие проходит полную предварительную сухую сборку в цеху перед упаковкой. Проверяется соосность всех зазоров, плавность работы доводчиков Blum Legrabox и геометрия фасадов.
+        </p>
+        <div class="fd-feat-tags">
+          <span class="fd-feat-tag">Сухая сборка на фабрике</span>
+          <span class="fd-feat-tag">Фурнитура Blum Legrabox</span>
+          <span class="fd-feat-tag">Монтаж за 1 день</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 6 CORE COMPETENCIES WITH HIGH-RES PHOTOS -->
-  <section class="fd-competencies" id="competencies">
-    <div class="fd-section-head">
-      <div class="fd-eyebrow" style="justify-content: center;">Экспертиза и возможности</div>
-      <h2 class="fd-section-title">6 ключевых компетенций <span>Frame Design</span></h2>
-    </div>
-
-    <div class="fd-comp-grid">
-      <!-- 1 -->
-      <div class="fd-comp-card">
-        <div class="fd-comp-card__img">
-          <img src="images/kitchen-countertop-fluted.jpg" alt="ЧПУ станочный парк" loading="lazy">
+  <!-- WORKSHOPS BLUEPRINT TIMELINE -->
+  <section class="fd-blueprint-section">
+    <div class="fd-blueprint-inner">
+      <div class="fd-eyebrow" style="justify-content: center;">Цеховая хроника</div>
+      <h2 class="fd-section-title" style="text-align: center;">Маршрут изделия по 6 цехам <span>без субподряда</span></h2>
+      
+      <div class="fd-blueprint-grid">
+        <div class="fd-blueprint-step">
+          <div class="fd-step-num">Цех 01</div>
+          <div class="fd-step-name">КБ SolidWorks</div>
+          <div class="fd-step-text">3D-моделирование и расчет присадки узлов.</div>
         </div>
-        <div class="fd-comp-card__body">
-          <div class="fd-comp-card__num">01 · Инженерия & ЧПУ</div>
-          <h3 class="fd-comp-card__title">Станочный парк и раскрой</h3>
-          <p class="fd-comp-card__desc">
-            Автоматизированные фрезерные и присадочные ЧПУ-центры обеспечивают микронную точность пазов, ручек и 3D-рельефов.
-          </p>
+        <div class="fd-blueprint-step">
+          <div class="fd-step-num">Цех 02</div>
+          <div class="fd-step-name">Станки ЧПУ</div>
+          <div class="fd-step-text">Автоматизированный раскрой и 3D-фрезеровка.</div>
         </div>
-      </div>
-
-      <!-- 2 -->
-      <div class="fd-comp-card">
-        <div class="fd-comp-card__img">
-          <img src="images/showroom-facades-wall.jpg" alt="Малярная камера" loading="lazy">
+        <div class="fd-blueprint-step">
+          <div class="fd-step-num">Цех 03</div>
+          <div class="fd-step-name">Радиусы</div>
+          <div class="fd-step-text">Вакуумное формование гнутых фасадов.</div>
         </div>
-        <div class="fd-comp-card__body">
-          <div class="fd-comp-card__num">02 · Покрасочный цех</div>
-          <h3 class="fd-comp-card__title">Чистая камера покраски</h3>
-          <p class="fd-comp-card__desc">
-            Герметичная малярная камера избыточного давления с многоступенчатой очисткой воздуха для идеального шелкового мата и глянца.
-          </p>
+        <div class="fd-blueprint-step">
+          <div class="fd-step-num">Цех 04</div>
+          <div class="fd-step-name">Малярная</div>
+          <div class="fd-step-text">Покраска в чистой камере избыточного давления.</div>
         </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="fd-comp-card">
-        <div class="fd-comp-card__img">
-          <img src="images/kitchen-island-brass.jpg" alt="Радиусные изделия" loading="lazy">
+        <div class="fd-blueprint-step">
+          <div class="fd-step-num">Цех 05</div>
+          <div class="fd-step-name">Жидкий металл</div>
+          <div class="fd-step-text">Напыление латуни, патинирование и нано-лак.</div>
         </div>
-        <div class="fd-comp-card__body">
-          <div class="fd-comp-card__num">03 · Сложная геометрия</div>
-          <h3 class="fd-comp-card__title">Сложные радиусные изделия</h3>
-          <p class="fd-comp-card__desc">
-            Собственные пресс-формы и вакуумные мембранные прессы для создания монолитных гнутых островов и плавных закруглений без швов.
-          </p>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="fd-comp-card">
-        <div class="fd-comp-card__img">
-          <img src="images/glass-vitrine-brass.jpg" alt="Жидкие металлы" loading="lazy">
-        </div>
-        <div class="fd-comp-card__body">
-          <div class="fd-comp-card__num">04 · Эксклюзив</div>
-          <h3 class="fd-comp-card__title">Жидкие металлы и латунь</h3>
-          <p class="fd-comp-card__desc">
-            Нанесение натурального холодного металла (латунь, медь, бронза) с ручным патинированием, шлифовкой и защитой керамическим лаком.
-          </p>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="fd-comp-card">
-        <div class="fd-comp-card__img">
-          <img src="images/hallway-mirror-wood.jpg" alt="Дизайнерские зеркала" loading="lazy">
-        </div>
-        <div class="fd-comp-card__body">
-          <div class="fd-comp-card__num">05 · Архитектурный свет</div>
-          <h3 class="fd-comp-card__title">Дизайнерские зеркала</h3>
-          <p class="fd-comp-card__desc">
-            Широкоформатные зеркальные панно со скрытым контурным светом, фацетом и бесшовной интеграцией в панели из натурального шпона.
-          </p>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="fd-comp-card">
-        <div class="fd-comp-card__img">
-          <img src="images/wardrobe-brass-handles.jpg" alt="Контроль качества ОТК" loading="lazy">
-        </div>
-        <div class="fd-comp-card__body">
-          <div class="fd-comp-card__num">06 · 100% Надежность</div>
-          <h3 class="fd-comp-card__title">Контрольная сборка и ОТК</h3>
-          <p class="fd-comp-card__desc">
-            Каждое изделие проходит полную предварительную сухую сборку в цеху перед упаковкой, гарантируя отсутствие сюрпризов при монтаже.
-          </p>
+        <div class="fd-blueprint-step">
+          <div class="fd-step-num">Цех 06</div>
+          <div class="fd-step-name">Сборка & ОТК</div>
+          <div class="fd-step-text">Контрольная сухая сборка перед упаковкой.</div>
         </div>
       </div>
     </div>
@@ -815,7 +1000,7 @@
     </form>
   </section>
 
-    <!-- FOOTER -->
+  <!-- FOOTER -->
   <footer class="fd-footer">
     <div class="fd-footer__inner">
       <div>
