@@ -23,6 +23,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
@@ -45,7 +46,7 @@
       "longitude": 20.4852
     },
     "url": "https://stas5252.github.io/frame-design/",
-    "telephone": "+7-999-123-45-67",
+    "telephone": "+7 (900) 568-68-27",
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -58,7 +59,7 @@
   }
   </script>
 
-  <meta name="description" content="Контакты салона и фабрики Frame Design в Калининграде. Адрес, часы работы, маршрут на Яндекс Картах, запись на встречу, прямые мессенджеры и парковка для гостей.">
+  <meta name="description" content="Контакты салона и фабрики Frame Design в Калининграде. Адрес, часы работы, маршрут на Яндекс Картах, запись на встречу, прямые мессенджеры и связь с экспертом.">
   <meta name="keywords" content="контакты Frame Design, салон мебели Калининград адрес, записаться в салон мебели, мебельная фабрика Калининград контакты">
   <meta property="og:title" content="Контакты и визит в салон — FRAME DESIGN">
   <meta property="og:description" content="Приглашаем в салон Frame Design. Удобный паркинг, кофе, экспозиция материалов и персональный расчет проекта.">
@@ -71,7 +72,7 @@
     "@type": "FurnitureStore",
     "name": "FRAME DESIGN",
     "image": "https://formali.tilda.ws/framedesign",
-    "telephone": "+7 (999) 123-45-67",
+    "telephone": "+7 (900) 568-68-27",
     "email": "info@framedesign.ru",
     "address": {
       "@type": "PostalAddress",
@@ -1162,22 +1163,25 @@ a[href^="mailto"]:hover,
   <!-- HEADER -->
   <header class="fd-header">
     <div class="fd-header__inner">
-      <a href="index.html" class="fd-logo">FRAME<span>DESIGN</span></a>
+      <a href="index.html" class="fd-logo"><img src="images/frame-logo-white.png" alt="FRAME DESIGN" class="fd-logo__img"></a>
+      <div class="fd-header__contacts">
+        <div class="fd-header__social-btns">
+          <a href="mailto:info@framedesign.ru" class="fd-head-btn fd-head-btn--mail" title="Написать на Email" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="19" height="19"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a href="https://web.max.ru/461819052" target="_blank" rel="noopener noreferrer" class="fd-head-btn fd-head-btn--max" title="MAX" aria-label="MAX">
+            <svg viewBox="0 0 24 24" width="19" height="19"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.03 3 3 7.03 3 12c0 1.94.61 3.73 1.66 5.2L3.2 21.2a.6.6 0 0 0 .76.76l3.96-1.44A8.96 8.96 0 0 0 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+          </a>
+          <a href="https://t.me/+79005686827" target="_blank" rel="noopener noreferrer" class="fd-head-btn fd-head-btn--tg" title="Написать в Telegram" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" width="19" height="19"><path d="M2.1 10.8l18.4-7.2c.8-.3 1.7.4 1.4 1.2l-3.2 15.1c-.2.8-1.1 1.1-1.7.6l-5.1-4.2-2.5 2.4c-.4.4-1.1.2-1.2-.4l-.9-5.9 10.6-9.6L6.2 14.1l-4.1-1.4c-.8-.3-.8-1.4 0-1.9z"/></svg>
+          </a>
+        </div>
+      </div>
       <div class="fd-header__right">
         <nav class="fd-nav-right">
           <a href="about.html" class="fd-nav__link">О нас</a>
           <a href="salon.html" class="fd-nav__link">Наш салон</a>
           <a href="technologies.html" class="fd-nav__link">Технологии</a>
-          <a href="portfolio.html" class="fd-nav__link fd-nav__link--has-dropdown">
-            Каталог<span class="fd-nav__caret"></span>
-            <div class="fd-dropdown">
-              <a href="portfolio.html#kitchens" class="fd-dropdown__item">Фасады</a>
-              <a href="portfolio.html#living" class="fd-dropdown__item">Металл</a>
-              <a href="portfolio.html#wardrobes" class="fd-dropdown__item">Формы</a>
-              <a href="portfolio.html" class="fd-dropdown__item">Мебель</a>
-              <a href="technologies.html" class="fd-dropdown__item">3D скан</a>
-            </div>
-          </a>
           <a href="portfolio.html" class="fd-nav__link">Портфолио</a>
           <a href="contacts.html" class="fd-nav__link active">Контакты</a>
         </nav>
@@ -1195,12 +1199,22 @@ a[href^="mailto"]:hover,
     <a href="about.html" class="fd-mobile-link" onclick="closeDrawer()">О нас</a>
     <a href="salon.html" class="fd-mobile-link" onclick="closeDrawer()">Наш салон</a>
     <a href="technologies.html" class="fd-mobile-link" onclick="closeDrawer()">Технологии</a>
-    <a href="portfolio.html" class="fd-mobile-link" onclick="closeDrawer()">Каталог</a>
     <a href="portfolio.html" class="fd-mobile-link" onclick="closeDrawer()">Портфолио</a>
     <a href="contacts.html" class="fd-mobile-link active" onclick="closeDrawer()">Контакты</a>
     <a href="#book" class="fd-btn fd-btn--primary" style="margin-top: 20px;" onclick="closeDrawer()">
       Записаться в салон <span class="fd-btn__arrow"></span>
     </a>
+      <div class="fd-mobile-contacts" style="margin-top: 28px; display: flex; gap: 14px; align-items: center; justify-content: center;">
+      <a href="mailto:info@framedesign.ru" class="fd-head-btn fd-head-btn--mail" aria-label="Email">
+        <svg viewBox="0 0 24 24" width="19" height="19"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+      <a href="https://web.max.ru/461819052" target="_blank" rel="noopener noreferrer" class="fd-head-btn fd-head-btn--max" aria-label="MAX">
+        <svg viewBox="0 0 24 24" width="19" height="19"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.03 3 3 7.03 3 12c0 1.94.61 3.73 1.66 5.2L3.2 21.2a.6.6 0 0 0 .76.76l3.96-1.44A8.96 8.96 0 0 0 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+      </a>
+      <a href="https://t.me/+79005686827" target="_blank" rel="noopener noreferrer" class="fd-head-btn fd-head-btn--tg" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" width="19" height="19"><path d="M2.1 10.8l18.4-7.2c.8-.3 1.7.4 1.4 1.2l-3.2 15.1c-.2.8-1.1 1.1-1.7.6l-5.1-4.2-2.5 2.4c-.4.4-1.1.2-1.2-.4l-.9-5.9 10.6-9.6L6.2 14.1l-4.1-1.4c-.8-.3-.8-1.4 0-1.9z"/></svg>
+      </a>
+    </div>
   </div>
 
   <!-- HERO -->
@@ -1252,7 +1266,7 @@ a[href^="mailto"]:hover,
         <!-- Phone & Hours -->
         <div class="fd-info-block">
           <div class="fd-info-block__label">Телефон и график работы</div>
-          <a href="tel:+79991234567" class="fd-info-block__val">+7 (999) 123-45-67</a>
+          <a href="tel:+79005686827" class="fd-info-block__val">+7 (900) 568-68-27</a>
           <div class="fd-info-block__sub">
             Пн – Сб: с 10:00 до 20:00<br>
             Вс: по предварительной записи
@@ -1290,7 +1304,7 @@ a[href^="mailto"]:hover,
           </select>
           <input type="text" class="fd-field" placeholder="Удобная дата или пожелания к проекту">
           <button type="submit" class="fd-btn fd-btn--primary" style="margin-top: 10px;">
-            Забронировать встречу <span class="fd-btn__arrow"></span>
+            Заказать звонок <span class="fd-btn__arrow"></span>
           </button>
         </form>
       </div>
@@ -1304,7 +1318,7 @@ a[href^="mailto"]:hover,
       <div class="fd-map-overlay__title">Frame Design Showroom</div>
       <div class="fd-map-overlay__text">
         Калининград, ул. Промышленная, 1<br>
-        Охраняемая парковка · Вход с центрального фасада
+        Вход с центрального фасада
       </div>
       <a href="https://yandex.ru/maps/?text=Калининград%2C+ул.+Промышленная%2C+1" target="_blank" rel="noopener" class="fd-btn fd-btn--primary" style="padding: 12px 20px; font-size: 10px;">
         Маршрут в Яндекс Картах <span class="fd-btn__arrow"></span>
@@ -1319,19 +1333,25 @@ a[href^="mailto"]:hover,
   <footer class="fd-footer">
     <div class="fd-footer__inner">
       <div class="fd-fade">
-        <div class="fd-footer__logo">FRAME<span>DESIGN</span></div>
+        <a href="index.html" class="fd-footer__logo"><img src="images/frame-logo-white.png" alt="FRAME DESIGN" class="fd-logo__img"></a>
         <p class="fd-footer__about">
           Индивидуальная мебель премиум-класса с собственным высокоточным производством.
         </p>
         <div class="fd-footer__socials">
-          <a href="https://t.me/" target="_blank" rel="noopener" class="fd-social">TG</a>
-          <a href="https://wa.me/" target="_blank" rel="noopener" class="fd-social">WA</a>
-          <a href="#" class="fd-social">IG</a>
+          <a href="mailto:info@framedesign.ru" class="fd-head-btn fd-head-btn--mail" title="Написать на Email" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="19" height="19"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a href="https://web.max.ru/461819052" target="_blank" rel="noopener noreferrer" class="fd-head-btn fd-head-btn--max" title="MAX" aria-label="MAX">
+            <svg viewBox="0 0 24 24" width="19" height="19"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.03 3 3 7.03 3 12c0 1.94.61 3.73 1.66 5.2L3.2 21.2a.6.6 0 0 0 .76.76l3.96-1.44A8.96 8.96 0 0 0 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+          </a>
+          <a href="https://t.me/+79005686827" target="_blank" rel="noopener noreferrer" class="fd-head-btn fd-head-btn--tg" title="Написать в Telegram" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" width="19" height="19"><path d="M2.1 10.8l18.4-7.2c.8-.3 1.7.4 1.4 1.2l-3.2 15.1c-.2.8-1.1 1.1-1.7.6l-5.1-4.2-2.5 2.4c-.4.4-1.1.2-1.2-.4l-.9-5.9 10.6-9.6L6.2 14.1l-4.1-1.4c-.8-.3-.8-1.4 0-1.9z"/></svg>
+          </a>
         </div>
       </div>
       <div class="fd-fade">
         <div class="fd-footer__col-title">Контакты</div>
-        <a href="tel:+79991234567" class="fd-footer__contact fd-phone-link" style="display:block;">+7 (999) 123-45-67</a>
+        <a href="tel:+79005686827" class="fd-footer__contact fd-phone-link" style="display:block;">+7 (900) 568-68-27</a>
         <a href="mailto:info@framedesign.ru" class="fd-footer__contact fd-phone-link" style="display:block; font-size: 16px; margin-bottom: 20px;">info@framedesign.ru</a>
         <div style="font-size: 11px; letter-spacing: 2px; color: var(--cream-muted); text-transform: uppercase; margin-bottom: 8px;">Адрес салона</div>
         <div style="color: var(--cream); font-size: 14px;">Калининград, ул. Промышленная, 1</div>

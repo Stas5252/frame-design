@@ -20,8 +20,8 @@
 .fd-header__inner { min-height: 52px; }
 .fd-logo { line-height: 1.15 !important; }
 .fd-logo span { line-height: 1.2 !important; }
-.fd-nav__link { line-height: 1.4 !important; }
-.fd-cta { line-height: 1.2 !important; }
+.fd-nav__link { line-height: 1.4 !important; white-space: nowrap !important; }
+.fd-cta { line-height: 1.2 !important; white-space: nowrap !important; }
 .fd-burger-btn { flex-shrink: 0; }
 
 /* активный пункт меню */
@@ -31,58 +31,89 @@
 /* «Каталог» с выпадающим списком — клик по нему тоже работает */
 .fd-nav__link--has-dropdown { padding-right: 2px; }
 
-/* ---------- 2. БАЗОВЫЙ АДАПТИВ ---------- */
-html { -webkit-text-size-adjust: 100%; }
+/* ---------- 0. ФИРМЕННЫЙ СКРОЛЛБАР В СТИЛЕ FRAME DESIGN ---------- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #5a4832 #141416;
+  -webkit-text-size-adjust: 100%;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #141416;
+}
+::-webkit-scrollbar-thumb {
+  background: #3e3324;
+  border-radius: 4px;
+  border: 1px solid rgba(184, 150, 90, 0.25);
+  transition: background 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b8965a;
+  box-shadow: 0 0 10px rgba(184, 150, 90, 0.5);
+}
+
+/* ---------- 2. БАЗОВЫЙ АДАПТИВ И ПЕРВЫЙ ЭКРАН (HERO) ---------- */
 body { overflow-x: hidden; }
 img, video, iframe { max-width: 100%; }
 
-/* Первый экран: больше не обрезается — растёт под контент */
+/* Внутренние страницы: компактный первый экран прямо под шапкой, без пустоты */
 .fd-hero {
+  position: relative;
   height: auto !important;
-  min-height: 100svh !important;
+  min-height: auto !important;
   max-height: none !important;
-  padding: 132px 48px 64px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  padding: 155px 48px 75px !important;
+  box-sizing: border-box !important;
 }
-.fd-hero__inner { width: 100%; }
-
-/* Первый экран внутренних страниц: текст по центру, без пустого поля сверху.
-   На главной низ держит блок преимуществ — там оставляем прижатым к низу. */
-@media (min-width: 961px) {
-  .fd-hero {
-    justify-content: center !important;
-    min-height: 86svh !important;
-    padding: 118px 48px 58px !important;
-  }
-  .fd-hero:has(.fd-hero__features) {
-    justify-content: flex-end !important;
-    min-height: 100svh !important;
-    padding: 132px 48px 64px !important;
-  }
+.fd-hero__inner {
+  width: 100%;
+  margin-top: 0 !important;
 }
 
-/* на ноутбуках первый экран должен помещаться целиком */
+/* Главная страница: полноэкранный hero с карточками преимуществ внизу */
+.fd-hero:has(.fd-hero__features),
+.fd-page--home .fd-hero {
+  min-height: 100vh !important;
+  min-height: 100svh !important;
+  justify-content: flex-end !important;
+  padding: 130px 48px 60px !important;
+}
+
+/* на ноутбуках карточки преимуществ на главной */
 @media (min-width: 961px) {
-  .fd-hero__features { margin-top: 56px !important; padding-top: 38px !important; }
+  .fd-hero__features { margin-top: 48px !important; padding-top: 32px !important; }
 }
 @media (min-width: 961px) and (max-height: 820px) {
-  .fd-hero { padding: 116px 48px 48px !important; }
-  .fd-hero__features { margin-top: 40px !important; padding-top: 28px !important; }
-  .fd-hero__title { margin-bottom: 22px !important; }
-  .fd-hero__subtitle { margin-bottom: 30px !important; }
+  .fd-hero:has(.fd-hero__features) { padding: 110px 48px 40px !important; }
+  .fd-hero__features { margin-top: 32px !important; padding-top: 24px !important; }
+  .fd-hero__title { margin-bottom: 18px !important; }
+  .fd-hero__subtitle { margin-bottom: 24px !important; }
 }
 
-/* Планшет и телефон: текст по центру экрана, без пустого поля сверху */
+/* Планшет и телефон */
 @media (max-width: 960px) {
   .fd-header { padding: 12px 0 !important; }
   .fd-header__inner { min-height: 44px; }
   .fd-hero {
-    min-height: 84svh !important;
-    justify-content: center !important;
-    padding: 104px 24px 64px !important;
+    min-height: auto !important;
+    justify-content: flex-start !important;
+    padding: 110px 24px 50px !important;
   }
-  /* блок преимуществ на главной больше не прячем */
+  .fd-hero:has(.fd-hero__features) {
+    min-height: 100svh !important;
+    justify-content: flex-end !important;
+    padding: 95px 20px 35px !important;
+  }
+  /* блок преимуществ на главной */
   .fd-hero__features {
     display: grid !important;
+
     grid-template-columns: minmax(0, 1fr) !important;
     gap: 22px !important;
     margin: 44px 0 0 !important;
@@ -823,3 +854,115 @@ img, video, iframe { max-width: 100%; }
   margin-top: auto;
   align-self: flex-start;
 }
+
+/* ---------- 11. СТИЛИЗАЦИЯ НОВОЙ ПЕЧАТИ / ЛОГОТИПА FRAME DESIGN ---------- */
+.fd-invite__seal-img {
+  width: 80px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 16px var(--brass-glow));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  pointer-events: none;
+  user-select: none;
+}
+.fd-invite__seal:hover .fd-invite__seal-img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 24px rgba(212, 176, 120, 0.65));
+}
+
+/* ---------- 12. НОВЫЙ ФИРМЕННЫЙ ЛОГОТИП FRAME DESIGN (ШАПКА И ФУТЕР) ---------- */
+.fd-logo {
+  display: inline-flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  font-size: 0 !important;
+}
+.fd-logo::before,
+.fd-footer__logo::before {
+  display: none !important;
+  content: none !important;
+}
+.fd-logo__img {
+  height: 84px;
+  width: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.3));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+.fd-logo:hover .fd-logo__img {
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.6));
+}
+.fd-footer__logo {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-bottom: 24px !important;
+  line-height: 1 !important;
+  font-size: 0 !important;
+}
+.fd-footer__logo .fd-logo__img {
+  height: 96px;
+}
+@media (max-width: 768px) {
+  .fd-logo__img {
+    height: 60px;
+  }
+}
+
+/* ---------- 13. БЛОК 3 ЧЕРНО-БЕЛЫХ КНОПОК В ШАПКЕ (EMAIL, СООБЩЕНИЯ, TELEGRAM) ---------- */
+.fd-header__contacts {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+.fd-header__social-btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.fd-head-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff !important;
+  color: #000000 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
+  flex-shrink: 0;
+}
+.fd-head-btn svg {
+  display: block !important;
+  width: 19px !important;
+  height: 19px !important;
+  fill: #000000 !important;
+  stroke: none !important;
+}
+.fd-head-btn:hover {
+  background: #ffffff !important;
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 960px) {
+  .fd-header__contacts {
+    display: none;
+  }
+}
+
+
+
+
