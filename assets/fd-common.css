@@ -31,6 +31,25 @@
 /* «Каталог» с выпадающим списком — клик по нему тоже работает */
 .fd-nav__link--has-dropdown { padding-right: 2px; }
 
+/* Кнопка с контуром (Outline button) */
+.fd-btn--outline {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: var(--cream) !important;
+  border: 1px solid rgba(184, 150, 90, 0.5) !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.35s ease !important;
+}
+.fd-btn--outline:hover {
+  background: rgba(184, 150, 90, 0.15) !important;
+  border-color: var(--brass) !important;
+  color: var(--brass-light) !important;
+  box-shadow: 0 0 25px rgba(184, 150, 90, 0.35) !important;
+  transform: translateY(-2px);
+}
+
 /* ---------- 0. ФИРМЕННЫЙ СКРОЛЛБАР В СТИЛЕ FRAME DESIGN ---------- */
 html {
   scrollbar-width: thin;
@@ -59,21 +78,23 @@ html {
 body { overflow-x: hidden; }
 img, video, iframe { max-width: 100%; }
 
-/* Внутренние страницы: компактный первый экран прямо под шапкой, без пустоты */
+/* Первый экран: полноэкранный 100vh на всех страницах */
 .fd-hero {
   position: relative;
   height: auto !important;
-  min-height: auto !important;
+  min-height: 100vh !important;
+  min-height: 100svh !important;
   max-height: none !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important;
-  padding: 155px 48px 75px !important;
+  justify-content: center !important;
+  padding: 140px 48px 80px !important;
   box-sizing: border-box !important;
 }
 .fd-hero__inner {
   width: 100%;
-  margin-top: 0 !important;
+  max-width: 1280px;
+  margin: 0 !important;
 }
 
 /* Главная страница: полноэкранный hero с карточками преимуществ внизу */
@@ -101,9 +122,9 @@ img, video, iframe { max-width: 100%; }
   .fd-header { padding: 12px 0 !important; }
   .fd-header__inner { min-height: 44px; }
   .fd-hero {
-    min-height: auto !important;
-    justify-content: flex-start !important;
-    padding: 110px 24px 50px !important;
+    min-height: 100svh !important;
+    justify-content: center !important;
+    padding: 100px 24px 60px !important;
   }
   .fd-hero:has(.fd-hero__features) {
     min-height: 100svh !important;

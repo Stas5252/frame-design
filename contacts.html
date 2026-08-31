@@ -681,6 +681,24 @@
       color: var(--graphite);
       box-shadow: 0 8px 32px rgba(184, 150, 90, 0.3);
     }
+    
+    .fd-btn--outline {
+      background: rgba(255, 255, 255, 0.04) !important;
+      color: var(--cream) !important;
+      border: 1px solid rgba(184, 150, 90, 0.5) !important;
+      text-decoration: none !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+    .fd-btn--outline:hover {
+      background: rgba(184, 150, 90, 0.15) !important;
+      border-color: var(--brass) !important;
+      color: var(--brass-light) !important;
+      box-shadow: 0 0 25px rgba(184, 150, 90, 0.35) !important;
+      transform: translateY(-2px);
+    }
+
     .fd-btn--primary:hover {
       background: var(--brass-light);
       transform: translateY(-2px);
@@ -1181,6 +1199,7 @@ a[href^="mailto"]:hover,
         <nav class="fd-nav-right">
           <a href="about.html" class="fd-nav__link">О нас</a>
           <a href="salon.html" class="fd-nav__link">Наш салон</a>
+          <a href="designers.html" class="fd-nav__link">Дизайнерам</a>
           <a href="technologies.html" class="fd-nav__link">Технологии</a>
           <a href="portfolio.html" class="fd-nav__link">Портфолио</a>
           <a href="contacts.html" class="fd-nav__link active">Контакты</a>
@@ -1198,6 +1217,7 @@ a[href^="mailto"]:hover,
     <a href="index.html" class="fd-mobile-link" onclick="closeDrawer()">Главная</a>
     <a href="about.html" class="fd-mobile-link" onclick="closeDrawer()">О нас</a>
     <a href="salon.html" class="fd-mobile-link" onclick="closeDrawer()">Наш салон</a>
+    <a href="designers.html" class="fd-mobile-link" onclick="closeDrawer()">Дизайнерам</a>
     <a href="technologies.html" class="fd-mobile-link" onclick="closeDrawer()">Технологии</a>
     <a href="portfolio.html" class="fd-mobile-link" onclick="closeDrawer()">Портфолио</a>
     <a href="contacts.html" class="fd-mobile-link active" onclick="closeDrawer()">Контакты</a>

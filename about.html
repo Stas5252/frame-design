@@ -781,6 +781,24 @@
       color: var(--graphite);
       box-shadow: 0 8px 32px rgba(184, 150, 90, 0.3);
     }
+    
+    .fd-btn--outline {
+      background: rgba(255, 255, 255, 0.04) !important;
+      color: var(--cream) !important;
+      border: 1px solid rgba(184, 150, 90, 0.5) !important;
+      text-decoration: none !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+    .fd-btn--outline:hover {
+      background: rgba(184, 150, 90, 0.15) !important;
+      border-color: var(--brass) !important;
+      color: var(--brass-light) !important;
+      box-shadow: 0 0 25px rgba(184, 150, 90, 0.35) !important;
+      transform: translateY(-2px);
+    }
+
     .fd-btn--primary:hover {
       background: var(--brass-light);
       transform: translateY(-2px);
@@ -1280,6 +1298,7 @@ a[href^="mailto"]:hover,
         <nav class="fd-nav-right">
           <a href="about.html" class="fd-nav__link active">О нас</a>
           <a href="salon.html" class="fd-nav__link">Наш салон</a>
+          <a href="designers.html" class="fd-nav__link">Дизайнерам</a>
           <a href="technologies.html" class="fd-nav__link">Технологии</a>
           <a href="portfolio.html" class="fd-nav__link">Портфолио</a>
           <a href="contacts.html" class="fd-nav__link">Контакты</a>
@@ -1297,6 +1316,7 @@ a[href^="mailto"]:hover,
     <a href="index.html" class="fd-mobile-link" onclick="closeDrawer()">Главная</a>
     <a href="about.html" class="fd-mobile-link active" onclick="closeDrawer()">О нас</a>
     <a href="salon.html" class="fd-mobile-link" onclick="closeDrawer()">Наш салон</a>
+    <a href="designers.html" class="fd-mobile-link" onclick="closeDrawer()">Дизайнерам</a>
     <a href="technologies.html" class="fd-mobile-link" onclick="closeDrawer()">Технологии</a>
     <a href="portfolio.html" class="fd-mobile-link" onclick="closeDrawer()">Портфолио</a>
     <a href="contacts.html" class="fd-mobile-link" onclick="closeDrawer()">Контакты</a>
@@ -1415,18 +1435,19 @@ a[href^="mailto"]:hover,
 
       <div class="fd-feat-row fd-feat-row--reverse fd-fade">
         <div class="fd-feat-media">
-          <div class="fd-feat-media__badge">Свет и латунь</div>
+          <div class="fd-feat-media__badge">Свет, металл и дерево</div>
           <img src="images/hallway-mirror-wood.jpg" alt="Дизайнерские решения" loading="lazy">
         </div>
         <div class="fd-feat-content">
           <div class="fd-feat-num">04</div>
           <div class="fd-feat-category">Авторские изделия</div>
           <h3 class="fd-feat-title">Дизайнерские решения</h3>
-          <p class="fd-feat-desc">Зеркальные панно с парящей подсветкой, декоративные стеновые панели, акцентные витрины из латуни и стекла — создаем нестандартные интерьерные элементы любой сложности.</p>
+          <p class="fd-feat-desc">Зеркальные панно со встроенной подсветкой, подвесные тумбы и консоли, стеновые реечные композиции и акцентный декор с латунью и натуральным шпоном — под концепцию вашего интерьера.</p>
           <div class="fd-feat-tags">
-            <span class="fd-feat-tag">Стеновые панели</span>
-            <span class="fd-feat-tag">Свет и латунь</span>
-            <span class="fd-feat-tag">Зеркальные панно</span>
+            <span class="fd-feat-tag">Зеркала и панно</span>
+            <span class="fd-feat-tag">Подвесные тумбы</span>
+            <span class="fd-feat-tag">Латунь и шпон</span>
+            <span class="fd-feat-tag">Скрытая подсветка</span>
           </div>
         </div>
       </div>
@@ -1434,7 +1455,7 @@ a[href^="mailto"]:hover,
       <div class="fd-feat-row fd-fade">
         <div class="fd-feat-media">
           <div class="fd-feat-media__badge">Точность в цифре</div>
-          <img src="images/kitchen-countertop-fluted.jpg" alt="Современные технологии" loading="lazy">
+          <img src="images/laser-3d-scanner.jpg" alt="Современные технологии — 3D-сканирование" loading="lazy" style="object-position: center 55%;">
         </div>
         <div class="fd-feat-content">
           <div class="fd-feat-num">05</div>
@@ -1452,7 +1473,7 @@ a[href^="mailto"]:hover,
       <div class="fd-feat-row fd-feat-row--reverse fd-fade">
         <div class="fd-feat-media">
           <div class="fd-feat-media__badge">Проверка до отгрузки</div>
-          <img src="images/wardrobe-brass-handles.jpg" alt="Премиальные материалы и контроль качества" loading="lazy">
+          <img src="images/materials-commode-fluted.jpg" alt="Премиальные материалы и контроль качества" loading="lazy">
         </div>
         <div class="fd-feat-content">
           <div class="fd-feat-num">06</div>
@@ -1543,7 +1564,7 @@ a[href^="mailto"]:hover,
           <option value="kitchen">Кухня премиум-класса</option>
           <option value="living">Гостиная и ТВ-зона</option>
           <option value="wardrobe">Гардеробная система</option>
-          <option value="mirrors">Зеркала</option>
+          <option value="mirrors">Дизайнерские решения (тумбы, зеркала)</option>
           <option value="complex">Комплексная меблировка</option>
           <option value="designer">Сотрудничество для дизайнеров</option>
         </select>
