@@ -1412,7 +1412,7 @@ a[href^="mailto"]:hover,
     const totalSlides = track.children.length;
 
     function updateCarousel() {
-      track.style.transform = 	ranslateX(-%);
+      track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
       dots.forEach((dot, idx) => {
         dot.classList.toggle('active', idx === currentSlide);
       });
