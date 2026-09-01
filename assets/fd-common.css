@@ -1012,3 +1012,174 @@ img, video, iframe { max-width: 100%; }
 
 
 
+
+/* ---------- 14. ИНТЕРАКТИВНАЯ КАРУСЕЛЬ САЛОНА (SWIPE / SLIDER) ---------- */
+.fd-salon-carousel {
+  position: relative;
+  margin: 48px 0 60px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.fd-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #141416;
+  border-radius: 2px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 30px rgba(184, 150, 90, 0.08);
+  touch-action: pan-y;
+  cursor: grab;
+}
+.fd-carousel-wrapper:active {
+  cursor: grabbing;
+}
+.fd-carousel-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+.fd-carousel-slide {
+  min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  height: 580px;
+  user-select: none;
+}
+@media (max-width: 960px) {
+  .fd-carousel-slide { height: 400px; }
+}
+@media (max-width: 560px) {
+  .fd-carousel-slide { height: 300px; }
+}
+.fd-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+.fd-carousel-slide__badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  background: rgba(20, 20, 22, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--brass);
+  color: var(--brass);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 8px 18px;
+}
+.fd-carousel-slide__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 36px 32px 24px;
+  background: linear-gradient(to top, rgba(14, 14, 16, 0.96) 0%, rgba(14, 14, 16, 0.65) 60%, transparent 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+.fd-carousel-slide__title {
+  font-family: var(--t-headline-font);
+  font-size: clamp(18px, 2.4vw, 26px);
+  color: var(--cream);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+.fd-carousel-slide__desc {
+  font-size: 14px;
+  color: var(--cream-muted);
+  line-height: 1.5;
+  max-width: 650px;
+}
+.fd-carousel-slide__count {
+  font-family: var(--t-headline-font);
+  font-size: 18px;
+  color: var(--brass);
+  font-style: italic;
+  letter-spacing: 2px;
+  flex-shrink: 0;
+  background: rgba(20, 20, 22, 0.7);
+  padding: 6px 14px;
+  border: 1px solid rgba(184, 150, 90, 0.3);
+}
+.fd-carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 20px;
+}
+.fd-carousel-dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.fd-carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(184, 150, 90, 0.3);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  padding: 0;
+}
+.fd-carousel-dot.active {
+  width: 36px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #e4c585, #b8965a);
+  border-color: #e4c585;
+  box-shadow: 0 0 12px rgba(184, 150, 90, 0.5);
+}
+.fd-carousel-arrows {
+  display: flex;
+  gap: 12px;
+}
+.fd-carousel-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e4c585 0%, #b8965a 50%, #947239 100%);
+  color: #141416;
+  border: 1px solid rgba(255, 235, 180, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 14px rgba(184, 150, 90, 0.3);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fd-carousel-btn:hover {
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 6px 24px rgba(184, 150, 90, 0.7);
+  background: linear-gradient(135deg, #eed296 0%, #c8a467 50%, #a88448 100%);
+}
+.fd-carousel-btn:active {
+  transform: scale(0.96);
+}
+@media (max-width: 560px) {
+  .fd-carousel-slide__caption {
+    padding: 20px 16px 16px;
+  }
+  .fd-carousel-slide__badge {
+    top: 14px;
+    left: 14px;
+    font-size: 9px;
+    padding: 6px 12px;
+  }
+  .fd-carousel-slide__desc {
+    display: none;
+  }
+}

@@ -1162,21 +1162,93 @@ a[href^="mailto"]:hover,
         </div>
       </div>
 
-      <div class="fd-salon-photos">
-        <figure class="fd-salon-photo fd-fade">
-          <img src="images/salon-logo-wall.jpg" alt="Салон Frame Design в Калининграде" loading="lazy">
-          <figcaption>
-            <span class="fd-salon-photo__label">Наш салон</span>
-            <span class="fd-salon-photo__text">Тёплый свет, спокойные фактуры и никакой суеты торгового центра</span>
-          </figcaption>
-        </figure>
-        <figure class="fd-salon-photo fd-fade">
-          <img src="images/salon-facades-wall.jpg" alt="Стена образцов фасадов и покрытий" loading="lazy">
-          <figcaption>
-            <span class="fd-salon-photo__label">Стена образцов</span>
-            <span class="fd-salon-photo__text">200+ фасадов, металлов и покрытий — всё можно трогать руками</span>
-          </figcaption>
-        </figure>
+      <!-- ИНТЕРАКТИВНАЯ КАРУСЕЛЬ САЛОНА С ЛИСТАНИЕМ -->
+      <div class="fd-salon-carousel fd-fade" id="salonCarousel">
+        <div class="fd-carousel-wrapper" id="carouselWrapper">
+          <div class="fd-carousel-track" id="carouselTrack">
+            
+            <!-- Слайд 1 -->
+            <div class="fd-carousel-slide">
+              <span class="fd-carousel-slide__badge">Шоурум Frame Design</span>
+              <img src="images/salon-photo-1.jpg" alt="Световой логотип Frame Design и авторская консоль" loading="lazy">
+              <div class="fd-carousel-slide__caption">
+                <div>
+                  <div class="fd-carousel-slide__title">Световой логотип и арт-инсталляция</div>
+                  <div class="fd-carousel-slide__desc">Фактурная стена с декоративной латунной шестерней и подвесной тумбой с радиусными углами.</div>
+                </div>
+                <div class="fd-carousel-slide__count">01 / 05</div>
+              </div>
+            </div>
+
+            <!-- Слайд 2 -->
+            <div class="fd-carousel-slide">
+              <span class="fd-carousel-slide__badge">200+ образцов фасадов</span>
+              <img src="images/salon-photo-2.jpg" alt="Угловая экспозиция 200+ фасадов с подсветкой" loading="lazy">
+              <div class="fd-carousel-slide__caption">
+                <div>
+                  <div class="fd-carousel-slide__title">Угловая экспозиция фасадов с подсветкой</div>
+                  <div class="fd-carousel-slide__desc">Эмали, натуральный шпон, рифлёные панели и фактуры жидкого металла под живым направленным светом.</div>
+                </div>
+                <div class="fd-carousel-slide__count">02 / 05</div>
+              </div>
+            </div>
+
+            <!-- Слайд 3 -->
+            <div class="fd-carousel-slide">
+              <span class="fd-carousel-slide__badge">Зона образцов и палитр</span>
+              <img src="images/salon-photo-3.jpg" alt="Инженерный стенд и образцы материалов" loading="lazy">
+              <div class="fd-carousel-slide__caption">
+                <div>
+                  <div class="fd-carousel-slide__title">Инженерный стенд и образцы материалов</div>
+                  <div class="fd-carousel-slide__desc">Тактильные выкрасы, образцы соединений и палитры оттенков для подбора идеального сочетания.</div>
+                </div>
+                <div class="fd-carousel-slide__count">03 / 05</div>
+              </div>
+            </div>
+
+            <!-- Слайд 4 -->
+            <div class="fd-carousel-slide">
+              <span class="fd-carousel-slide__badge">Дизайнерская мебель</span>
+              <img src="images/salon-photo-4.jpg" alt="Экспозиция авторской мебели и зеркал" loading="lazy">
+              <div class="fd-carousel-slide__caption">
+                <div>
+                  <div class="fd-carousel-slide__title">Экспозиция авторской мебели и зеркал</div>
+                  <div class="fd-carousel-slide__desc">Радиусные комоды, декоративные панно и библиотека сдвижных полноразмерных фасадов.</div>
+                </div>
+                <div class="fd-carousel-slide__count">04 / 05</div>
+              </div>
+            </div>
+
+            <!-- Слайд 5 -->
+            <div class="fd-carousel-slide">
+              <span class="fd-carousel-slide__badge">Библиотека фасадов</span>
+              <img src="images/salon-photo-5.jpg" alt="Стеллаж сдвижных панелей в полный рост" loading="lazy">
+              <div class="fd-carousel-slide__caption">
+                <div>
+                  <div class="fd-carousel-slide__title">Стеллаж сдвижных панелей в полный рост</div>
+                  <div class="fd-carousel-slide__desc">Возможность выдвинуть и оценить любой фасад в масштабе реального интерьера.</div>
+                </div>
+                <div class="fd-carousel-slide__count">05 / 05</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Навигация карусели: точки и кнопки листания -->
+        <div class="fd-carousel-nav">
+          <div class="fd-carousel-dots" id="carouselDots">
+            <button class="fd-carousel-dot active" aria-label="Слайд 1"></button>
+            <button class="fd-carousel-dot" aria-label="Слайд 2"></button>
+            <button class="fd-carousel-dot" aria-label="Слайд 3"></button>
+            <button class="fd-carousel-dot" aria-label="Слайд 4"></button>
+            <button class="fd-carousel-dot" aria-label="Слайд 5"></button>
+          </div>
+          <div class="fd-carousel-arrows">
+            <button class="fd-carousel-btn" id="carouselPrev" aria-label="Предыдущее фото">←</button>
+            <button class="fd-carousel-btn" id="carouselNext" aria-label="Следующее фото">→</button>
+          </div>
+        </div>
       </div>
 
       <div class="fd-notes">
@@ -1326,6 +1398,100 @@ a[href^="mailto"]:hover,
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   fadeElements.forEach(el => observer.observe(el));
 })();
+
+  // Salon Carousel Controller
+  (function initCarousel() {
+    const track = document.getElementById('carouselTrack');
+    const wrapper = document.getElementById('carouselWrapper');
+    const dots = document.querySelectorAll('#carouselDots .fd-carousel-dot');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    if (!track || !wrapper) return;
+
+    let currentSlide = 0;
+    const totalSlides = track.children.length;
+
+    function updateCarousel() {
+      track.style.transform = 	ranslateX(-%);
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlide);
+      });
+    }
+
+    window.goToSlide = function(index) {
+      currentSlide = (index + totalSlides) % totalSlides;
+      updateCarousel();
+    };
+
+    window.nextSlide = function() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    };
+
+    window.prevSlide = function() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    };
+
+    if (prevBtn) prevBtn.addEventListener('click', window.prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', window.nextSlide);
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => window.goToSlide(idx));
+    });
+
+    // Touch Swipe Gestures
+    let startX = 0;
+    let currentX = 0;
+    let isSwiping = false;
+
+    wrapper.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isSwiping = true;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchmove', (e) => {
+      if (!isSwiping) return;
+      currentX = e.touches[0].clientX;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', () => {
+      if (!isSwiping) return;
+      const diff = startX - currentX;
+      if (Math.abs(diff) > 45) {
+        if (diff > 0) window.nextSlide();
+        else window.prevSlide();
+      }
+      isSwiping = false;
+      startX = 0;
+      currentX = 0;
+    });
+
+    // Mouse Drag for Desktop
+    let isMouseDown = false;
+    let mouseStartX = 0;
+
+    wrapper.addEventListener('mousedown', (e) => {
+      isMouseDown = true;
+      mouseStartX = e.clientX;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isMouseDown) return;
+      const diff = mouseStartX - e.clientX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) window.nextSlide();
+        else window.prevSlide();
+      }
+      isMouseDown = false;
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') window.nextSlide();
+      if (e.key === 'ArrowLeft') window.prevSlide();
+    });
+  })();
+
 </script>
 <script src="assets/fd-common.js?v=20260828i" defer></script>
 </body>
