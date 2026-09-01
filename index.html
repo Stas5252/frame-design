@@ -368,12 +368,20 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: url('https://static.tildacdn.com/tild6631-6536-4631-b538-363131326565/IMG_1728.JPG');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow: hidden;
   z-index: 0;
-  transform: scale(1.05);
+  background: var(--graphite);
+}
+.fd-hero__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  filter: brightness(0.8);
 }
 .fd-hero__bg::after {
   content: '';
@@ -381,11 +389,12 @@ body {
   inset: 0;
   background: linear-gradient(90deg,
     var(--graphite) 0%,
-    rgba(20, 20, 22, 0.92) 15%,
-    rgba(20, 20, 22, 0.6) 35%,
-    rgba(20, 20, 22, 0.2) 55%,
-    rgba(20, 20, 22, 0.0) 75%
+    rgba(20, 20, 22, 0.9) 20%,
+    rgba(20, 20, 22, 0.55) 45%,
+    rgba(20, 20, 22, 0.25) 70%,
+    rgba(20, 20, 22, 0.1) 100%
   );
+  z-index: 1;
 }
 
 .fd-hero::before {
@@ -1731,7 +1740,7 @@ a[href^="mailto"]:hover,
   <!-- HERO -->
   <section class="fd-hero">
     <div class="fd-hero__bg">
-      <video class="fd-hero__video" autoplay muted loop playsinline poster="https://static.tildacdn.com/tild6631-6536-4631-b538-363131326565/IMG_1728.JPG">
+      <video class="fd-hero__video" id="heroBgVideo" autoplay muted loop playsinline preload="auto">
         <source src="images/hero-bg-video.mp4" type="video/mp4">
       </video>
     </div>
@@ -2112,13 +2121,19 @@ a[href^="mailto"]:hover,
 
   const inviteBg = document.querySelector('.fd-invite__bg');
   if (inviteBg) {
-    window.addEventListener('scroll', () => {
-      const rect = document.querySelector('.fd-invite').getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        const offset = (window.innerHeight - rect.top) * 0.1;
-        inviteBg.style.transform = `translateY(${offset}px) scale(1.08)`;
-      }
-    }, { passive: true });
+  const heroVid = document.getElementById('heroBgVideo');
+  if (heroVid) {
+    heroVid.muted = true;
+    const playPromise = heroVid.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        ['click', 'touchstart', 'scroll'].forEach(evt => {
+          window.addEventListener(evt, () => {
+            if (heroVid.paused) heroVid.play();
+          }, { once: true });
+        });
+      });
+    }
   }
 })();
 </script>
