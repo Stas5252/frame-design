@@ -2121,6 +2121,18 @@ a[href^="mailto"]:hover,
 
   const inviteBg = document.querySelector('.fd-invite__bg');
   if (inviteBg) {
+    window.addEventListener('scroll', () => {
+      const el = document.querySelector('.fd-invite');
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const offset = (window.innerHeight - rect.top) * 0.1;
+          inviteBg.style.transform = `translateY(${offset}px) scale(1.08)`;
+        }
+      }
+    }, { passive: true });
+  }
+
   const heroVid = document.getElementById('heroBgVideo');
   if (heroVid) {
     heroVid.muted = true;
