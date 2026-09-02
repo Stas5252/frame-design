@@ -122,13 +122,18 @@ img, video, iframe { max-width: 100%; }
   filter: brightness(0.82);
 }
 
-/* Главная страница: полноэкранный hero с карточками преимуществ внизу */
+/* Главная страница: полноэкранный hero с приподнятым текстовым блоком */
 .fd-hero:has(.fd-hero__features),
 .fd-page--home .fd-hero {
   min-height: 100vh !important;
   min-height: 100svh !important;
-  justify-content: flex-end !important;
-  padding: 130px 48px 60px !important;
+  justify-content: space-between !important;
+  padding: 140px 48px 45px !important;
+}
+.fd-hero:has(.fd-hero__features) .fd-hero__inner {
+  margin-top: auto !important;
+  margin-bottom: 36px !important;
+  transform: translateY(-20px);
 }
 
 /* на ноутбуках карточки преимуществ на главной */
@@ -1244,4 +1249,74 @@ img, video, iframe { max-width: 100%; }
 }
 @media (max-width: 960px) {
   .fd-scanner-photo-card { height: 320px; }
+}
+
+/* Заголовки: прямой классический шрифт без курсива */
+.fd-hero__title,
+.fd-hero__title *,
+.fd-section-title,
+.fd-section-title * {
+  font-style: normal !important;
+}
+
+/* Стрелочки прямо по бокам изображения (слева и справа) */
+.fd-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(20, 20, 22, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--cream);
+  border: 1px solid rgba(228, 197, 133, 0.6);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 16px rgba(184, 150, 90, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+.fd-carousel-arrow--prev {
+  left: 20px;
+}
+.fd-carousel-arrow--next {
+  right: 20px;
+}
+.fd-carousel-arrow:hover {
+  background: linear-gradient(135deg, #e4c585 0%, #b8965a 50%, #947239 100%);
+  color: #141416;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 25px rgba(184, 150, 90, 0.7);
+  border-color: #e4c585;
+}
+.fd-carousel-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+@media (max-width: 600px) {
+  .fd-carousel-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+  .fd-carousel-arrow--prev { left: 10px; }
+  .fd-carousel-arrow--next { right: 10px; }
+}
+.fd-carousel-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  will-change: transform;
+}
+.fd-carousel-dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }

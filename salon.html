@@ -322,7 +322,7 @@
     .fd-mobile-link {
       font-family: var(--t-headline-font);
       font-size: 28px;
-      font-style: italic;
+      font-style: normal;
       color: var(--cream);
       text-decoration: none;
       letter-spacing: 2px;
@@ -405,7 +405,7 @@
       margin-bottom: 32px;
       max-width: 960px;
       letter-spacing: -0.5px;
-      font-style: italic;
+      font-style: normal;
     }
     .fd-hero__title--accent {
       color: var(--brass);
@@ -450,7 +450,7 @@
       font-size: clamp(32px, 4vw, 54px);
       color: var(--cream);
       font-weight: 400;
-      font-style: italic;
+      font-style: normal;
       line-height: 1.1;
     }
     .fd-section-title span {
@@ -504,7 +504,7 @@
       font-family: var(--t-headline-font);
       font-size: 24px;
       color: var(--cream);
-      font-style: italic;
+      font-style: normal;
       margin-bottom: 12px;
     }
     .fd-exhibit-card__text {
@@ -642,7 +642,7 @@
       font-weight: 500;
       margin-bottom: 24px;
       text-shadow: 0 0 24px var(--brass-glow);
-      font-style: italic;
+      font-style: normal;
     }
     .fd-footer__logo span {
       display: block;
@@ -690,7 +690,7 @@
     .fd-footer__contact {
       font-family: var(--t-headline-font);
       font-size: 22px;
-      font-style: italic;
+      font-style: normal;
       color: var(--cream);
       margin-bottom: 16px;
       font-weight: 500;
@@ -833,7 +833,7 @@ a[href^="mailto"]:hover,
     font-size: clamp(26px, 7vw, 36px) !important;
     line-height: 1.15 !important;
     margin-bottom: 20px !important;
-    font-style: italic !important;
+    font-style: normal !important;
   }
   .fd-hero__subtitle {
     font-size: 13px !important;
@@ -1165,6 +1165,11 @@ a[href^="mailto"]:hover,
       <!-- ИНТЕРАКТИВНАЯ КАРУСЕЛЬ САЛОНА С ЛИСТАНИЕМ -->
       <div class="fd-salon-carousel fd-fade" id="salonCarousel">
         <div class="fd-carousel-wrapper" id="carouselWrapper">
+          
+          <!-- Стрелочки по бокам изображения (влево и вправо) -->
+          <button class="fd-carousel-arrow fd-carousel-arrow--prev" id="carouselPrev" aria-label="Предыдущее фото">←</button>
+          <button class="fd-carousel-arrow fd-carousel-arrow--next" id="carouselNext" aria-label="Следующее фото">→</button>
+
           <div class="fd-carousel-track" id="carouselTrack">
             
             <!-- Слайд 1 -->
@@ -1174,80 +1179,102 @@ a[href^="mailto"]:hover,
               <div class="fd-carousel-slide__caption">
                 <div>
                   <div class="fd-carousel-slide__title">Световой логотип и арт-инсталляция</div>
-                  <div class="fd-carousel-slide__desc">Фактурная стена с декоративной латунной шестерней и подвесной тумбой с радиусными углами.</div>
+                  <div class="fd-carousel-slide__desc">Фактурная декоративная стена с латунной шестерней и подвесной тумбой с радиусными углами.</div>
                 </div>
-                <div class="fd-carousel-slide__count">01 / 05</div>
+                <div class="fd-carousel-slide__count">01 / 07</div>
               </div>
             </div>
 
             <!-- Слайд 2 -->
             <div class="fd-carousel-slide">
-              <span class="fd-carousel-slide__badge">200+ образцов фасадов</span>
-              <img src="images/salon-photo-2.jpg" alt="Угловая экспозиция 200+ фасадов с подсветкой" loading="lazy">
+              <span class="fd-carousel-slide__badge">Зона дизайнеров</span>
+              <img src="images/salon-photo-2.jpg" alt="Пространство для встреч и выбора материалов" loading="lazy">
               <div class="fd-carousel-slide__caption">
                 <div>
-                  <div class="fd-carousel-slide__title">Угловая экспозиция фасадов с подсветкой</div>
-                  <div class="fd-carousel-slide__desc">Эмали, натуральный шпон, рифлёные панели и фактуры жидкого металла под живым направленным светом.</div>
+                  <div class="fd-carousel-slide__title">Пространство для встреч и работы над проектом</div>
+                  <div class="fd-carousel-slide__desc">Комфортная зона с большим столом для раскладки чертежей, образцов шпона и выбора фурнитуры.</div>
                 </div>
-                <div class="fd-carousel-slide__count">02 / 05</div>
+                <div class="fd-carousel-slide__count">02 / 07</div>
               </div>
             </div>
 
             <!-- Слайд 3 -->
             <div class="fd-carousel-slide">
-              <span class="fd-carousel-slide__badge">Зона образцов и палитр</span>
-              <img src="images/salon-photo-3.jpg" alt="Инженерный стенд и образцы материалов" loading="lazy">
+              <span class="fd-carousel-slide__badge">200+ образцов фасадов</span>
+              <img src="images/salon-photo-3.jpg" alt="Угловая экспозиция 200+ фасадов с подсветкой" loading="lazy">
               <div class="fd-carousel-slide__caption">
                 <div>
-                  <div class="fd-carousel-slide__title">Инженерный стенд и образцы материалов</div>
-                  <div class="fd-carousel-slide__desc">Тактильные выкрасы, образцы соединений и палитры оттенков для подбора идеального сочетания.</div>
+                  <div class="fd-carousel-slide__title">Угловая экспозиция фасадов с подсветкой</div>
+                  <div class="fd-carousel-slide__desc">Эмали, натуральный шпон, рифлёные панели и фактуры жидкого металла под направленным светом.</div>
                 </div>
-                <div class="fd-carousel-slide__count">03 / 05</div>
+                <div class="fd-carousel-slide__count">03 / 07</div>
               </div>
             </div>
 
             <!-- Слайд 4 -->
             <div class="fd-carousel-slide">
-              <span class="fd-carousel-slide__badge">Дизайнерская мебель</span>
-              <img src="images/salon-photo-4.jpg" alt="Экспозиция авторской мебели и зеркал" loading="lazy">
+              <span class="fd-carousel-slide__badge">Зона образцов и палитр</span>
+              <img src="images/salon-photo-4.jpg" alt="Инженерный стенд и образцы материалов" loading="lazy">
               <div class="fd-carousel-slide__caption">
                 <div>
-                  <div class="fd-carousel-slide__title">Экспозиция авторской мебели и зеркал</div>
-                  <div class="fd-carousel-slide__desc">Радиусные комоды, декоративные панно и библиотека сдвижных полноразмерных фасадов.</div>
+                  <div class="fd-carousel-slide__title">Инженерный стенд и образцы материалов</div>
+                  <div class="fd-carousel-slide__desc">Тактильные выкрасы, образцы соединений и палитры оттенков для подбора идеального сочетания.</div>
                 </div>
-                <div class="fd-carousel-slide__count">04 / 05</div>
+                <div class="fd-carousel-slide__count">04 / 07</div>
               </div>
             </div>
 
             <!-- Слайд 5 -->
             <div class="fd-carousel-slide">
+              <span class="fd-carousel-slide__badge">Дизайнерская мебель</span>
+              <img src="images/salon-photo-5.jpg" alt="Экспозиция авторской мебели и зеркал" loading="lazy">
+              <div class="fd-carousel-slide__caption">
+                <div>
+                  <div class="fd-carousel-slide__title">Экспозиция авторской мебели и зеркал</div>
+                  <div class="fd-carousel-slide__desc">Радиусные комоды, декоративные панно и библиотека сдвижных полноразмерных фасадов.</div>
+                </div>
+                <div class="fd-carousel-slide__count">05 / 07</div>
+              </div>
+            </div>
+
+            <!-- Слайд 6 -->
+            <div class="fd-carousel-slide">
               <span class="fd-carousel-slide__badge">Библиотека фасадов</span>
-              <img src="images/salon-photo-5.jpg" alt="Стеллаж сдвижных панелей в полный рост" loading="lazy">
+              <img src="images/salon-photo-6.jpg" alt="Стеллаж сдвижных панелей в полный рост" loading="lazy">
               <div class="fd-carousel-slide__caption">
                 <div>
                   <div class="fd-carousel-slide__title">Стеллаж сдвижных панелей в полный рост</div>
                   <div class="fd-carousel-slide__desc">Возможность выдвинуть и оценить любой фасад в масштабе реального интерьера.</div>
                 </div>
-                <div class="fd-carousel-slide__count">05 / 05</div>
+                <div class="fd-carousel-slide__count">06 / 07</div>
+              </div>
+            </div>
+
+            <!-- Слайд 7 -->
+            <div class="fd-carousel-slide">
+              <span class="fd-carousel-slide__badge">Премиальные фактуры</span>
+              <img src="images/salon-photo-7.jpg" alt="Палитра эмалей, шпона и спецэффектов" loading="lazy">
+              <div class="fd-carousel-slide__caption">
+                <div>
+                  <div class="fd-carousel-slide__title">Палитра эмалей, шпона и спецэффектов</div>
+                  <div class="fd-carousel-slide__desc">Богатая коллекция тактильных образцов покрытий и латунных элементов.</div>
+                </div>
+                <div class="fd-carousel-slide__count">07 / 07</div>
               </div>
             </div>
 
           </div>
         </div>
 
-        <!-- Навигация карусели: точки и кнопки листания -->
-        <div class="fd-carousel-nav">
-          <div class="fd-carousel-dots" id="carouselDots">
-            <button class="fd-carousel-dot active" aria-label="Слайд 1"></button>
-            <button class="fd-carousel-dot" aria-label="Слайд 2"></button>
-            <button class="fd-carousel-dot" aria-label="Слайд 3"></button>
-            <button class="fd-carousel-dot" aria-label="Слайд 4"></button>
-            <button class="fd-carousel-dot" aria-label="Слайд 5"></button>
-          </div>
-          <div class="fd-carousel-arrows">
-            <button class="fd-carousel-btn" id="carouselPrev" aria-label="Предыдущее фото">←</button>
-            <button class="fd-carousel-btn" id="carouselNext" aria-label="Следующее фото">→</button>
-          </div>
+        <!-- Точки-индикаторы снизу -->
+        <div class="fd-carousel-dots" id="carouselDots">
+          <button class="fd-carousel-dot active" aria-label="Слайд 1" onclick="goToSlide(0)"></button>
+          <button class="fd-carousel-dot" aria-label="Слайд 2" onclick="goToSlide(1)"></button>
+          <button class="fd-carousel-dot" aria-label="Слайд 3" onclick="goToSlide(2)"></button>
+          <button class="fd-carousel-dot" aria-label="Слайд 4" onclick="goToSlide(3)"></button>
+          <button class="fd-carousel-dot" aria-label="Слайд 5" onclick="goToSlide(4)"></button>
+          <button class="fd-carousel-dot" aria-label="Слайд 6" onclick="goToSlide(5)"></button>
+          <button class="fd-carousel-dot" aria-label="Слайд 7" onclick="goToSlide(6)"></button>
         </div>
       </div>
 
@@ -1487,9 +1514,20 @@ a[href^="mailto"]:hover,
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') window.nextSlide();
-      if (e.key === 'ArrowLeft') window.prevSlide();
+      if (e.key === 'ArrowRight') { window.nextSlide(); resetAutoplay(); }
+      if (e.key === 'ArrowLeft') { window.prevSlide(); resetAutoplay(); }
     });
+
+    // Autoplay (плавная авто-смена каждые 4.5 сек с остановкой при наведении)
+    let autoplayTimer = setInterval(window.nextSlide, 4500);
+    function resetAutoplay() {
+      clearInterval(autoplayTimer);
+      autoplayTimer = setInterval(window.nextSlide, 4500);
+    }
+    wrapper.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+    wrapper.addEventListener('mouseleave', () => resetAutoplay());
+    wrapper.addEventListener('touchstart', () => clearInterval(autoplayTimer), { passive: true });
+    wrapper.addEventListener('touchend', () => resetAutoplay());
   })();
 
 </script>
