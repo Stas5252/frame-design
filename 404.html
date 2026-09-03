@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница не найдена — FRAME DESIGN</title>
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#141416">
+
+  <link rel="icon" type="image/svg+xml" href="/frame-design/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="/frame-design/favicon.png">
+  <link rel="apple-touch-icon" href="/frame-design/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/frame-design/favicon.ico">
+
+  <link rel="stylesheet" href="https://static.tildacdn.com/css/fonts-tildasans.css" type="text/css" media="all">
+  <style>
+    :root {
+      --graphite: #141416;
+      --graphite-soft: #1f1f22;
+      --cream: #f5ecd9;
+      --brass: #b8965a;
+      --brass-light: #d4b078;
+      --text-muted: #8a7e6a;
+      --border: rgba(184, 150, 90, 0.18);
+      --t-font: 'TildaSans', Arial, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 40px 24px;
+      background: var(--graphite);
+      background-image:
+        repeating-linear-gradient(90deg, transparent 0, transparent 48px, rgba(0,0,0,0.14) 48px, rgba(0,0,0,0.14) 49px),
+        radial-gradient(ellipse at 50% 0%, rgba(184, 150, 90, 0.10) 0%, transparent 62%);
+      color: var(--cream);
+      font-family: var(--t-font);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .logo { margin-bottom: 44px; }
+    .logo img { display: block; width: 64px; height: auto; }
+
+    .code {
+      font-size: clamp(64px, 16vw, 132px);
+      font-weight: 300;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      color: var(--brass);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .eyebrow {
+      margin-top: 22px;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    h1 {
+      margin-top: 14px;
+      font-size: clamp(24px, 4.5vw, 34px);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+      max-width: 18ch;
+    }
+
+    p {
+      margin-top: 16px;
+      max-width: 46ch;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 38px;
+    }
+
+    nav a {
+      padding: 13px 22px;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--cream);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.3s, background 0.3s, color 0.3s;
+    }
+    nav a:hover,
+    nav a:focus-visible {
+      border-color: var(--brass);
+      background: rgba(184, 150, 90, 0.10);
+      color: var(--brass-light);
+    }
+    nav a.primary {
+      background: var(--brass);
+      border-color: var(--brass);
+      color: #141416;
+      font-weight: 600;
+    }
+    nav a.primary:hover,
+    nav a.primary:focus-visible {
+      background: var(--brass-light);
+      border-color: var(--brass-light);
+      color: #141416;
+    }
+
+    :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+
+    .contact {
+      margin-top: 46px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .contact a { color: var(--brass); text-decoration: none; }
+    .contact a:hover { color: var(--brass-light); }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="logo" href="/frame-design/" aria-label="FRAME DESIGN — на главную">
+    <img src="/frame-design/images/frame-logo-white.png" alt="FRAME DESIGN" width="760" height="938">
+  </a>
+
+  <div class="code">404</div>
+  <div class="eyebrow">Страница не найдена</div>
+
+  <h1>Такой страницы у нас нет</h1>
+  <p>
+    Возможно, в адресе опечатка или страница переехала.
+    Загляните в портфолио или напишите нам — подскажем, что искали.
+  </p>
+
+  <nav>
+    <a class="primary" href="/frame-design/">На главную</a>
+    <a href="/frame-design/portfolio.html">Портфолио</a>
+    <a href="/frame-design/salon.html">Наш салон</a>
+    <a href="/frame-design/contacts.html">Контакты</a>
+  </nav>
+
+  <div class="contact">
+    г. Калининград, ул. Баранова, 34, 6 этаж ·
+    <a href="tel:+79005686827">+7 (900) 568-68-27</a>
+  </div>
+
+</body>
+</html>

@@ -1320,3 +1320,123 @@ img, video, iframe { max-width: 100%; }
   justify-content: center;
   margin-top: 20px;
 }
+
+/* ============================================================
+   ДОСТУПНОСТЬ И УДОБСТВО НАЖАТИЯ (аудит 02.09.2026)
+   ============================================================ */
+
+/* ---------- Ссылка «Перейти к содержимому» ---------- */
+.fd-skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 2000;
+  padding: 12px 20px;
+  background: var(--brass);
+  color: #141416;
+  font-family: var(--t-text-font);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: top 0.2s ease;
+}
+.fd-skip-link:focus { top: 16px; }
+#main-content:focus { outline: none; }
+
+/* ---------- Видимый фокус с клавиатуры ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Зоны нажатия на мобильных ----------
+   Полоски бургера остаются 32×20, но нажимаемая область — 48×48.
+   Псевдоэлемент не занимает места в потоке, поэтому шапка не меняется. */
+.fd-burger-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+}
+
+/* Пункты мобильного меню: было 29–38px, стало 48px.
+   Отступ между ними уменьшен, чтобы шторка не разъехалась. */
+.fd-mobile-drawer { gap: 12px !important; }
+.fd-mobile-link {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 12px;
+}
+
+/* Иконки почты и мессенджеров в шапке и шторке */
+.fd-head-btn {
+  min-width: 40px;
+  min-height: 40px;
+}
+@media (max-width: 960px) {
+  .fd-head-btn { min-width: 44px; min-height: 44px; }
+}
+
+/* ---------- Уменьшение анимации ----------
+   Раньше правило гасило только подсветку курсора. Теперь снимаем
+   и появления, и параллакс, и 3D-наклон карточек: !important перебивает
+   inline-стиль, который проставляет скрипт. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fd-fade {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  /* Сбрасываем только те transform, которые задаёт скрипт ради движения:
+     параллакс фонов и 3D-наклон карточек. У .fd-hero__video transform —
+     это центрирование (translate -50%/-50%), его трогать нельзя. */
+  .fd-hero__bg,
+  .fd-invite__bg,
+  .fd-about__img img,
+  .fd-category,
+  .fd-project-card,
+  .fd-comp-card,
+  .fd-tech-pillar,
+  .fd-card {
+    transform: none !important;
+  }
+  .fd-cursor-glow,
+  .fd-spotlight {
+    display: none !important;
+  }
+}
+
+/* ---------- Подписи полей для скринридеров ----------
+   Плейсхолдер исчезает при вводе и ненадёжно озвучивается,
+   поэтому у каждого поля есть настоящий <label>. Визуально скрыт. */
+.fd-visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

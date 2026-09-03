@@ -155,3 +155,154 @@
     });
   });
 })();
+
+/* ============================================================
+   ДОСТУПНОСТЬ (аудит 02.09.2026)
+   Живёт здесь, а не в семи инлайновых скриптах: файл грузится
+   на всех страницах и выполняется после них.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  function onReady(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      fn();
+    }
+  }
+
+  onReady(function () {
+
+    /* ---------- Бургер сообщает своё состояние ---------- */
+    var burger = document.getElementById('burgerBtn');
+    var drawer = document.getElementById('mobileDrawer');
+
+    if (burger && drawer) {
+      if (!drawer.id) drawer.id = 'mobileDrawer';
+      burger.setAttribute('aria-controls', drawer.id);
+
+      var syncBurger = function () {
+        var open = drawer.classList.contains('is-open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+      };
+      syncBurger();
+
+      if (window.MutationObserver) {
+        new MutationObserver(syncBurger).observe(drawer, {
+          attributes: true,
+          attributeFilter: ['class']
+        });
+      } else {
+        burger.addEventListener('click', function () { setTimeout(syncBurger, 0); });
+      }
+
+      /* Escape закрывает шторку и возвращает фокус на кнопку */
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape' && e.keyCode !== 27) return;
+        if (!drawer.classList.contains('is-open')) return;
+        if (typeof window.closeDrawer === 'function') {
+          window.closeDrawer();
+        } else {
+          burger.classList.remove('is-active');
+          drawer.classList.remove('is-open');
+          document.body.style.overflow = '';
+        }
+        burger.focus();
+      });
+    }
+
+    /* ---------- Страховка для блоков, появляющихся по скроллу ----------
+       Если IntersectionObserver недоступен — показываем всё сразу.
+       Иначе через 2,5 с открываем только то, что уже в зоне видимости,
+       но почему-то осталось скрытым. Анимация ниже по странице сохраняется. */
+    var revealAll = function (onlyVisible) {
+      var hidden = document.querySelectorAll('.fd-fade:not(.is-visible)');
+      Array.prototype.forEach.call(hidden, function (el) {
+        if (!onlyVisible) { el.classList.add('is-visible'); return; }
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('is-visible');
+      });
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      revealAll(false);
+    } else {
+      setTimeout(function () { revealAll(true); }, 2500);
+    }
+
+    /* ---------- Кнопки фильтра сообщают, какая нажата ---------- */
+    var filterBtns = document.querySelectorAll('.fd-filter-btn');
+    if (filterBtns.length) {
+      Array.prototype.forEach.call(filterBtns, function (btn) {
+        btn.addEventListener('click', function () {
+          Array.prototype.forEach.call(filterBtns, function (b) {
+            b.setAttribute('aria-pressed', b.classList.contains('is-active') ? 'true' : 'false');
+          });
+        });
+      });
+    }
+
+    /* ---------- Модальное окно портфолио: клавиатура ---------- */
+    var modal = document.getElementById('projectModal');
+    if (modal) {
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-label', 'Карточка проекта');
+
+      var lastFocused = null;
+
+      var focusables = function () {
+        return modal.querySelectorAll(
+          'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+      };
+
+      var closeModal = function () {
+        if (typeof window.closeModal === 'function') {
+          window.closeModal();
+        } else {
+          modal.classList.remove('is-active');
+          document.body.style.overflow = '';
+        }
+        if (lastFocused && lastFocused.focus) lastFocused.focus();
+        lastFocused = null;
+      };
+
+      document.addEventListener('keydown', function (e) {
+        if (!modal.classList.contains('is-active')) return;
+
+        if (e.key === 'Escape' || e.keyCode === 27) {
+          e.preventDefault();
+          closeModal();
+          return;
+        }
+
+        /* Фокус не убегает из открытого окна */
+        if (e.key === 'Tab' || e.keyCode === 9) {
+          var list = focusables();
+          if (!list.length) return;
+          var first = list[0];
+          var last = list[list.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault(); last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault(); first.focus();
+          }
+        }
+      });
+
+      /* Запоминаем, откуда открыли, и уводим фокус внутрь окна */
+      if (window.MutationObserver) {
+        new MutationObserver(function () {
+          if (!modal.classList.contains('is-active')) return;
+          if (modal.contains(document.activeElement)) return;
+          lastFocused = document.activeElement;
+          var list = focusables();
+          if (list.length) list[0].focus();
+        }).observe(modal, { attributes: true, attributeFilter: ['class'] });
+      }
+    }
+  });
+})();
