@@ -1139,6 +1139,96 @@ a[href^="mailto"]:hover,
   }
 }
 
+
+    .fd-project-card__count {
+      position: absolute;
+      top: 18px; right: 18px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      padding: 6px 10px;
+      background: rgba(20, 20, 22, 0.85);
+      border: 1px solid var(--border);
+      color: var(--cream-muted);
+      text-transform: uppercase;
+      font-weight: 500;
+      z-index: 2;
+      backdrop-filter: blur(8px);
+    }
+
+    .fd-modal-media {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #0d0d0f;
+      height: 100%;
+      min-height: 420px;
+    }
+    .fd-modal-img-wrap {
+      position: relative;
+      flex: 1;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #0d0d0f;
+    }
+    .fd-modal-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.25s ease;
+    }
+    .fd-modal-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: rgba(20, 20, 22, 0.75);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      transition: all 0.3s;
+      backdrop-filter: blur(8px);
+    }
+    .fd-modal-nav-btn:hover {
+      background: var(--brass);
+      color: var(--graphite);
+      border-color: var(--brass);
+      box-shadow: 0 0 15px var(--brass-glow);
+    }
+    .fd-modal-nav-btn--prev { left: 16px; }
+    .fd-modal-nav-btn--next { right: 16px; }
+    .fd-modal-thumbs {
+      display: flex;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(15, 15, 17, 0.95);
+      border-top: 1px solid var(--border);
+      overflow-x: auto;
+    }
+    .fd-modal-thumb {
+      width: 70px;
+      height: 52px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      opacity: 0.5;
+      transition: all 0.3s;
+      flex-shrink: 0;
+    }
+    .fd-modal-thumb:hover, .fd-modal-thumb.is-active {
+      opacity: 1;
+      border-color: var(--brass);
+      box-shadow: 0 0 12px var(--brass-glow);
+    }
+
 </style>
 
   <noscript>
@@ -1225,20 +1315,19 @@ a[href^="mailto"]:hover,
         <span class="fd-hero__title--accent">манифест точности и</span> авторского стиля
       </h1>
       <p class="fd-hero__subtitle fd-fade">
-        Посмотрите галерею выполненных работ: от сложных радиусных кухонных островов с латунью до встроенных гардеробных систем и зеркал.
+        Посмотрите галерею выполненных работ: авторские кухни, встроенные прихожие и шкафы, мебель для спален и премиальные решения для санузлов.
       </p>
     </div>
   </section>
 
-  <!-- FILTER BAR -->
+    <!-- FILTER BAR -->
   <section class="fd-filters-section">
     <div class="fd-filters-inner" role="group" aria-label="Фильтр проектов по категориям">
       <button type="button" class="fd-filter-btn is-active" data-filter="all" aria-pressed="true">Все проекты</button>
-      <button type="button" class="fd-filter-btn" data-filter="kitchen" aria-pressed="false">Кухни на заказ</button>
-      <button type="button" class="fd-filter-btn" data-filter="living" aria-pressed="false">Гостиные и ТВ-зоны</button>
-      <button type="button" class="fd-filter-btn" data-filter="wardrobe" aria-pressed="false">Шкафы и гардеробные</button>
+      <button type="button" class="fd-filter-btn" data-filter="kitchen" aria-pressed="false">Кухни</button>
+      <button type="button" class="fd-filter-btn" data-filter="hallway" aria-pressed="false">Прихожие и гардеробные</button>
+      <button type="button" class="fd-filter-btn" data-filter="bedroom" aria-pressed="false">Спальни</button>
       <button type="button" class="fd-filter-btn" data-filter="bathroom" aria-pressed="false">Санузлы</button>
-      <button type="button" class="fd-filter-btn" data-filter="mirror" aria-pressed="false">Зеркала и декор</button>
     </div>
   </section>
 
@@ -1247,151 +1336,495 @@ a[href^="mailto"]:hover,
     <div class="fd-gallery__inner">
       <h2 id="gallery-heading" class="fd-visually-hidden">Реализованные проекты</h2>
       <div class="fd-grid">
-
-        <!-- 1 -->
+        <!-- 1. Кухня с мраморным островом -->
         <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(1)">
           <div class="fd-project-card__img">
-            <div class="fd-project-card__badge">Кухни</div>
-            <img src="images/kitchen-island-brass.jpg" alt="Остров с радиусными каннелюрами" loading="lazy" width="599" height="800" decoding="async">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_1_1.png" alt="Кухня с мраморным островом — Frame Design" loading="lazy" decoding="async">
           </div>
           <div class="fd-project-card__body">
-            <h3 class="fd-project-card__title">Остров с радиусными каннелюрами</h3>
-            <div class="fd-project-card__meta">Эмаль матовая · Латунь · Кварцевый агломерат</div>
-            <p class="fd-project-card__desc">
-              Эргономичный радиусный остров с периметральным латунным молдингом и фрезерованными каннелюрами.
-            </p>
+            <h3 class="fd-project-card__title">Кухня с мраморным островом</h3>
+            <div class="fd-project-card__meta">Кварцевый агломерат · Остров с баром · Blum</div>
+            <p class="fd-project-card__desc">Воплощение монументальной эстетики и эргономики. Просторная рабочая зона со скрытой вытяжкой и островной барной стойкой.</p>
             <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
           </div>
         </div>
 
-        <!-- 2 -->
+        <!-- 2. Угловая кухня с рифлёными фасадами -->
         <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(2)">
           <div class="fd-project-card__img">
-            <div class="fd-project-card__badge">Кухни</div>
-            <img src="images/kitchen-countertop-fluted.jpg" alt="Кухонный гарнитур Palazzo" loading="lazy" width="599" height="800" decoding="async">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_2_1.png" alt="Угловая кухня с рифлёными фасадами — Frame Design" loading="lazy" decoding="async">
           </div>
           <div class="fd-project-card__body">
-            <h3 class="fd-project-card__title">Кухонный гарнитур Palazzo</h3>
-            <div class="fd-project-card__meta">Фрезерованный МДФ · Gola Brass · Фацетные витрины</div>
-            <p class="fd-project-card__desc">
-              Белоснежные фасады с вертикальной рифленой фрезеровкой, интегрированной мойкой и дизайнерскими верхними шкафами.
-            </p>
+            <h3 class="fd-project-card__title">Угловая кухня с рифлёными фасадами</h3>
+            <div class="fd-project-card__meta">Рифлёные фасады · Радиусный угол · Латунь</div>
+            <p class="fd-project-card__desc">Элегантная угловая кухня с выразительными рифлёными фасадами, радиусным внутренним углом и тёплой подсветкой витрин.</p>
             <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
           </div>
         </div>
 
-        <!-- 3 -->
+        <!-- 3. Современная кухня с островом -->
         <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(3)">
           <div class="fd-project-card__img">
-            <div class="fd-project-card__badge">Кухни / Витрины</div>
-            <img src="images/glass-vitrine-brass.jpg" alt="Витрина в латунном профиле" loading="lazy" width="599" height="800" decoding="async">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_3_1.png" alt="Современная кухня с островом — Frame Design" loading="lazy" decoding="async">
           </div>
           <div class="fd-project-card__body">
-            <h3 class="fd-project-card__title">Витрина в латунном профиле</h3>
-            <div class="fd-project-card__meta">Осветленное стекло · Латунный профиль · LED 3000K</div>
-            <p class="fd-project-card__desc">
-              Встроенная колонна с духовым шкафом и парящими подсвеченными полками в золотистом профиле.
-            </p>
+            <h3 class="fd-project-card__title">Современная кухня с островом</h3>
+            <div class="fd-project-card__meta">Монолитный остров · Керамогранит · Blum</div>
+            <p class="fd-project-card__desc">Современное пространство с монолитным островом, объединённой обеденной зоной и бесшовными матовыми фасадами без ручек.</p>
             <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
           </div>
         </div>
 
-        <!-- 4 -->
-        <div class="fd-project-card fd-fade" data-cat="mirror" onclick="openModal(4)">
+        <!-- 4. Кухня с островом в неоклассике -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(4)">
           <div class="fd-project-card__img">
-            <div class="fd-project-card__badge">Зеркала / Прихожие</div>
-            <img src="images/hallway-mirror-wood.jpg" alt="Зеркальное панно с рейками орех" loading="lazy" width="599" height="800" decoding="async">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_4_1.png" alt="Кухня с островом в неоклассике — Frame Design" loading="lazy" decoding="async">
           </div>
           <div class="fd-project-card__body">
-            <h3 class="fd-project-card__title">Зеркальное панно с рейками</h3>
-            <div class="fd-project-card__meta">Шпон американского ореха · Графитовое зеркало</div>
-            <p class="fd-project-card__desc">
-              Входная группа со скрытыми шкафами и зеркалом в потолок с мягкой фоновой подсветкой.
-            </p>
+            <h3 class="fd-project-card__title">Кухня с островом в неоклассике</h3>
+            <div class="fd-project-card__meta">Неоклассика · Витрины с подсветкой · Кварц</div>
+            <p class="fd-project-card__desc">Изысканный неоклассический стиль с островом и высокими остеклёнными витринами с тёплым мягким светом.</p>
             <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
           </div>
         </div>
 
-        <!-- 5 -->
-        <div class="fd-project-card fd-fade" data-cat="wardrobe" onclick="openModal(5)">
+        <!-- 5. Современная кухня с тёплой подсветкой -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(5)">
           <div class="fd-project-card__img">
-            <div class="fd-project-card__badge">Гардеробные</div>
-            <img src="images/wardrobe-brass-handles.jpg" alt="Шкаф с латунными ручками-профилями" loading="lazy" width="599" height="800" decoding="async">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_5_1.png" alt="Современная кухня с тёплой подсветкой — Frame Design" loading="lazy" decoding="async">
           </div>
           <div class="fd-project-card__body">
-            <h3 class="fd-project-card__title">Шкаф с латунными профилями</h3>
-            <div class="fd-project-card__meta">Эмаль шелковисто-матовая · Интегрированные ручки</div>
-            <p class="fd-project-card__desc">
-              Минималистичный гардеробный шкаф в потолок с тонкими золотыми акцентными линиями ручек.
-            </p>
+            <h3 class="fd-project-card__title">Современная кухня с тёплой подсветкой</h3>
+            <div class="fd-project-card__meta">Рифлёный фасад · Тёплая подсветка · Латунные ручки</div>
+            <p class="fd-project-card__desc">Атмосферная кухня с рифлёными фактурными фасадами, витринами в профиле и контрастной столешницей под мрамор.</p>
             <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
           </div>
         </div>
 
-        <!-- 6 -->
-        <div class="fd-project-card fd-fade" data-cat="wardrobe" onclick="openModal(6)">
+        <!-- 6. Кухня в классическом стиле -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(6)">
           <div class="fd-project-card__img">
-            <div class="fd-project-card__badge">Гардеробные</div>
-            <img src="images/wardrobe-taupe-niche.jpg" alt="Гардеробная ниша с открытыми полками" loading="lazy" width="599" height="800" decoding="async">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_6_1.png" alt="Кухня в классическом стиле — Frame Design" loading="lazy" decoding="async">
           </div>
           <div class="fd-project-card__body">
-            <h3 class="fd-project-card__title">Гардеробная ниша Taupe</h3>
-            <div class="fd-project-card__meta">Шпон дуба · Оттенок Warm Taupe · Скрытая фурнитура</div>
-            <p class="fd-project-card__desc">
-              Комбинация закрытых распашных фасадов со встроенным открытым стеллажом для книг и декора.
-            </p>
+            <h3 class="fd-project-card__title">Кухня в классическом стиле</h3>
+            <div class="fd-project-card__meta">Классический портал · Патина · Остров</div>
+            <p class="fd-project-card__desc">Величественная классическая кухня с декоративной портальной вытяжкой, патинированными элементами и функциональным островом.</p>
             <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
           </div>
         </div>
 
-        <!-- 7 -->
-        <div class="fd-project-card fd-fade" data-cat="living" onclick="openModal(7)">
+        <!-- 7. Кухня с фасадами из натуральной ржавчины -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(7)">
           <div class="fd-project-card__img">
-            <div class="fd-project-card__badge">Гостиные</div>
-            <img src="images/living-room-tv-unit.jpg" alt="ТВ-консоль с рейками и подсветкой" loading="lazy" width="599" height="800" decoding="async">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_7_1.png" alt="Кухня с фасадами из натуральной ржавчины — Frame Design" loading="lazy" decoding="async">
           </div>
           <div class="fd-project-card__body">
-            <h3 class="fd-project-card__title">ТВ-консоль и стеновая панель</h3>
-            <div class="fd-project-card__meta">Массив и шпон ореха · Парящая тумба · Кабель-менеджмент</div>
-            <p class="fd-project-card__desc">
-              Архитектурная ТВ-зона с рифленой стеной, скрытыми системами коммуникаций и парящей тумбой.
-            </p>
+            <h3 class="fd-project-card__title">Кухня с фасадами из натуральной ржавчины</h3>
+            <div class="fd-project-card__meta">Натуральная ржавчина · Графит · Урбан-шик</div>
+            <p class="fd-project-card__desc">Эксклюзивный проект в стиле урбан-шик: верхний ярус с отделкой из натуральной ржавчины под матовым лаком.</p>
             <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
           </div>
         </div>
 
-        <!-- 8 -->
-        <div class="fd-project-card fd-fade" data-cat="living" onclick="openModal(8)">
+        <!-- 8. Современная кухня в минималистичном стиле -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(8)">
           <div class="fd-project-card__img">
-            <div class="fd-project-card__badge">Гостиные / Кухни</div>
-            <img src="images/living-kitchen-open.jpg" alt="Единое пространство кухни-гостиной" loading="lazy" width="1024" height="819" decoding="async">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_8_1.png" alt="Современная кухня в минималистичном стиле — Frame Design" loading="lazy" decoding="async">
           </div>
           <div class="fd-project-card__body">
-            <h3 class="fd-project-card__title">Кухня-гостиная Open Space</h3>
-            <div class="fd-project-card__meta">Комплексная меблировка · Единый стиль отделки</div>
-            <p class="fd-project-card__desc">
-              Гармоничное объединение кухонной зоны, обеденной группы и гостиной в единой колористической гамме.
-            </p>
+            <h3 class="fd-project-card__title">Современная кухня в минималистичном стиле</h3>
+            <div class="fd-project-card__meta">Минимализм · Белая эмаль · Интегрированные ручки</div>
+            <p class="fd-project-card__desc">Белоснежная минималистичная кухня со скрытыми ручками и чистой геометрией фасадов в потолок.</p>
             <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
           </div>
         </div>
 
-        <!-- 9 -->
-        <div class="fd-project-card fd-fade" data-cat="bathroom" onclick="openModal(9)">
+        <!-- 9. Угловая кухня с витриной и подсветкой -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(9)">
           <div class="fd-project-card__img">
-            <div class="fd-project-card__badge">Санузлы</div>
-            <img src="images/bathroom-recessed-niche.jpg" alt="Встроенная мебель в санузел" loading="lazy" width="599" height="800" decoding="async">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_9_1.png" alt="Угловая кухня с витриной и подсветкой — Frame Design" loading="lazy" decoding="async">
           </div>
           <div class="fd-project-card__body">
-            <h3 class="fd-project-card__title">Встроенная ниша санузла</h3>
-            <div class="fd-project-card__meta">Влагостойкий МДФ · Шпон дуба · Скрытый люк ревизии</div>
-            <p class="fd-project-card__desc">
-              Влагостойкая конструкция с идеальной геометрией под плиточный шов и скрытыми местами хранения.
-            </p>
+            <h3 class="fd-project-card__title">Угловая кухня с витриной и подсветкой</h3>
+            <div class="fd-project-card__meta">Угловая витрина · Шпон дуба · Кварц</div>
+            <p class="fd-project-card__desc">Продуманная угловая кухня с акцентной витриной со шпоном внутри и мягким светом. Максимум полезного объёма.</p>
             <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
           </div>
         </div>
 
+        <!-- 10. Минималистичная кухня в древесной текстуре -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(10)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_10_1.jpeg" alt="Минималистичная кухня в древесной текстуре — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Минималистичная кухня в древесной текстуре</h3>
+            <div class="fd-project-card__meta">Натуральный шпон дуба · Светлый кварц · Минимализм</div>
+            <p class="fd-project-card__desc">Тёплый лаконичный интерьер с выразительным древесным шпоном дуба и светлой каменной столешницей.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 11. Кухня с контрастными фасадами -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(11)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_11_1.jpeg" alt="Кухня с контрастными фасадами — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Кухня с контрастными фасадами</h3>
+            <div class="fd-project-card__meta">Глянец · Шпон ореха · Мраморный агломерат</div>
+            <p class="fd-project-card__desc">Эффектное сочетание глубокого глянца, благородного орехового шпона и мраморного агломерата.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 12. Гардеробная с островом и ванной -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(12)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Гардеробная</div>
+            <img src="images/portfolio/hallway/prihozhaya_1_1.png" alt="Гардеробная с островом и ванной — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Гардеробная с островом и ванной</h3>
+            <div class="fd-project-card__meta">Тонированное стекло · Остров для аксессуаров · Шпон ореха</div>
+            <p class="fd-project-card__desc">Роскошная гардеробная комната с тонированными стеклянными витринами в тонком профиле, шпоном тёплого ореха и центральным островом.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 13. Остров-витрина для гардеробной -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(13)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Гардеробная</div>
+            <img src="images/portfolio/hallway/prihozhaya_2_1.png" alt="Остров-витрина для гардеробной — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Остров-витрина для гардеробной</h3>
+            <div class="fd-project-card__meta">Стеклянная столешница · Органайзер для часов · Шпон ореха</div>
+            <p class="fd-project-card__desc">Функциональный остров-витрина со стеклянной столешницей, выдвижными бархатными ящиками для аксессуаров и открытыми полками.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 14. Входная группа со шпоном и зеркалом -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(14)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_3_1.png" alt="Входная группа со шпоном и зеркалом — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Входная группа со шпоном и зеркалом</h3>
+            <div class="fd-project-card__meta">Шпон дуба · Зеркало с подсветкой · Парящая консоль</div>
+            <p class="fd-project-card__desc">Стильная прихожая с панелями из натурального шпона дуба, парящей консолью и ростовым зеркалом с мягким светом.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 15. Встроенный шкаф с мягкой зоной -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(15)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_4_1.png" alt="Встроенный шкаф с мягкой зоной — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Встроенный шкаф с мягкой зоной</h3>
+            <div class="fd-project-card__meta">Мягкая ниша · Фасады в потолок · Blum</div>
+            <p class="fd-project-card__desc">Встроенная композиция с уютной тактильной банкеткой, вешалкой для одежды и вместительными шкафами до потолка.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 16. Прихожая с латунными акцентами -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(16)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_5_1.png" alt="Прихожая с латунными акцентами — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Прихожая с латунными акцентами</h3>
+            <div class="fd-project-card__meta">Латунные профили · Открытые ниши · Blum</div>
+            <p class="fd-project-card__desc">Элегантный гардероб с вертикальной латунной фурнитурой, подсветкой открытых полок и фактурными фасадами.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 17. Шкаф в потолок с рифлёными деталями -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(17)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_6_1.png" alt="Шкаф в потолок с рифлёными деталями — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Шкаф в потолок с рифлёными деталями</h3>
+            <div class="fd-project-card__meta">Рифлёная фрезеровка · Фасады 2.8 м · Blum</div>
+            <p class="fd-project-card__desc">Монолитный встроенный шкаф с вертикальной фрезеровкой и функциональным разделением на секции для одежды и обуви.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 18. Скрытая гардеробная система -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(18)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_7_1.png" alt="Скрытая гардеробная система — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Скрытая гардеробная система</h3>
+            <div class="fd-project-card__meta">Система Tip-On · Скрытый монтаж · Минимализм</div>
+            <p class="fd-project-card__desc">Минималистичная система шкафов без видимых ручек, визуально растворяющаяся в интерьере прихожей.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 19. Прихожая с консолью и подсветкой -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(19)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_8_1.png" alt="Прихожая с консолью и подсветкой — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Прихожая с консолью и подсветкой</h3>
+            <div class="fd-project-card__meta">Парящая консоль · Кварц · Зеркальная панель</div>
+            <p class="fd-project-card__desc">Композиция с парящей консольной тумбой, зеркальной панелью и тёплым декоративным светом.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 20. Шкаф с открытой гардеробной нишей -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(20)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_9_1.png" alt="Шкаф с открытой гардеробной нишей — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Шкаф с открытой гардеробной нишей</h3>
+            <div class="fd-project-card__meta">Натуральный дуб · Ниша для обуви · Графит</div>
+            <p class="fd-project-card__desc">Практичное решение со встроенной открытой вешалкой, деревянной банкеткой и закрытыми секциями хранения.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 21. Радиусный шкаф для холла -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(21)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_10_1.png" alt="Радиусный шкаф для холла — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Радиусный шкаф для холла</h3>
+            <div class="fd-project-card__meta">Радиусные фасады · Матовая эмаль · Безопасный угол</div>
+            <p class="fd-project-card__desc">Шкаф с плавным радиусным окончанием для комфортного и свободного движения в коридоре.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 22. Зеркальный гардеробный шкаф -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(22)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_11_1.png" alt="Зеркальный гардеробный шкаф — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Зеркальный гардеробный шкаф</h3>
+            <div class="fd-project-card__meta">Зеркала Ultra Clear · Армированное полотно · Blum</div>
+            <p class="fd-project-card__desc">Шкаф с ростовыми зеркальными фасадами Ultra Clear, визуально расширяющий коридор в два раза.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 23. Гардеробный комплекс со стеновыми панелями -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(23)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_12_1.png" alt="Гардеробный комплекс со стеновыми панелями — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Гардеробный комплекс со стеновыми панелями</h3>
+            <div class="fd-project-card__meta">Стеновые панели · Шпон ореха · Скрытый монтаж</div>
+            <p class="fd-project-card__desc">Комплексное оформление входной зоны стеновыми панелями, подсветкой и вместительными шкафами для гардероба.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 24. ТВ зона с подвесной тумбой -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(24)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_1_1.png" alt="ТВ зона с подвесной тумбой — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">ТВ зона с подвесной тумбой</h3>
+            <div class="fd-project-card__meta">Рифлёная фрезеровка · Парящая консоль · Зеркало</div>
+            <p class="fd-project-card__desc">Стильная ТВ-зона для спальни с парящей подвесной тумбой, вертикальной рифлёной фрезеровкой и примыкающим столиком с зеркалом.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 25. Шкаф с зеркальными вставками -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(25)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_2_1.png" alt="Шкаф с зеркальными вставками — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Шкаф с зеркальными вставками</h3>
+            <div class="fd-project-card__meta">Зеркальные вставки · Фасады в потолок · Тёплый свет</div>
+            <p class="fd-project-card__desc">Высокий встроенный шкаф для спальни с ритмичными вертикальными зеркальными вставками и мягкой подсветкой.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 26. Комплексное решение для спальни -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(26)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_3_1.png" alt="Комплексное решение для спальни — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Комплексное решение для спальни</h3>
+            <div class="fd-project-card__meta">Кольца-ручки латунь · Шкаф + консоль · Комплексный проект</div>
+            <p class="fd-project-card__desc">Единая композиция: вместительный шкаф с акцентными золотыми ручками-кольцами, прикроватная зона и будуарный столик.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 27. Шкаф с декоративной геометрией -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(27)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_4_1.png" alt="Шкаф с декоративной геометрией — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Шкаф с декоративной геометрией</h3>
+            <div class="fd-project-card__meta">Геометрический декор · Распашной 4-створчатый · Blum</div>
+            <p class="fd-project-card__desc">Изысканный распашной 4-створчатый шкаф с объёмным геометрическим узором на фасадах в стиле современной неоклассики.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 28. Подвесная ТВ-зона с мягкой подсветкой -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(28)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_5_1.png" alt="Подвесная ТВ-зона с мягкой подсветкой — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Подвесная ТВ-зона с мягкой подсветкой</h3>
+            <div class="fd-project-card__meta">Парящая консоль · Декор под камень · Скрытая проводка</div>
+            <p class="fd-project-card__desc">Элегантная подвесная консоль под ТВ с отделкой под тёмный камень и тёплой скрытой подсветкой по периметру.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 29. Детская комната с игровой антресолью -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(29)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Детская / Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_6_1.png" alt="Детская комната с игровой антресолью — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Детская комната с игровой антресолью</h3>
+            <div class="fd-project-card__meta">Игровая антресоль · Ступени с хранением · Эко-эмаль</div>
+            <p class="fd-project-card__desc">Многоуровневый комплекс с игровой антресолью, безопасной лестницей со встроенными ящиками и спальной зоной.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 30. Шкаф в стиле конструктора -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(30)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Детская / Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_7_1.png" alt="Шкаф в стиле конструктора — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Шкаф в стиле конструктора</h3>
+            <div class="fd-project-card__meta">Стиль конструктора · 3D-накладки · Безопасные края</div>
+            <p class="fd-project-card__desc">Оригинальный шкаф для детской или молодежной комнаты с объёмными элементами в стиле любимого конструктора.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 31. Тумба с каннелюрами и круглым зеркалом -->
+        <div class="fd-project-card fd-fade" data-cat="bathroom" onclick="openModal(31)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Санузел</div>
+            <img src="images/portfolio/bathroom/sanuzel_1_1.png" alt="Тумба с каннелюрами и круглым зеркалом — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Тумба с каннелюрами и круглым зеркалом</h3>
+            <div class="fd-project-card__meta">Каннелюры · Латунный профиль · Круглое зеркало</div>
+            <p class="fd-project-card__desc">Изящная подвесная тумба с каннелюрами, тонким латунным профилем, накладной раковиной и круглым зеркалом.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 32. Стильная постирочная зона -->
+        <div class="fd-project-card fd-fade" data-cat="bathroom" onclick="openModal(32)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Санузел</div>
+            <img src="images/portfolio/bathroom/sanuzel_2_1.png" alt="Стильная постирочная зона — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Стильная постирочная зона</h3>
+            <div class="fd-project-card__meta">Скрытая колонна под технику · Фрезеровка · Открытые полки</div>
+            <p class="fd-project-card__desc">Функциональная встроенная мебель для постирочной со скрытой колонной под технику, открытыми полками и шкафами.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 33. Тумба с арочным зеркалом -->
+        <div class="fd-project-card fd-fade" data-cat="bathroom" onclick="openModal(33)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Санузел</div>
+            <img src="images/portfolio/bathroom/sanuzel_3_1.png" alt="Тумба с арочным зеркалом — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Тумба с арочным зеркалом</h3>
+            <div class="fd-project-card__meta">Арочное зеркало · Мраморный кварц · Латунь</div>
+            <p class="fd-project-card__desc">Элегантная тумба в стиле неоклассики с филёнчатыми фасадами, мраморным кварцевым топом и эффектным арочным зеркалом.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 34. Ванная с синими жалюзийными фасадами -->
+        <div class="fd-project-card fd-fade" data-cat="bathroom" onclick="openModal(34)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Санузел</div>
+            <img src="images/portfolio/bathroom/sanuzel_4_1.png" alt="Ванная с синими жалюзийными фасадами — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Ванная с синими жалюзийными фасадами</h3>
+            <div class="fd-project-card__meta">Сапфировые жалюзи · Вентиляция · Овальное зеркало</div>
+            <p class="fd-project-card__desc">Яркий акцентный интерьер ванной с жалюзийными фасадами сапфирового оттенка и овальным зеркалом с подсветкой.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 35. Стильная ванная-постирочная -->
+        <div class="fd-project-card fd-fade" data-cat="bathroom" onclick="openModal(35)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Санузел</div>
+            <img src="images/portfolio/bathroom/sanuzel_5_1.png" alt="Стильная ванная-постирочная — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Стильная ванная-постирочная</h3>
+            <div class="fd-project-card__meta">Рифлёные фасады · Ниши со шпоном · Керамогранит</div>
+            <p class="fd-project-card__desc">Комбинированное премиальное пространство: подвесная раковина с рифлёными фасадами, ниши со шпоном и постирочная.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1400,7 +1833,16 @@ a[href^="mailto"]:hover,
   <div class="fd-modal-overlay" id="projectModal" onclick="if(event.target === this) closeModal()">
     <div class="fd-modal-content">
       <button class="fd-modal-close" onclick="closeModal()" aria-label="Закрыть">✕</button>
-      <img id="modalImg" class="fd-modal-img" alt="Проект">
+      
+      <div class="fd-modal-media">
+        <div class="fd-modal-img-wrap">
+          <img id="modalImg" class="fd-modal-img" alt="Проект">
+          <button type="button" class="fd-modal-nav-btn fd-modal-nav-btn--prev" id="modalPrevBtn" onclick="prevModalPhoto(event)" aria-label="Предыдущее фото">‹</button>
+          <button type="button" class="fd-modal-nav-btn fd-modal-nav-btn--next" id="modalNextBtn" onclick="nextModalPhoto(event)" aria-label="Следующее фото">›</button>
+        </div>
+        <div id="modalThumbs" class="fd-modal-thumbs"></div>
+      </div>
+
       <div class="fd-modal-info">
         <div id="modalCat" style="font-size: 11px; letter-spacing: 3px; color: var(--brass); text-transform: uppercase; font-weight: 600; margin-bottom: 8px;"></div>
         <h3 id="modalTitle" class="fd-modal-title"></h3>
@@ -1412,7 +1854,7 @@ a[href^="mailto"]:hover,
             <span class="fd-spec-val" id="modalFac"></span>
           </div>
           <div class="fd-spec-row">
-            <span class="fd-spec-label">Столешница:</span>
+            <span class="fd-spec-label">Столешница / отделка:</span>
             <span class="fd-spec-val" id="modalTop"></span>
           </div>
           <div class="fd-spec-row">
@@ -1463,9 +1905,9 @@ a[href^="mailto"]:hover,
         <select id="fd-topic" class="fd-field" name="topic">
           <option value="" disabled selected>Интересующее направление</option>
           <option value="kitchen">Кухни</option>
-          <option value="living">Гостиная и ТВ-зона</option>
-          <option value="wardrobe">Гардеробная система</option>
-          <option value="mirrors">Дизайнерские решения (тумбы, зеркала)</option>
+          <option value="hallway">Прихожие и шкафы</option>
+          <option value="bedroom">Спальни</option>
+          <option value="bathroom">Санузлы</option>
           <option value="complex">Комплексная меблировка</option>
           <option value="designer">Сотрудничество для дизайнеров</option>
         </select>
@@ -1525,115 +1967,506 @@ a[href^="mailto"]:hover,
 <!-- INTERACTIVE SCRIPTS -->
 <script>
 const projectData = {
-  1: {
-    title: 'Остров с радиусными каннелюрами',
-    cat: 'Кухни на заказ',
-    img: 'images/kitchen-island-brass.jpg',
-    desc: 'Флагманский кухонный остров с глубокими каннелюрами, встроенными скрытыми розетками и барной зоной.',
-    fac: 'МДФ эмаль матовая, латунь шлифованная',
-    top: 'Кварцевый агломерат с мраморным рисунком',
-    hard: 'Blum Legrabox Tip-On',
-    feat: 'Индивидуальный радиус, латунный молдинг'
+  "1": {
+    "title": "Кухня с мраморным островом",
+    "cat": "Кухня",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_1_1.png"
+    ],
+    "desc": "Кухня с мраморным островом — воплощение монументальной эстетики и функциональности. Просторная рабочая зона дополнена встроенной варочной панелью со скрытой вытяжкой и элегантной барной группой.",
+    "fac": "МДФ эмаль матовая, витрины в алюминиевом профиле",
+    "top": "Кварцевый агломерат с мраморным рисунком",
+    "hard": "Blum (Австрия) скрытого монтажа",
+    "feat": "Встроенная варочная панель со скрытой вытяжкой, барная стойка на острове, подсветка витрин"
   },
-  2: {
-    title: 'Кухонный гарнитур Palazzo',
-    cat: 'Кухни на заказ',
-    img: 'images/kitchen-countertop-fluted.jpg',
-    desc: 'Белоснежная композиция с латунными вставками и интеграцией премиальной бытовой техники.',
-    fac: 'МДФ эмаль с рифлением',
-    top: 'Искусственный камень Grandex',
-    hard: 'Grass Nova Pro Scala',
-    feat: 'Скрытый профиль Gola в золоте'
+  "2": {
+    "title": "Угловая кухня с рифлёными фасадами",
+    "cat": "Кухня",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_2_1.png"
+    ],
+    "desc": "Элегантная угловая кухня с выразительными рифлёными фасадами и радиусным внутренним углом. Тёплая светодиодная подсветка стеклянных витрин создаёт уютную атмосферу.",
+    "fac": "МДФ эмаль рифлёная, витрины в тонком профиле",
+    "top": "Кварцевый агломерат светлый",
+    "hard": "Blum, латунные ручки",
+    "feat": "Радиусный внутренний угол, стекло с LED-подсветкой, латунная фурнитура"
   },
-  3: {
-    title: 'Витрина в латунном профиле',
-    cat: 'Кухни и столовые зоны',
-    img: 'images/glass-vitrine-brass.jpg',
-    desc: 'Шкаф-витрина для бокалов и посуды с интегрированной нейтральной подсветкой.',
-    fac: 'Алюминиевый профиль Brass, стекло Extra Clear',
-    top: '—',
-    hard: 'Петли скрытого монтажа Salice',
-    feat: 'Стеклянные полки с латунной окантовкой'
+  "3": {
+    "title": "Современная кухня с островом",
+    "cat": "Кухня",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_3_1.png"
+    ],
+    "desc": "Современное многофункциональное пространство с монолитным островом и объединённой обеденной зоной. Фасады без видимых ручек подчеркивают архитектурную чистоту линий.",
+    "fac": "МДФ эмаль матовая, интегрированные ручки",
+    "top": "Искусственный камень (кварц), фартук из керамогранита",
+    "hard": "Blum с доводчиками",
+    "feat": "Остров, совмещённый с обеденным столом, подсветка фартука и цоколя"
   },
-  4: {
-    title: 'Зеркальное панно с рейками',
-    cat: 'Прихожие и декор',
-    img: 'images/hallway-mirror-wood.jpg',
-    desc: 'Входная композиция из натурального шпона ореха и полноразмерного зеркала.',
-    fac: 'Шпон американского ореха под матовым лаком',
-    top: 'Шпон ореха',
-    hard: 'Система Push-to-Open',
-    feat: 'Круговой рассеянный свет 3000K'
+  "4": {
+    "title": "Кухня с островом в неоклассике",
+    "cat": "Кухня",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_4_1.png"
+    ],
+    "desc": "Кухня в изысканном неоклассическом стиле с островом и высокими витринами с тёплым светом. Идеальная гармония классических пропорций и премиального оснащения.",
+    "fac": "МДФ эмаль матовая с тонкой фрезеровкой",
+    "top": "Кварцевый агломерат",
+    "hard": "Blum премиальной серии",
+    "feat": "Витрины с подсветкой, остров с зоной хранения, встроенная техника"
   },
-  5: {
-    title: 'Шкаф с латунными профилями',
-    cat: 'Гардеробные и спальни',
-    img: 'images/wardrobe-brass-handles.jpg',
-    desc: 'Встроенный шкаф с вертикальными ручками-профилями на всю высоту фасада.',
-    fac: 'МДФ эмаль Soft-Touch',
-    top: '—',
-    hard: 'Blum с доводчиками плавного закрывания',
-    feat: 'Интегрированные ручки золотого оттенка'
+  "5": {
+    "title": "Современная кухня с тёплой подсветкой",
+    "cat": "Кухня",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_5_1.png"
+    ],
+    "desc": "Атмосферная кухня с рифлёными фактурными фасадами, витринами в алюминиевом профиле и контрастной столешницей под мрамор.",
+    "fac": "МДФ эмаль, рифлёный фасад, стеклянные витрины",
+    "top": "Искусственный камень под мрамор",
+    "hard": "Blum, латунные ручки",
+    "feat": "Встроенная тёплая LED-подсветка полок и рабочей зоны"
   },
-  6: {
-    title: 'Гардеробная ниша Taupe',
-    cat: 'Гардеробные системы',
-    img: 'images/wardrobe-taupe-niche.jpg',
-    desc: 'Индивидуальная геометрия под особенности планировки спальни.',
-    fac: 'МДФ эмаль в оттенке Warm Taupe',
-    top: '—',
-    hard: 'Hettich Sensys',
-    feat: 'Открытые стеллажи под книги'
+  "6": {
+    "title": "Кухня в классическом стиле",
+    "cat": "Кухня",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_6_1.png"
+    ],
+    "desc": "Величественная классическая кухня с декоративной портальной вытяжкой, патинированными элементами и функциональным островом.",
+    "fac": "МДФ в эмали с деликатной патиной",
+    "top": "Натуральный камень / кварц",
+    "hard": "Латунь / состаренная бронза, петли Blum",
+    "feat": "Декоративный портал вытяжки, остров, карнизы и пилястры"
   },
-  7: {
-    title: 'ТВ-консоль и стеновая панель',
-    cat: 'Гостиные',
-    img: 'images/living-room-tv-unit.jpg',
-    desc: 'Центральный элемент гостиной с парящей тумбой и рифленой стеной.',
-    fac: 'Шпон натурального ореха, эмаль графит',
-    top: 'Кварцит',
-    hard: 'Blum с открыванием от нажатия',
-    feat: 'Скрытый кабель-канал для экрана'
+  "7": {
+    "title": "Кухня с фасадами из натуральной ржавчины",
+    "cat": "Кухня",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_7_1.png"
+    ],
+    "desc": "Эксклюзивный проект в стиле урбан-шик: верхний ярус выполнен с отделкой из натуральной ржавчины под матовым лаком в сочетании с графитовыми матовыми фасадами.",
+    "fac": "Верх — натуральная ржавчина, низ — эмаль матовая графит",
+    "top": "Компакт-плита / камень графит",
+    "hard": "Blum Tip-On Blumotion",
+    "feat": "Индустриальная эстетика, тёплая скрытая LED-подсветка, фасады без ручек"
   },
-  8: {
-    title: 'Кухня-гостиная Open Space',
-    cat: 'Кухни и гостиные',
-    img: 'images/living-kitchen-open.jpg',
-    desc: 'Единая концепция для открытого пространства дома.',
-    fac: 'Комбинация матовой эмали и шпона',
-    top: 'Кварцевый агломерат',
-    hard: 'Blum Legrabox',
-    feat: 'Единый визуальный ритм во всем помещении'
+  "8": {
+    "title": "Современная кухня в минималистичном стиле",
+    "cat": "Кухня",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_8_1.png"
+    ],
+    "desc": "Белоснежная минималистичная кухня со скрытыми ручками и цельной геометрией. Скрытые системы хранения создают ощущение простора и света.",
+    "fac": "МДФ эмаль матовая белая, интегрированные ручки",
+    "top": "Искусственный камень",
+    "hard": "Blum Legrabox",
+    "feat": "Фасады в потолок, лаконичные чистые линии, скрытая техника"
   },
-  9: {
-    title: 'Встроенная ниша санузла',
-    cat: 'Мебель для санузлов',
-    img: 'images/bathroom-recessed-niche.jpg',
-    desc: 'Влагостойкая скрытая система хранения над инсталляцией.',
-    fac: 'Влагостойкий МДФ + полиуретановая эмаль',
-    top: '—',
-    hard: 'Blum Clip Top Blumotion',
-    feat: 'Идеальная состыковка с керамогранитом'
+  "9": {
+    "title": "Угловая кухня с витриной и подсветкой",
+    "cat": "Кухня",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_9_1.png"
+    ],
+    "desc": "Продуманная угловая кухня с акцентной угловой витриной со шпоном внутри и мягким светом. Максимальное использование полезного объёма помещения.",
+    "fac": "МДФ эмаль матовая, шпон в отделке витрины",
+    "top": "Кварцевый агломерат",
+    "hard": "Blum с доводчиками",
+    "feat": "Угловая витрина со стеклом и тёплой подсветкой, скрытая вытяжка"
+  },
+  "10": {
+    "title": "Минималистичная кухня в древесной текстуре",
+    "cat": "Кухня",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_10_1.jpeg"
+    ],
+    "desc": "Тёплый лаконичный интерьер с выразительным древесным шпоном и светлой каменной поверхностью. Скрытая подсветка подчёркивает текстуру волокон.",
+    "fac": "МДФ в натуральном шпоне дуба под матовым лаком",
+    "top": "Кварцевый агломерат светлый",
+    "hard": "Blum с системой Push-to-open",
+    "feat": "Интегрированные ручки, скрытая подсветка, фасады до потолка"
+  },
+  "11": {
+    "title": "Кухня с контрастными фасадами",
+    "cat": "Кухня",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_11_1.jpeg"
+    ],
+    "desc": "Эффектное сочетание глубокого глянца, благородного орехового шпона и мраморного агломерата. Витрина с подсветкой добавляет лёгкости и глубины.",
+    "fac": "МДФ эмаль глянец, шпон ореха",
+    "top": "Кварцевый агломерат под мрамор",
+    "hard": "Blum, латунные акценты",
+    "feat": "Витрина с тонированным стеклом и подсветкой, контрастные фактуры"
+  },
+  "12": {
+    "title": "Гардеробная с островом и ванной",
+    "cat": "Прихожая / Гардеробная",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_1_1.png"
+    ],
+    "desc": "Роскошная гардеробная зона с тонированными стеклянными витринами в тонком алюминиевом профиле, шпоном теплого ореха и центральным островом.",
+    "fac": "Тонированное стекло, алюминиевый профиль, шпон тёплого ореха",
+    "top": "Шпон ореха, стекло",
+    "hard": "Скрытая премиальная фурнитура, Blum",
+    "feat": "Встроенный остров для аксессуаров, интегрированная LED-подсветка каждой полки"
+  },
+  "13": {
+    "title": "Остров-витрина для гардеробной",
+    "cat": "Прихожая / Гардеробная",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_2_1.png"
+    ],
+    "desc": "Функциональный остров-витрина со стеклянной столешницей, выдвижными бархатными ящиками для часов и украшений, и открытыми полками.",
+    "fac": "Шпон в оттенке ореха, закалённое стекло",
+    "top": "Закалённое прозрачное осветленное стекло",
+    "hard": "Blum Legrabox с бархатными вкладышами",
+    "feat": "Стеклянный верх для обзора аксессуаров, индивидуальные ячейки для часов и украшений"
+  },
+  "14": {
+    "title": "Входная группа со шпоном и зеркалом",
+    "cat": "Прихожая / Гардеробная",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_3_1.png"
+    ],
+    "desc": "Стильная прихожая с панелями из натурального шпона, парящей консолью и ростовым зеркалом с мягкой фоновой подсветкой.",
+    "fac": "Натуральный шпон дуба, матовая эмаль",
+    "top": "Шпон дуба",
+    "hard": "Blum Tip-On",
+    "feat": "Ростовое зеркало с LED-контуром, скрытый гардероб для верхней одежды"
+  },
+  "15": {
+    "title": "Встроенный шкаф с мягкой зоной",
+    "cat": "Прихожая / Гардеробная",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_4_1.png"
+    ],
+    "desc": "Встроенная композиция с уютной банкеткой, вешалкой для одежды и вместительными шкафами до потолка.",
+    "fac": "МДФ эмаль матовая, тактильная ткань банкетки",
+    "top": "Матовая эмаль",
+    "hard": "Blum с плавным закрыванием",
+    "feat": "Мягкая ниша с крючками, антресоли полного открывания"
+  },
+  "16": {
+    "title": "Прихожая с латунными акцентами",
+    "cat": "Прихожая / Гардеробная",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_5_1.png"
+    ],
+    "desc": "Элегантный гардероб с вертикальной латунной фурнитурой, подсветкой открытых полок и фактурными фасадами.",
+    "fac": "МДФ матовая эмаль, латунный профиль",
+    "top": "Шпон ореха",
+    "hard": "Латунные ручки-профили, петли Blum",
+    "feat": "Открытые ниши для декора, подсветка полок"
+  },
+  "17": {
+    "title": "Шкаф в потолок с рифлёными деталями",
+    "cat": "Прихожая / Гардеробная",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_6_1.png"
+    ],
+    "desc": "Монолитный встроенный шкаф с вертикальной фрезеровкой и функциональным разделением на секции для верхней одежды и обуви.",
+    "fac": "МДФ эмаль матовая с тонкой фрезеровкой",
+    "top": "—",
+    "hard": "Blum Clip Top Blumotion",
+    "feat": "Фасады высотой 2.8 м с выпрямителями, бесшумные доводчики"
+  },
+  "18": {
+    "title": "Скрытая гардеробная система",
+    "cat": "Прихожая / Гардеробная",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_7_1.png"
+    ],
+    "desc": "Минималистичная система шкафов без видимых ручек, визуально растворяющаяся в интерьере прихожей.",
+    "fac": "МДФ эмаль шелковисто-матовая",
+    "top": "—",
+    "hard": "Система открывания Tip-On",
+    "feat": "Абсолютно гладкие фасады, скрытые торцевые профили"
+  },
+  "19": {
+    "title": "Прихожая с консолью и подсветкой",
+    "cat": "Прихожая / Гардеробная",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_8_1.png"
+    ],
+    "desc": "Композиция с парящей консольной тумбой, зеркальной панелью и тёплым декоративным светом.",
+    "fac": "МДФ эмаль, зеркальное полотно осветленное",
+    "top": "Кварцевый агломерат",
+    "hard": "Направляющие Blum Movento",
+    "feat": "Подвесная консоль со скрытым крепежом, контурный свет"
+  },
+  "20": {
+    "title": "Шкаф с открытой гардеробной нишей",
+    "cat": "Прихожая / Гардеробная",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_9_1.png"
+    ],
+    "desc": "Практичное решение со встроенной открытой вешалкой, деревянной банкеткой и закрытыми секциями хранения.",
+    "fac": "МДФ эмаль графит, натуральный дуб",
+    "top": "Массив дуба",
+    "hard": "Blum с доводчиками",
+    "feat": "Ниша для обуви с вентиляцией, прочные металлические крючки"
+  },
+  "21": {
+    "title": "Радиусный шкаф для холла",
+    "cat": "Прихожая / Гардеробная",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_10_1.png"
+    ],
+    "desc": "Шкаф с плавным радиусным окончанием для комфортного и безопасного движения в зоне коридора.",
+    "fac": "Гнутый МДФ в матовой эмали",
+    "top": "—",
+    "hard": "Специальные радиусные петли Blum",
+    "feat": "Идеальная геометрия радиусных фасадов, отсутствие острых углов"
+  },
+  "22": {
+    "title": "Зеркальный гардеробный шкаф",
+    "cat": "Прихожая / Гардеробная",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_11_1.png"
+    ],
+    "desc": "Шкаф с ростовыми зеркальными фасадами Ultra Clear, визуально увеличивающий коридор в два раза.",
+    "fac": "Осветленное зеркало серебро с безопасной армировкой",
+    "top": "—",
+    "hard": "Усиленные петли Blum",
+    "feat": "Осветленные зеркала без искажений, интегрированная подсветка"
+  },
+  "23": {
+    "title": "Гардеробный комплекс со стеновыми панелями",
+    "cat": "Прихожая / Гардеробная",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_12_1.png"
+    ],
+    "desc": "Комплексное оформление входной зоны стеновыми панелями, подсветкой и вместительными шкафами для гардероба.",
+    "fac": "МДФ эмаль, шпонированные панели",
+    "top": "Шпон ореха",
+    "hard": "Blum скрытого монтажа",
+    "feat": "Единое бесшовное пространство со стеновыми панелями"
+  },
+  "24": {
+    "title": "ТВ зона с подвесной тумбой",
+    "cat": "Спальня",
+    "images": [
+      "images/portfolio/bedroom/spalnya_1_1.png"
+    ],
+    "desc": "Стильная ТВ-зона для спальни с парящей подвесной тумбой с вертикальной рифлёной фрезеровкой и примыкающим туалетным столиком с зеркалом.",
+    "fac": "МДФ эмаль матовая, рифлёная фрезеровка",
+    "top": "Эмаль матовая / искусственный камень",
+    "hard": "Blum с плавным закрыванием, подвесной усиленный монтаж",
+    "feat": "Парящая консоль, туалетный столик с круглым зеркалом и подсветкой"
+  },
+  "25": {
+    "title": "Шкаф с зеркальными вставками",
+    "cat": "Спальня",
+    "images": [
+      "images/portfolio/bedroom/spalnya_2_1.png"
+    ],
+    "desc": "Высокий встроенный шкаф для спальни с ритмичными вертикальными зеркальными вставками и мягкой тёплой подсветкой.",
+    "fac": "МДФ эмаль матовая, вертикальные зеркальные вставки",
+    "top": "—",
+    "hard": "Blum скрытого монтажа",
+    "feat": "Зеркальные вертикальные полосы, тёплый рассеянный свет, фасады в потолок"
+  },
+  "26": {
+    "title": "Комплексное решение для спальни",
+    "cat": "Спальня",
+    "images": [
+      "images/portfolio/bedroom/spalnya_3_1.png"
+    ],
+    "desc": "Единая мебельная композиция для спальни: вместительный шкаф с акцентными декоративными золотыми ручками-кольцами, прикроватная зона и туалетный столик.",
+    "fac": "МДФ эмаль матовая, декоративные золотые кольца",
+    "top": "Шелковисто-матовая эмаль",
+    "hard": "Blum с доводчиками, дизайнерские ручки-кольца (латунь/золото)",
+    "feat": "Комплексный ансамбль: шкаф + прикроватная зона + туалетный столик"
+  },
+  "27": {
+    "title": "Шкаф с декоративной геометрией",
+    "cat": "Спальня",
+    "images": [
+      "images/portfolio/bedroom/spalnya_4_1.png"
+    ],
+    "desc": "Изысканный распашной 4-створчатый шкаф с объёмным геометрическим декоративным узором на фасадах в неоклассическом стиле.",
+    "fac": "МДФ эмаль матовая с ажурной геометрической накладкой",
+    "top": "—",
+    "hard": "Blum Clip Top Blumotion",
+    "feat": "Объёмный геометрический декор, плавные доводчики, симметричная композиция"
+  },
+  "28": {
+    "title": "Подвесная ТВ-зона с мягкой подсветкой",
+    "cat": "Спальня",
+    "images": [
+      "images/portfolio/bedroom/spalnya_5_1.png"
+    ],
+    "desc": "Элегантная подвесная консоль под ТВ с отделкой под тёмный камень и тёплой скрытой подсветкой по нижнему и верхнему периметру.",
+    "fac": "МДФ эмаль матовая, панели под тёмный камень",
+    "top": "Фактурная плита под камень / керамогранит",
+    "hard": "Blum Tip-On Blumotion",
+    "feat": "Парящая консоль, скрытая проводка, тёплая светодиодная подсветка"
+  },
+  "29": {
+    "title": "Детская комната с игровой антресолью",
+    "cat": "Спальня",
+    "images": [
+      "images/portfolio/bedroom/spalnya_6_1.png"
+    ],
+    "desc": "Многоуровневый детский комплекс с игровой антресолью, безопасной лестницей со встроенными ящиками хранения и уютной спальной зоной.",
+    "fac": "МДФ эмаль матовая безопасная (эко), пастельная гамма",
+    "top": "МДФ в прочной эмали",
+    "hard": "Blum с мягкими доводчиками и защитой от защемления пальцев",
+    "feat": "Игровая зона на втором ярусе, ступени-ящики с хранением, защита от падений"
+  },
+  "30": {
+    "title": "Шкаф в стиле конструктора",
+    "cat": "Спальня",
+    "images": [
+      "images/portfolio/bedroom/spalnya_7_1.png"
+    ],
+    "desc": "Оригинальный шкаф для детской или молодежной комнаты с объёмными геометрическими элементами в стиле любимого конструктора.",
+    "fac": "МДФ эмаль матовая с объёмными круглыми накладками",
+    "top": "—",
+    "hard": "Blum с доводчиками",
+    "feat": "Креативный дизайн, безопасные закруглённые края, прочное моющееся покрытие"
+  },
+  "31": {
+    "title": "Тумба с каннелюрами и круглым зеркалом",
+    "cat": "Санузел",
+    "images": [
+      "images/portfolio/bathroom/sanuzel_1_1.png"
+    ],
+    "desc": "Изящная подвесная тумба с каннелюрами (вертикальной фрезеровкой), тонким латунным профилем и накладной раковиной в сочетании с круглым зеркалом.",
+    "fac": "Влагостойкий МДФ эмаль матовая, каннелюры, латунный профиль",
+    "top": "Искусственный камень с интегрированной раковиной",
+    "hard": "Blum с влагостойким покрытием",
+    "feat": "Каннелюры ручной работы, латунная окантовка, круглое зеркало с подсветкой"
+  },
+  "32": {
+    "title": "Стильная постирочная зона",
+    "cat": "Санузел",
+    "images": [
+      "images/portfolio/bathroom/sanuzel_2_1.png"
+    ],
+    "desc": "Функциональная встроенная мебель для постирочной со скрытой колонной под стиральную и сушильную машины, открытыми полками и шкафами.",
+    "fac": "Влагостойкий МДФ эмаль с классической фрезеровкой",
+    "top": "Влагостойкая компакт-плита",
+    "hard": "Blum с доводчиками, усиленные петли",
+    "feat": "Скрытый монтаж бытовой техники, открытые полки для текстиля, система вентиляции"
+  },
+  "33": {
+    "title": "Тумба с арочным зеркалом",
+    "cat": "Санузел",
+    "images": [
+      "images/portfolio/bathroom/sanuzel_3_1.png"
+    ],
+    "desc": "Элегантная тумба в неоклассическом стиле с филёнчатыми фасадами, мраморным кварцевым топом и эффектным арочным зеркалом с фоновым светом.",
+    "fac": "Влагостойкий МДФ эмаль матовая с тонкой филёнкой",
+    "top": "Кварцевый агломерат с мраморным узором",
+    "hard": "Blum, латунные ручки и смесители",
+    "feat": "Арочное зеркало с контурной LED-подсветкой, латунная фурнитура"
+  },
+  "34": {
+    "title": "Ванная с синими жалюзийными фасадами",
+    "cat": "Санузел",
+    "images": [
+      "images/portfolio/bathroom/sanuzel_4_1.png"
+    ],
+    "desc": "Яркий акцентный интерьер ванной комнаты с жалюзийными фасадами глубокого сапфирового оттенка и овальным зеркалом с подсветкой.",
+    "fac": "Влагостойкий МДФ эмаль матовая синяя, жалюзийный профиль",
+    "top": "Белый кварц под мрамор",
+    "hard": "Blum с антикоррозийной защитой",
+    "feat": "Жалюзийные фасады с естественной вентиляцией, овальное зеркало с тёплым светом"
+  },
+  "35": {
+    "title": "Стильная ванная-постирочная",
+    "cat": "Санузел",
+    "images": [
+      "images/portfolio/bathroom/sanuzel_5_1.png"
+    ],
+    "desc": "Комбинированное премиальное пространство: подвесная раковина с рифлёными фасадами, ниши со шпоном и скрытая зона постирочной.",
+    "fac": "Влагостойкий МДФ эмаль, рифлёные фасады, натуральный шпон",
+    "top": "Натуральный камень / крупноформатный керамогранит",
+    "hard": "Blum Legrabox, петли с доводчиком",
+    "feat": "Встроенные ниши с LED-подсветкой, единый дизайн ванной и постирочной"
   }
 };
+
+let currentProjectId = null;
+let currentPhotoIndex = 0;
 
 function openModal(id) {
   const p = projectData[id];
   if (!p) return;
+  currentProjectId = id;
+  currentPhotoIndex = 0;
+
   document.getElementById('modalTitle').textContent = p.title;
   document.getElementById('modalCat').textContent = p.cat;
-  const modalImg = document.getElementById('modalImg');
-  modalImg.src = p.img;
-  modalImg.alt = p.title;
   document.getElementById('modalDesc').textContent = p.desc;
   document.getElementById('modalFac').textContent = p.fac;
   document.getElementById('modalTop').textContent = p.top;
   document.getElementById('modalHard').textContent = p.hard;
   document.getElementById('modalFeat').textContent = p.feat;
-  
+
+  updateModalImage();
+
   const modal = document.getElementById('projectModal');
   modal.classList.add('is-active');
   document.body.style.overflow = 'hidden';
+}
+
+function updateModalImage() {
+  const p = projectData[currentProjectId];
+  if (!p || !p.images || !p.images.length) return;
+
+  const modalImg = document.getElementById('modalImg');
+  modalImg.style.opacity = '0.3';
+  setTimeout(() => {
+    modalImg.src = p.images[currentPhotoIndex];
+    modalImg.alt = p.title + ' — Frame Design';
+    modalImg.style.opacity = '1';
+  }, 80);
+
+  const prevBtn = document.getElementById('modalPrevBtn');
+  const nextBtn = document.getElementById('modalNextBtn');
+  const thumbsContainer = document.getElementById('modalThumbs');
+
+  if (p.images.length > 1) {
+    if (prevBtn) prevBtn.style.display = 'flex';
+    if (nextBtn) nextBtn.style.display = 'flex';
+    if (thumbsContainer) {
+      thumbsContainer.style.display = 'flex';
+      thumbsContainer.innerHTML = p.images.map((img, idx) => `
+        <img src="${img}" class="fd-modal-thumb ${idx === currentPhotoIndex ? 'is-active' : ''}"
+             onclick="setModalPhoto(${idx})" alt="${p.title} фото ${idx + 1}">
+      `).join('');
+    }
+  } else {
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+    if (thumbsContainer) thumbsContainer.style.display = 'none';
+  }
+}
+
+function setModalPhoto(index) {
+  const p = projectData[currentProjectId];
+  if (!p || index < 0 || index >= p.images.length) return;
+  currentPhotoIndex = index;
+  updateModalImage();
+}
+
+function nextModalPhoto(e) {
+  if (e) e.stopPropagation();
+  const p = projectData[currentProjectId];
+  if (!p || !p.images || p.images.length <= 1) return;
+  currentPhotoIndex = (currentPhotoIndex + 1) % p.images.length;
+  updateModalImage();
+}
+
+function prevModalPhoto(e) {
+  if (e) e.stopPropagation();
+  const p = projectData[currentProjectId];
+  if (!p || !p.images || p.images.length <= 1) return;
+  currentPhotoIndex = (currentPhotoIndex - 1 + p.images.length) % p.images.length;
+  updateModalImage();
 }
 
 function closeModal() {
@@ -1642,15 +2475,29 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
+// Keyboard navigation in modal
+document.addEventListener('keydown', (e) => {
+  const modal = document.getElementById('projectModal');
+  if (!modal || !modal.classList.contains('is-active')) return;
+  if (e.key === 'Escape') closeModal();
+  if (e.key === 'ArrowRight') nextModalPhoto();
+  if (e.key === 'ArrowLeft') prevModalPhoto();
+});
+
 // Category filter
 document.querySelectorAll('.fd-filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.fd-filter-btn').forEach(b => b.classList.remove('is-active'));
+    document.querySelectorAll('.fd-filter-btn').forEach(b => {
+      b.classList.remove('is-active');
+      b.setAttribute('aria-pressed', 'false');
+    });
     btn.classList.add('is-active');
+    btn.setAttribute('aria-pressed', 'true');
     const f = btn.dataset.filter;
     document.querySelectorAll('.fd-project-card').forEach(card => {
       if (f === 'all' || card.dataset.cat === f) {
-        card.style.display = 'block';
+        card.style.display = '';
+        card.classList.add('is-visible');
       } else {
         card.style.display = 'none';
       }
@@ -1694,13 +2541,11 @@ document.querySelectorAll('.fd-hero .fd-fade').forEach((el, index) => {
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const siblings = Array.from(entry.target.parentElement.children).filter(el => el.classList.contains('fd-fade'));
-      const delay = siblings.indexOf(entry.target) * 80;
-      setTimeout(() => entry.target.classList.add('is-visible'), delay);
+      entry.target.classList.add('is-visible');
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+}, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 fadeElements.forEach(el => observer.observe(el));
 </script>
 <script src="assets/fd-common.js?v=20260828i" defer></script>
