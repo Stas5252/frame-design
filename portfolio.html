@@ -562,17 +562,15 @@
       width: 100%;
       background: var(--graphite);
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: 8px;
       box-shadow: 0 35px 90px rgba(0,0,0,0.9);
       display: grid;
       grid-template-columns: 1.15fr 1fr;
       position: relative;
       overflow: hidden;
       max-height: 88vh;
-      overflow-y: auto;
       scrollbar-width: none;
       -ms-overflow-style: none;
-      -webkit-overflow-scrolling: touch;
     }
     .fd-modal-content::-webkit-scrollbar {
       display: none;
@@ -584,6 +582,7 @@
       display: flex;
       flex-direction: column;
       background: #0d0d0f;
+      overflow: hidden;
     }
     .fd-modal-close {
       position: absolute;
@@ -615,27 +614,29 @@
       position: relative;
       width: 100%;
       height: 100%;
-      min-height: 340px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      min-height: 380px;
+      overflow: hidden;
       background: #0a0a0c;
     }
     .fd-modal-img {
       width: 100%;
       height: 100%;
-      min-height: 340px;
-      max-height: 560px;
       object-fit: cover;
       display: block;
       transition: opacity 0.25s ease;
     }
     .fd-modal-info {
-      padding: 32px 30px 36px;
+      padding: 32px 30px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       background: var(--graphite);
+      overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .fd-modal-info::-webkit-scrollbar {
+      display: none;
     }
     .fd-modal-cat {
       font-size: 11px;
@@ -1231,30 +1232,7 @@ a[href^="mailto"]:hover,
       backdrop-filter: blur(8px);
     }
 
-    .fd-modal-media {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background: #0d0d0f;
-      height: 100%;
-      min-height: 420px;
-    }
-    .fd-modal-img-wrap {
-      position: relative;
-      flex: 1;
-      min-height: 380px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: #0d0d0f;
-    }
-    .fd-modal-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.25s ease;
-    }
+    
     .fd-modal-nav-btn {
       position: absolute;
       top: 50%;
@@ -1310,21 +1288,23 @@ a[href^="mailto"]:hover,
   
 
 /* ========================================================
-   MODAL COMPACT MOBILE RULES (PIXEL PERFECT)
+   MODAL COMPACT MOBILE RULES (PIXEL PERFECT: 50% PHOTO / 50% TEXT)
    ======================================================== */
 @media (max-width: 768px) {
   .fd-modal-overlay {
     padding: 14px 10px !important;
     align-items: center !important;
+    justify-content: center !important;
     z-index: 10000 !important;
   }
   .fd-modal-content {
-    grid-template-columns: 1fr !important;
-    max-height: 90vh !important;
-    max-height: 90dvh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    max-height: 92vh !important;
+    max-height: 92dvh !important;
     border-radius: 8px !important;
     border: 1px solid var(--border) !important;
-    overflow-y: auto !important;
+    overflow: hidden !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
   }
@@ -1333,10 +1313,17 @@ a[href^="mailto"]:hover,
     width: 0 !important;
     height: 0 !important;
   }
+  
+  /* Top half: Photo occupies 40-42vh cleanly */
   .fd-modal-media {
     position: relative !important;
     width: 100% !important;
+    height: 40vh !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    flex-shrink: 0 !important;
     background: #0d0d0f !important;
+    overflow: hidden !important;
   }
   .fd-modal-close {
     top: 10px !important;
@@ -1352,27 +1339,39 @@ a[href^="mailto"]:hover,
     stroke: #ffffff !important;
   }
   .fd-modal-img-wrap {
-    min-height: 0 !important;
-    max-height: 220px !important;
-    height: 220px !important;
+    position: relative !important;
     width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
     display: block !important;
     overflow: hidden !important;
-    background: #0d0d0f !important;
   }
   .fd-modal-img {
-    min-height: 0 !important;
-    max-height: 220px !important;
-    height: 220px !important;
     width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
     display: block !important;
     object-fit: cover !important;
     object-position: center !important;
-    border-top-left-radius: 8px !important;
-    border-top-right-radius: 8px !important;
   }
+  
+  /* Bottom half: Text description, specs, button */
   .fd-modal-info {
-    padding: 18px 16px 28px !important; /* Proper bottom padding so button has room */
+    flex: 1 !important;
+    min-height: 0 !important;
+    padding: 16px 16px 24px !important;
+    background: var(--graphite) !important;
+    overflow-y: auto !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .fd-modal-info::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
   .fd-modal-cat {
     font-size: 10px !important;
@@ -1381,19 +1380,19 @@ a[href^="mailto"]:hover,
   }
   .fd-modal-title {
     font-family: var(--t-headline-font) !important;
-    font-size: 22px !important;
+    font-size: 21px !important;
     font-weight: 700 !important;
     line-height: 1.22 !important;
     margin-bottom: 8px !important;
   }
   .fd-modal-desc {
     font-size: 12.5px !important;
-    line-height: 1.55 !important;
+    line-height: 1.5 !important;
   }
   .fd-modal-specs {
-    margin: 14px 0 18px !important;
-    padding: 12px 0 !important;
-    gap: 9px !important;
+    margin: 12px 0 16px !important;
+    padding: 10px 0 !important;
+    gap: 8px !important;
   }
   .fd-spec-row {
     font-size: 12px !important;
@@ -1410,7 +1409,7 @@ a[href^="mailto"]:hover,
     padding: 14px 18px !important;
     font-size: 10.5px !important;
     letter-spacing: 1.5px !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 6px !important;
   }
 }
 
@@ -1418,9 +1417,8 @@ a[href^="mailto"]:hover,
   .fd-modal-overlay {
     padding: 10px 8px !important;
   }
-  .fd-modal-content {
-    max-height: 92vh !important;
-    max-height: 92dvh !important;
+  .fd-modal-media {
+    height: 36vh !important;
   }
   .fd-modal-close {
     top: 8px !important;
@@ -1428,29 +1426,20 @@ a[href^="mailto"]:hover,
     width: 34px !important;
     height: 34px !important;
   }
-  .fd-modal-img-wrap {
-    max-height: 190px !important;
-    height: 190px !important;
-  }
-  .fd-modal-img {
-    max-height: 190px !important;
-    height: 190px !important;
-  }
   .fd-modal-info {
-    padding: 16px 14px 26px !important; /* Clean bottom padding */
+    padding: 14px 14px 22px !important;
   }
   .fd-modal-title {
-    font-size: 20px !important;
+    font-size: 19px !important;
     margin-bottom: 6px !important;
   }
   .fd-modal-desc {
     font-size: 12px !important;
-    line-height: 1.5 !important;
   }
   .fd-modal-specs {
-    margin: 12px 0 16px !important;
-    padding: 10px 0 !important;
-    gap: 8px !important;
+    margin: 10px 0 14px !important;
+    padding: 9px 0 !important;
+    gap: 7px !important;
   }
   .fd-spec-row {
     font-size: 11.5px !important;
@@ -1463,7 +1452,7 @@ a[href^="mailto"]:hover,
     font-size: 11.5px !important;
   }
   .fd-modal-btn {
-    padding: 14px 16px !important;
+    padding: 13px 16px !important;
     font-size: 10px !important;
     letter-spacing: 1.2px !important;
   }
