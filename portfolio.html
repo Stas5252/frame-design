@@ -541,10 +541,10 @@
     .fd-modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(10, 10, 12, 0.94);
+      background: rgba(10, 10, 12, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      z-index: 10000; /* Higher than fixed header (1000) */
+      z-index: 10000;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -560,10 +560,10 @@
     .fd-modal-content {
       max-width: 980px;
       width: 100%;
-      background: var(--graphite);
-      border: 1px solid var(--brass);
+      background: #141417;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 6px;
-      box-shadow: 0 35px 90px rgba(0,0,0,0.9), 0 0 50px rgba(184, 150, 90, 0.2);
+      box-shadow: 0 35px 90px rgba(0,0,0,0.9);
       display: grid;
       grid-template-columns: 1.15fr 1fr;
       position: relative;
@@ -572,43 +572,39 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
+    .fd-modal-media {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #0d0d0f;
+    }
     .fd-modal-close {
       position: absolute;
       top: 12px; right: 12px;
       width: 36px; height: 36px;
-      background: rgba(15, 15, 18, 0.85);
+      background: rgba(15, 15, 18, 0.75);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--brass);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 50%;
-      color: var(--cream);
+      color: #ffffff;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 25;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(184, 150, 90, 0.3);
+      z-index: 50;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
       transition: all 0.25s ease;
     }
     .fd-modal-close svg {
-      stroke: var(--cream);
-      transition: stroke 0.2s ease;
+      stroke: #ffffff;
+      transition: transform 0.2s ease;
     }
     .fd-modal-close:hover,
     .fd-modal-close:active {
-      background: var(--brass);
-      border-color: #fff;
-      transform: scale(1.08);
-      box-shadow: 0 6px 22px rgba(184, 150, 90, 0.6);
-    }
-    .fd-modal-close:hover svg,
-    .fd-modal-close:active svg {
-      stroke: var(--graphite);
-    }
-    .fd-modal-media {
-      display: flex;
-      flex-direction: column;
-      background: #0d0d0f;
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: scale(1.06);
     }
     .fd-modal-img-wrap {
       position: relative;
@@ -634,26 +630,31 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background: #141417;
     }
     .fd-modal-cat {
+      font-family: 'Inter', Arial, sans-serif;
       font-size: 11px;
       letter-spacing: 2.5px;
       color: var(--brass);
       text-transform: uppercase;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .fd-modal-title {
-      font-family: var(--t-headline-font);
-      font-size: 28px;
-      line-height: 1.25;
-      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.18;
+      color: #ffffff;
       font-style: normal;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      letter-spacing: 0.2px;
     }
     .fd-modal-desc {
+      font-family: 'Inter', Arial, sans-serif;
       font-size: 13.5px;
-      color: var(--cream-muted);
+      color: #a8a8af;
       line-height: 1.65;
       margin-bottom: 0;
     }
@@ -662,8 +663,8 @@
       flex-direction: column;
       gap: 12px;
       margin: 20px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       padding: 18px 0;
     }
     .fd-spec-row {
@@ -675,12 +676,12 @@
       gap: 16px;
     }
     .fd-spec-label {
-      color: var(--cream-muted);
+      color: #888892;
       flex-shrink: 0;
       max-width: 45%;
     }
     .fd-spec-val {
-      color: var(--cream);
+      color: #f0f0f2;
       font-weight: 500;
       text-align: right;
     }
@@ -690,6 +691,14 @@
       padding: 16px 24px;
       font-size: 11px;
       letter-spacing: 2px;
+      background: #dfc08a !important;
+      color: #141416 !important;
+      box-shadow: 0 6px 20px rgba(223, 192, 138, 0.25) !important;
+      transition: all 0.3s ease;
+    }
+    .fd-modal-btn:hover {
+      background: #ead2a8 !important;
+      color: #000000 !important;
     }
 
     /* BUTTONS */
@@ -1304,7 +1313,7 @@ a[href^="mailto"]:hover,
    ======================================================== */
 @media (max-width: 768px) {
   .fd-modal-overlay {
-    padding: 14px 10px !important;
+    padding: 12px 10px !important;
     align-items: center !important;
     z-index: 10000 !important;
   }
@@ -1312,42 +1321,47 @@ a[href^="mailto"]:hover,
     grid-template-columns: 1fr !important;
     max-height: 90vh !important;
     max-height: 90dvh !important;
-    border-radius: 6px !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
+  .fd-modal-media {
+    position: relative !important;
+    width: 100% !important;
+    background: transparent !important;
   }
   .fd-modal-close {
     top: 10px !important;
     right: 10px !important;
     width: 36px !important;
     height: 36px !important;
-    background: rgba(15, 15, 18, 0.9) !important;
-    border: 1.5px solid var(--brass) !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), 0 0 10px rgba(184, 150, 90, 0.4) !important;
-    z-index: 30 !important;
+    background: rgba(10, 10, 12, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6) !important;
+    z-index: 50 !important;
   }
   .fd-modal-close svg {
-    width: 13px !important;
-    height: 13px !important;
-    stroke: var(--cream) !important;
+    stroke: #ffffff !important;
   }
   .fd-modal-img-wrap {
-    min-height: auto !important;
+    min-height: 0 !important;
     max-height: none !important;
     height: auto !important;
     width: 100% !important;
-    aspect-ratio: 3 / 2 !important;
-    overflow: hidden !important;
+    display: block !important;
+    background: transparent !important;
   }
   .fd-modal-img {
-    min-height: auto !important;
+    min-height: 0 !important;
     max-height: none !important;
-    height: 100% !important;
+    height: auto !important;
     width: 100% !important;
-    aspect-ratio: 3 / 2 !important;
+    display: block !important;
     object-fit: cover !important;
-    object-position: center !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
   }
   .fd-modal-info {
-    padding: 20px 18px 24px !important;
+    padding: 22px 18px 24px !important;
   }
   .fd-modal-cat {
     font-size: 10px !important;
@@ -1355,8 +1369,8 @@ a[href^="mailto"]:hover,
     margin-bottom: 6px !important;
   }
   .fd-modal-title {
-    font-size: 22px !important;
-    line-height: 1.25 !important;
+    font-size: 24px !important;
+    line-height: 1.2 !important;
     margin-bottom: 10px !important;
   }
   .fd-modal-desc {
@@ -1400,23 +1414,11 @@ a[href^="mailto"]:hover,
     width: 34px !important;
     height: 34px !important;
   }
-  .fd-modal-close svg {
-    width: 12px !important;
-    height: 12px !important;
-  }
-  .fd-modal-img-wrap {
-    aspect-ratio: 3 / 2 !important;
-    height: auto !important;
-  }
-  .fd-modal-img {
-    aspect-ratio: 3 / 2 !important;
-    height: auto !important;
-  }
   .fd-modal-info {
-    padding: 16px 14px 20px !important;
+    padding: 18px 15px 22px !important;
   }
   .fd-modal-title {
-    font-size: 20px !important;
+    font-size: 22px !important;
     margin-bottom: 8px !important;
   }
   .fd-modal-desc {
@@ -2088,13 +2090,12 @@ a[href^="mailto"]:hover,
   <!-- MODAL QUICK VIEW -->
   <div class="fd-modal-overlay" id="projectModal" onclick="if(event.target === this) closeModal()">
     <div class="fd-modal-content">
-      <button class="fd-modal-close" onclick="closeModal()" aria-label="Закрыть">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-          <path d="M2.5 2.5L13.5 13.5M13.5 2.5L2.5 13.5"/>
-        </svg>
-      </button>
-      
       <div class="fd-modal-media">
+        <button class="fd-modal-close" onclick="closeModal()" aria-label="Закрыть">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <path d="M1.5 1.5L12.5 12.5M12.5 1.5L1.5 12.5"/>
+          </svg>
+        </button>
         <div class="fd-modal-img-wrap">
           <img id="modalImg" class="fd-modal-img" alt="Проект">
           <button type="button" class="fd-modal-nav-btn fd-modal-nav-btn--prev" id="modalPrevBtn" onclick="prevModalPhoto(event)" aria-label="Предыдущее фото">‹</button>
