@@ -574,12 +574,12 @@
     }
     .fd-modal-close {
       position: absolute;
-      top: 14px; right: 14px;
-      width: 40px; height: 40px;
-      background: rgba(14, 14, 17, 0.92);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1.5px solid var(--brass);
+      top: 12px; right: 12px;
+      width: 36px; height: 36px;
+      background: rgba(15, 15, 18, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--brass);
       border-radius: 50%;
       color: var(--cream);
       cursor: pointer;
@@ -587,7 +587,7 @@
       align-items: center;
       justify-content: center;
       z-index: 25;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7), 0 0 12px rgba(184, 150, 90, 0.35);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(184, 150, 90, 0.3);
       transition: all 0.25s ease;
     }
     .fd-modal-close svg {
@@ -1297,74 +1297,57 @@ a[href^="mailto"]:hover,
 
 
 
-  .fd-modal-close-text {
-    display: none;
-    background: transparent;
-    border: none;
-    color: var(--cream-muted);
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    margin-top: 14px;
-    cursor: pointer;
-    text-align: center;
-    width: 100%;
-    padding: 8px;
-    transition: color 0.2s;
-  }
-  .fd-modal-close-text:hover,
-  .fd-modal-close-text:active {
-    color: var(--brass);
-  }
-  @media (max-width: 768px) {
-    .fd-modal-close-text {
-      display: block;
-    }
-  }
+  
 
 /* ========================================================
    MODAL COMPACT MOBILE RULES (PIXEL PERFECT)
    ======================================================== */
 @media (max-width: 768px) {
   .fd-modal-overlay {
-    padding: 10px 8px !important;
+    padding: 14px 10px !important;
     align-items: center !important;
     z-index: 10000 !important;
   }
   .fd-modal-content {
     grid-template-columns: 1fr !important;
-    max-height: 92vh !important;
-    max-height: 92dvh !important;
+    max-height: 90vh !important;
+    max-height: 90dvh !important;
     border-radius: 6px !important;
   }
   .fd-modal-close {
     top: 10px !important;
     right: 10px !important;
-    width: 38px !important;
-    height: 38px !important;
-    background: rgba(14, 14, 17, 0.95) !important;
-    border: 2px solid var(--brass) !important;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.8), 0 0 14px rgba(184, 150, 90, 0.5) !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(15, 15, 18, 0.9) !important;
+    border: 1.5px solid var(--brass) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), 0 0 10px rgba(184, 150, 90, 0.4) !important;
     z-index: 30 !important;
   }
   .fd-modal-close svg {
+    width: 13px !important;
+    height: 13px !important;
     stroke: var(--cream) !important;
   }
   .fd-modal-img-wrap {
     min-height: auto !important;
-    max-height: 220px !important;
-    height: 220px !important;
+    max-height: none !important;
+    height: auto !important;
+    width: 100% !important;
+    aspect-ratio: 3 / 2 !important;
+    overflow: hidden !important;
   }
   .fd-modal-img {
     min-height: auto !important;
-    max-height: 220px !important;
-    height: 220px !important;
+    max-height: none !important;
+    height: 100% !important;
+    width: 100% !important;
+    aspect-ratio: 3 / 2 !important;
     object-fit: cover !important;
+    object-position: center !important;
   }
   .fd-modal-info {
-    padding: 18px 16px 22px !important;
+    padding: 20px 18px 24px !important;
   }
   .fd-modal-cat {
     font-size: 10px !important;
@@ -1372,86 +1355,93 @@ a[href^="mailto"]:hover,
     margin-bottom: 6px !important;
   }
   .fd-modal-title {
-    font-size: 20px !important;
+    font-size: 22px !important;
     line-height: 1.25 !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 10px !important;
   }
   .fd-modal-desc {
-    font-size: 12.5px !important;
+    font-size: 13px !important;
     line-height: 1.55 !important;
   }
   .fd-modal-specs {
-    margin: 14px 0 16px !important;
-    padding: 12px 0 !important;
-    gap: 9px !important;
+    margin: 16px 0 20px !important;
+    padding: 14px 0 !important;
+    gap: 10px !important;
   }
   .fd-spec-row {
-    font-size: 12px !important;
+    font-size: 12.5px !important;
     gap: 12px !important;
   }
   .fd-spec-label {
-    font-size: 11.5px !important;
-    max-width: 42% !important;
+    font-size: 12px !important;
+    max-width: 44% !important;
   }
   .fd-spec-val {
-    font-size: 12px !important;
+    font-size: 12.5px !important;
   }
   .fd-modal-btn {
-    padding: 14px 18px !important;
-    font-size: 10.5px !important;
+    padding: 15px 20px !important;
+    font-size: 11px !important;
     letter-spacing: 1.5px !important;
   }
 }
 
 @media (max-width: 480px) {
   .fd-modal-overlay {
-    padding: 8px 6px !important;
+    padding: 10px 8px !important;
   }
   .fd-modal-content {
-    max-height: 94vh !important;
-    max-height: 94dvh !important;
+    max-height: 92vh !important;
+    max-height: 92dvh !important;
+  }
+  .fd-modal-close {
+    top: 8px !important;
+    right: 8px !important;
+    width: 34px !important;
+    height: 34px !important;
+  }
+  .fd-modal-close svg {
+    width: 12px !important;
+    height: 12px !important;
   }
   .fd-modal-img-wrap {
-    max-height: 185px !important;
-    height: 185px !important;
+    aspect-ratio: 3 / 2 !important;
+    height: auto !important;
   }
   .fd-modal-img {
-    max-height: 185px !important;
-    height: 185px !important;
+    aspect-ratio: 3 / 2 !important;
+    height: auto !important;
   }
   .fd-modal-info {
-    padding: 14px 12px 18px !important;
+    padding: 16px 14px 20px !important;
   }
   .fd-modal-title {
-    font-size: 18px !important;
-    margin-bottom: 6px !important;
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
   }
   .fd-modal-desc {
-    font-size: 11.5px !important;
-    line-height: 1.5 !important;
+    font-size: 12px !important;
   }
   .fd-modal-specs {
-    margin: 10px 0 14px !important;
+    margin: 12px 0 16px !important;
     padding: 10px 0 !important;
-    gap: 7px !important;
+    gap: 8px !important;
   }
   .fd-spec-row {
-    font-size: 11px !important;
+    font-size: 12px !important;
     gap: 8px !important;
   }
   .fd-spec-label {
-    font-size: 10.5px !important;
-  }
-  .fd-spec-val {
     font-size: 11px !important;
   }
+  .fd-spec-val {
+    font-size: 12px !important;
+  }
   .fd-modal-btn {
-    padding: 12px 14px !important;
-    font-size: 10px !important;
-    letter-spacing: 1.2px !important;
+    padding: 14px 16px !important;
+    font-size: 10.5px !important;
   }
 }
-
 </style>
 
   <noscript>
@@ -2123,7 +2113,6 @@ a[href^="mailto"]:hover,
         <a href="contacts.html#book" class="fd-btn fd-btn--primary fd-modal-btn">
           Рассчитать аналогичный проект <span class="fd-btn__arrow"></span>
         </a>
-        <button type="button" class="fd-modal-close-text" onclick="closeModal()">Закрыть окно</button>
       </div>
     </div>
   </div>
