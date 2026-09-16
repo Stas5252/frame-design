@@ -134,7 +134,7 @@
       window.addEventListener('resize', checkCounters, { passive: true });
     }
 
-    /* ---------- Формы записи и отправка заявок на framedesign39@mail.ru ---------- */
+    /* ---------- Формы записи и прямая отправка заявок на Reg.ru (send.php) ---------- */
     document.querySelectorAll('.fd-booking__form').forEach(function (form) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -160,35 +160,30 @@
           topicName = topicSelect.options[topicSelect.selectedIndex].text;
         }
 
-        var nameVal = (form.querySelector('[name="name"]') || {}).value || 'Не указано';
-        var phoneVal = (form.querySelector('[name="phone"]') || {}).value || 'Не указан';
-        var whenVal = (form.querySelector('[name="when"]') || {}).value || 'В ближайшее время';
+        var nameVal = (form.querySelector('[name="name"]') || {}).value || '';
+        var phoneVal = (form.querySelector('[name="phone"]') || {}).value || '';
+        var whenVal = (form.querySelector('[name="when"]') || {}).value || '';
 
-        var payload = {
-          "Имя клиента": nameVal,
-          "Телефон": phoneVal,
-          "Направление": topicName || 'Не указано',
-          "Удобное время для связи": whenVal,
-          "Страница заявки": document.title + ' (' + window.location.pathname + ')',
-          "_subject": "Новая заявка с сайта Frame Design (" + nameVal + ")",
-          "_template": "table",
-          "_captcha": "false"
-        };
+        var formData = new FormData(form);
+        formData.set('name', nameVal);
+        formData.set('phone', phoneVal);
+        formData.set('topic', topicName);
+        formData.set('when', whenVal);
+        formData.set('page', document.title + ' (' + window.location.pathname + ')');
 
-        fetch('https://formsubmit.co/ajax/framedesign39@mail.ru', {
+        fetch('send.php', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(payload)
+          body: formData
         })
         .then(function (res) {
+          return res.json().catch(function () { return { success: true }; });
+        })
+        .then(function (data) {
           form.classList.add('is-sent');
           form.reset();
         })
         .catch(function (err) {
-          console.warn('Form submission fallback:', err);
+          console.warn('Form submission notice:', err);
           form.classList.add('is-sent');
           form.reset();
         })
