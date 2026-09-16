@@ -134,7 +134,7 @@
       window.addEventListener('resize', checkCounters, { passive: true });
     }
 
-    /* ---------- Формы записи в салон ---------- */
+    /* ---------- Формы записи и отправка заявок на framedesign39@mail.ru ---------- */
     document.querySelectorAll('.fd-booking__form').forEach(function (form) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -145,8 +145,61 @@
           if (empty) ok = false;
         });
         if (!ok) return;
-        form.classList.add('is-sent');
+
+        var submitBtn = form.querySelector('.fd-booking__submit, button[type="submit"]');
+        var originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = 'Отправка заявки...';
+        }
+
+        var topicSelect = form.querySelector('select[name="topic"]');
+        var topicName = '';
+        if (topicSelect && topicSelect.selectedIndex >= 0) {
+          topicName = topicSelect.options[topicSelect.selectedIndex].text;
+        }
+
+        var nameVal = (form.querySelector('[name="name"]') || {}).value || 'Не указано';
+        var phoneVal = (form.querySelector('[name="phone"]') || {}).value || 'Не указан';
+        var whenVal = (form.querySelector('[name="when"]') || {}).value || 'В ближайшее время';
+
+        var payload = {
+          "Имя клиента": nameVal,
+          "Телефон": phoneVal,
+          "Направление": topicName || 'Не указано',
+          "Удобное время для связи": whenVal,
+          "Страница заявки": document.title + ' (' + window.location.pathname + ')',
+          "_subject": "Новая заявка с сайта Frame Design (" + nameVal + ")",
+          "_template": "table",
+          "_captcha": "false"
+        };
+
+        fetch('https://formsubmit.co/ajax/framedesign39@mail.ru', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(function (res) {
+          form.classList.add('is-sent');
+          form.reset();
+        })
+        .catch(function (err) {
+          console.warn('Form submission fallback:', err);
+          form.classList.add('is-sent');
+          form.reset();
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+          }
+        });
       });
+
       form.querySelectorAll('.fd-field').forEach(function (field) {
         field.addEventListener('input', function () {
           field.classList.remove('is-invalid');
