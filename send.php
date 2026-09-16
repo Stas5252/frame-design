@@ -55,7 +55,7 @@ if (isset($topicsMap[$topic])) {
     $topic = $topicsMap[$topic];
 }
 
-$to = 'framedesign39@mail.ru';
+$to = 'framedesign39@mail.ru, stasbutov09@gmail.com';
 $subjectTitle = 'Новая заявка с сайта Frame Design' . ($name ? ': ' . $name : '');
 $subject = '=?UTF-8?B?' . base64_encode($subjectTitle) . '?=';
 
