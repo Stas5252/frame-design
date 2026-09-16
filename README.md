@@ -3,7 +3,7 @@
 Официальный многостраничный сайт премиального мебельного производства **FRAME DESIGN** (г. Калининград).
 
 ## 🔗 Онлайн демо (GitHub Pages):
-[https://stas5252.github.io/frame-design/](https://stas5252.github.io/frame-design/)
+[https://framedesign39.ru/](https://framedesign39.ru/)
 
 ---
 
